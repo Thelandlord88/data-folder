@@ -1,5 +1,0 @@
-node_modules/
-*.log
-nexus/consciousness/*.json
-history.json
-.env
