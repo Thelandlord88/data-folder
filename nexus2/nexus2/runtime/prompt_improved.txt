@@ -1,0 +1,19 @@
+### 🧠 PromptCrafter Response
+
+**Request**: Expert AI image prompt analysis needed.
+
+TASK: Analyze and dramatically improve this prompt.
+
+ORIGINAL PROMPT:
+Young adult (25-35) on move-out day, documentary-style candid, anxious expression. Residential rental interior, partially empty, natural window light. 3-5 cardboard moving boxes (sealed and open), empty walls, minimal furniture. Natural daylight, soft shadows. Boxes labeled Kitchen/Bedroom. Person: jeans, t-shirt, NOT looking at camera, holding phone/checklist. Relatable, everyday person (not model-perfect). Mood: Documentary authenticity, vulnerable, natural/unfiltered. Composition: Wide to medium shot, rule of thirds, space for text overlay.
+
+PROVIDE:
+1. Analysis: What works, what needs improvement
+2. MIDJOURNEY OPTIMIZED: Proper MJ syntax with parameters
+3. DALL-E 3 VERSION: Natural language optimized
+4. KEY IMPROVEMENTS: List of changes made
+
+**Traits**: AI Image Prompt Engineering, Visual Description Mastery, Style Control & Direction, Parameter Optimization, Negative Prompting, Iterative Refinement, Model Comparison & Selection
+
+**Analysis**: This response applies PromptCrafter's cognitive capabilities.
+

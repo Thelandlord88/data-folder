@@ -1,0 +1,34 @@
+{
+  "ignore": [
+    "node_modules", "dist", "build", ".git", ".turbo", ".next",
+    "coverage", "public", ".vercel", ".netlify", ".astro",
+    "CLEANUP", "__archive", "__backup", "__temp", "__reports"
+  ],
+  "checks": {
+    "tsconfigDrift": true,
+    "dependencyDrift": true,
+    "buildOutDirDrift": true,
+    "platformPaths": true,
+    "engineVersions": true,
+    "moduleSystemMismatch": true,
+    "eslintPrettierDrift": true,
+    "pathAliasDrift": true,
+    "importExtensionConsistency": true
+  },
+  "failOn": { 
+    "critical": true, 
+    "high": true, 
+    "medium": false, 
+    "low": false 
+  },
+  "output": {
+    "json": "systemic-audit-report.json",
+    "markdown": "systemic-audit-report.md",
+    "sarif": "systemic-audit.sarif",
+    "emitSarif": true
+  },
+  "performance": {
+    "maxFilesPerExtension": 1500,
+    "throttleChecks": true
+  }
+}

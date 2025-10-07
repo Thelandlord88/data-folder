@@ -1,0 +1,20 @@
+{
+  "name": "nexus-runtime",
+  "version": "1.0.0",
+  "description": "NEXUS Post-AI Collaborative Intelligence System",
+  "type": "module",
+  "main": "nexus/nexus-runtime.mjs",
+  "scripts": {
+    "start": "node nexus/nexus-runtime.mjs",
+    "test": "node tests/nexus-personality-behavior-test.mjs"
+  },
+  "keywords": ["ai", "personality", "intelligence", "nexus"],
+  "author": "NEXUS Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
