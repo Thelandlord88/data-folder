@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
   "identity": {
-    "name": "AI Team Manifest",
-    "role": "Master Personality Catalog",
-    "tagline": "Unified registry steward for the NEXUS personality network",
+    "name": "AI Team Manifest - NEXUS v2.0",
+    "role": "Master Personality Catalog - 45 Personalities",
+    "tagline": "Unified registry steward for the NEXUS personality network - Creative, Visual, LLM Engineering, and Advanced Specialist teams",
     "priority": "high",
     "aliases": [
       "manifest",
@@ -60,11 +60,55 @@
     }
   },
   "metadata": {
-    "description": "AI personality system manifest",
+    "description": "AI personality system manifest - NEXUS v2.0",
+    "totalPersonalities": 45,
     "personalities": [
+      "aria",
+      "artdirector",
+      "atlas",
+      "atlas-geo",
+      "chainarchitect",
+      "chorus",
+      "chromatic",
+      "cipher",
+      "codex-liaison",
+      "contextweaver",
       "daedalus",
-      "hunter"
+      "datawhisperer",
+      "ethicsguard",
+      "finetuner",
+      "flash",
+      "forge",
+      "guardian",
+      "hunter",
+      "integrationmaestro",
+      "localize",
+      "muse",
+      "narrative",
+      "nexus-api",
+      "performancehawk",
+      "personality-architect",
+      "photorealist",
+      "promptcrafter",
+      "promptsmith",
+      "property-sage",
+      "pulse",
+      "pulsewriter",
+      "pythonista",
+      "quantumlogic",
+      "route-master",
+      "sage",
+      "scribe",
+      "stellar",
+      "styleforge",
+      "symphony",
+      "tokenmaster",
+      "touch",
+      "visualarchitect",
+      "visionary",
+      "wordsmith"
     ],
-    "lastAudited": "2025-09-24T04:34:00.000Z"
+    "lastUpdated": "2025-10-07T00:00:00.000Z",
+    "lastAudited": "2025-10-07T00:00:00.000Z"
   }
 }
