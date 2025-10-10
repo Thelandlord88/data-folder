@@ -5,7 +5,7 @@
     "moduleResolution": "Node",
     "lib": ["ES2022"],
     "outDir": "./dist",
-    "rootDir": "./nexus",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -16,6 +16,6 @@
     "sourceMap": true,
     "types": ["node"]
   },
-  "include": ["nexus/loaders/**/*", "nexus/validation/**/*", "nexus/types/**/*", "nexus/demo-personality-loader.ts", "nexus/NEXUS.engine.v2.ts", "nexus/nexus-runtime.v2.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

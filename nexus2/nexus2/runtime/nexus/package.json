@@ -11,5 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.1",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }

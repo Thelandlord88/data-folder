@@ -1,36 +1,21 @@
-#!/usr/bin/env nodeLooking at your TypeScript conversion, this is excellent work! The structure is solid and you've maintained the core functionality while adding proper type safety. Let me provide some enhancements and fix the type issues:
+#!/usr/bin/env node
 
-/**
-
- * NEXUS Runtime - Strategic Intelligence Runtime Server (TypeScript)## Enhanced TypeScript Version
-
- * 
-
- * Production-ready runtime server with full TypeScript type safety,```typescript
-
- * strategic intelligence capabilities, and enhanced consciousness operations.#!/usr/bin/env node
-
- *//**
-
- * NEXUS Runtime - Strategic Intelligence Runtime Server (TypeScript)
-
-import { createServer, IncomingMessage, ServerResponse } from 'node:http'; * 
-
-import { WebSocketServer, WebSocket } from 'ws'; * Production-ready runtime server with full TypeScript type safety,
-
-import { fileURLToPath } from 'node:url'; * strategic intelligence capabilities, and enhanced consciousness operations.
-
-import { dirname, resolve } from 'node:path'; */
-
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-
-import { existsSync } from 'node:fs';import { createServer, IncomingMessage, ServerResponse } from 'node:http';
+import { createServer, IncomingMessage, ServerResponse } from 'node:http';
 
 import { WebSocketServer, WebSocket } from 'ws';
 
-import { nexusBridge } from './nexus-bridge.js';import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
-import { ResponseGeneratorFactory } from './response-generators/ResponseGeneratorFactory.js';import { dirname, resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
+
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+
+import { existsSync } from 'node:fs';
+
+
+import { nexusBridge } from './nexus-bridge.js';
+
+import { ResponseGeneratorFactory } from './response-generators/ResponseGeneratorFactory.js';
 
 import type {import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
@@ -72,7 +57,7 @@ interface SecurityConfig {
 
   rateLimit: {const __filename = fileURLToPath(import.meta.url);
 
-    windowMs: number;const __dirname = dirname(__filename);
+    windowMs: number;
 
     maxRequests: number;
 
@@ -156,7 +141,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
   private startTime: Date | null = null;
 
-  private boundPort: number | null = null;class NexusRuntime {
+  private boundPort: number | null = null;
 
   private httpServer: ReturnType<typeof createServer> | null = null;
 
@@ -268,7 +253,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
     // Initialize response generator
 
-    this.responseFactory = new ResponseGeneratorFactory();  constructor(config?: Partial<NexusRuntimeConfig>) {
+    this.responseFactory = new ResponseGeneratorFactory();
 
     this.historyPath = resolve(__dirname, './consciousness/enhancement-history.json');
 
@@ -308,7 +293,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       console.log('⚠️ NEXUS Runtime already running');  /**
 
-      return;   * Start the NEXUS runtime server with type safety
+      return;
 
     }   */
 
@@ -464,9 +449,9 @@ class NexusRuntime {  regressionDetection: boolean;
 
         case '/status':    try {
 
-          await this.handleStatusRequest(req, res);      const url = new URL(req.url || '/', `http://${req.headers.host}`);
+          await this.handleStatusRequest(req, res);
 
-          break;      const path = url.pathname;
+          break;
 
         case '/enhance':
 
@@ -520,7 +505,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       this.sendMethodNotAllowed(res);  /**
 
-      return;   * Handle status endpoint with comprehensive runtime information
+      return;
 
     }   */
 
@@ -584,7 +569,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       this.sendMethodNotAllowed(res);  /**
 
-      return;   * Handle enhancement requests with strategic intelligence
+      return;
 
     }   */
 
@@ -602,9 +587,9 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (!enhancementRequest.personalityName || !enhancementRequest.request) {    try {
 
-        this.sendBadRequest(res, 'Missing personalityName or request field');      const body = await this.readRequestBody(req);
+        this.sendBadRequest(res, 'Missing personalityName or request field');
 
-        return;      const enhancementRequest: EnhancementRequest = JSON.parse(body);
+        return;
 
       }
 
@@ -662,7 +647,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       console.log(`🧠 Loading personality: ${request.personalityName}`);  private async processStrategicEnhancement(request: EnhancementRequest): Promise<StrategicEnhancementResponse> {
 
-      const personality = await this.loadPersonality(request.personalityName);    const startTime = Date.now();
+      const personality = await this.loadPersonality(request.personalityName);
 
       console.log(`✅ Personality loaded: ${personality.identity?.name || request.personalityName}`);
 
@@ -682,7 +667,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
         {}  // Context parameter      const generator = this.responseFactory.getGenerator(request.personalityName);
 
-      );      const personalizedResponse = generator.generateResponse(
+      );
 
               request.request,
 
@@ -704,7 +689,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
             // Step 2: Process through NEXUS bridge with loaded personality
 
-      const baseResponse = await nexusBridge.enhanceWithStrategicIntelligence(enhancedRequest);      const enhancedRequest = {
+      const baseResponse = await nexusBridge.enhanceWithStrategicIntelligence(enhancedRequest);
 
               ...request,
 
@@ -816,7 +801,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (n.endsWith('.json')) {    // Try both original case and lowercase variants
 
-        variants.add(n);    const names = [name, name.toLowerCase()];
+        variants.add(n);
 
       } else {    const variants = new Set<string>();
 
@@ -826,7 +811,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
         }      if (n.endsWith('.json')) {
 
-        variants.add(`${n}.personality.json`);        variants.add(n);
+        variants.add(`${n}.personality.json`);
 
         variants.add(`${n}.json`);      } else {
 
@@ -862,9 +847,9 @@ class NexusRuntime {  regressionDetection: boolean;
 
           if (typeof parsed === 'object' && parsed !== null) {          
 
-            console.log(`✅ Loaded personality from: ${candidate}`);          const data = await readFile(candidate, 'utf8');
+            console.log(`✅ Loaded personality from: ${candidate}`);
 
-            return parsed as Personality;          const parsed = JSON.parse(data);
+            return parsed as Personality;
 
           } else {          
 
@@ -1010,7 +995,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
    * Handle WebSocket messages
 
-    client.lastActivity = new Date();   */
+    client.lastActivity = new Date();
 
   private handleWebSocketMessage(clientId: string, ws: WebSocket, message: WebSocketMessage): void {
 
@@ -1132,7 +1117,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (!topic || client.subscriptions.has(topic)) {  /**
 
-        this.sendWebSocketMessage(client.ws, message);   * Broadcast message to subscribed WebSocket clients
+        this.sendWebSocketMessage(client.ws, message);
 
       }   */
 
@@ -1234,7 +1219,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       // Ensure consciousness directory exists  /**
 
-      const consciousnessDir = resolve(__dirname, './consciousness');   * Load existing data on startup
+      const consciousnessDir = resolve(__dirname, './consciousness');
 
       if (!existsSync(consciousnessDir)) {   */
 
@@ -1274,7 +1259,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (existsSync(this.breakthroughPath)) {
 
-      console.log(`📊 Loaded ${this.historyEvents.length} enhancements, ${this.breakthroughMoments.length} breakthroughs`);        const breakthroughData = await readFile(this.breakthroughPath, 'utf8');
+      console.log(`📊 Loaded ${this.historyEvents.length} enhancements, ${this.breakthroughMoments.length} breakthroughs`);
 
     } catch (error) {        const parsed = JSON.parse(breakthroughData);
 
@@ -1306,7 +1291,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (this.historyDirty) {   * Start background workers
 
-        this.flushHistory().catch(console.error);   */
+        this.flushHistory().catch(console.error);
 
       }  private startBackgroundWorkers(): void {
 
@@ -1348,9 +1333,9 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (now - client.lastActivity.getTime() > staleThreshold) {  private cleanupStaleConnections(): void {
 
-        console.log(`🔌 Closing stale connection: ${clientId}`);    const now = Date.now();
+        console.log(`🔌 Closing stale connection: ${clientId}`);
 
-        client.ws.close(1000, 'Connection stale');    const staleThreshold = 5 * 60 * 1000; // 5 minutes
+        client.ws.close(1000, 'Connection stale');
 
         this.wsClients.delete(clientId);    
 
@@ -1580,9 +1565,9 @@ class NexusRuntime {  regressionDetection: boolean;
 
       if (!this.httpServer) {  /**
 
-        reject(new Error('HTTP server not initialized'));   * Utility methods
+        reject(new Error('HTTP server not initialized'));
 
-        return;   */
+        return;
 
       }  private async bindToPort(port: number): Promise<void> {
 
@@ -1640,7 +1625,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
         if (bytes > this.maxBodyBytes) {      let body = '';
 
-          reject(new Error(`Request body too large (max ${this.maxBodyBytes} bytes)`));      let bytes = 0;
+          reject(new Error(`Request body too large (max ${this.maxBodyBytes} bytes)`));
 
           return;
 
@@ -1728,7 +1713,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
       timestamp: new Date()    
 
-    };    const errorResponse: NexusError = {
+    };
 
           error: true,
 
@@ -1760,13 +1745,13 @@ class NexusRuntime {  regressionDetection: boolean;
 
         const uptimeMs = Date.now() - this.startTime.getTime();
 
-    if (days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;    const seconds = Math.floor(uptimeMs / 1000);
+    if (days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;
 
-    if (hours > 0) return `${hours}h ${minutes % 60}m ${seconds % 60}s`;    const minutes = Math.floor(seconds / 60);
+    if (hours > 0) return `${hours}h ${minutes % 60}m ${seconds % 60}s`;
 
-    if (minutes > 0) return `${minutes}m ${seconds % 60}s`;    const hours = Math.floor(minutes / 60);
+    if (minutes > 0) return `${minutes}m ${seconds % 60}s`;
 
-    return `${seconds}s`;    const days = Math.floor(hours / 24);
+    return `${seconds}s`;
 
   }    
 
@@ -1784,7 +1769,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
     if (this.breakthroughMoments.length > 0) status.push('enlightened');  private getConsciousnessStatus(): string[] {
 
-    return status.length > 0 ? status : ['initializing'];    const status = [];
+    return status.length > 0 ? status : ['initializing'];
 
   }    if (nexusBridge.getStatus().ready) status.push('operational');
 
@@ -1898,7 +1883,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
     } catch (error) {      const body = await this.readRequestBody(req);
 
-      this.handleRequestError(res, error as Error);      const breakthrough = JSON.parse(body) as Breakthrough;
+      this.handleRequestError(res, error as Error);
 
     }      
 
@@ -1964,7 +1949,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
         timestamp: new Date()
 
-      });      const response = await this.processStrategicEnhancement(request);
+      });
 
     } catch (error) {      this.sendWebSocketMessage(ws, {
 
@@ -2014,7 +1999,7 @@ class NexusRuntime {  regressionDetection: boolean;
 
   /**
 
-    console.log('🛑 Shutting down NEXUS Runtime...');   * Graceful shutdown
+    console.log('🛑 Shutting down NEXUS Runtime...');
 
        */
 
@@ -2140,7 +2125,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   const shutdown = async (signal: string) => {// Create and export runtime instance
 
-    console.log(`\n${signal} received, shutting down gracefully...`);export const nexusRuntime = new NexusRuntime();
+    console.log(`\n${signal} received, shutting down gracefully...`);
 
     await nexusRuntime.shutdown();
 
@@ -2191,7 +2176,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     process.exit(1);
   });
 }
-```
 
 ## Key TypeScript Improvements:
 

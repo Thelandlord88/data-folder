@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColorScientist Playground - NEXUS CSS Engine</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem;
+      color: #94a3b8;
+    }
+    
+    .playground {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .controls {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid #334155;
+    }
+    
+    .control-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    input[type="color"] {
+      width: 100%;
+      height: 60px;
+      border: 2px solid #334155;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: #0f172a;
+    }
+    
+    select, input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      background: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 0.5rem;
+      color: #e2e8f0;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    
+    select:focus, input:focus {
+      outline: none;
+      border-color: #0ea5e9;
+    }
+    
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 1rem;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .results {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid #334155;
+    }
+    
+    .ramp-container {
+      margin-bottom: 2rem;
+    }
+    
+    .ramp-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .ramp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .color-swatch {
+      aspect-ratio: 1;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 2px solid transparent;
+    }
+    
+    .color-swatch:hover {
+      transform: scale(1.05);
+      border-color: white;
+    }
+    
+    .swatch-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .swatch-value {
+      font-size: 0.625rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 0.25rem;
+    }
+    
+    .audit-results {
+      background: #0f172a;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .audit-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .audit-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem;
+      background: #1e293b;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .audit-pair {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    
+    .audit-color {
+      width: 30px;
+      height: 30px;
+      border-radius: 0.25rem;
+      border: 2px solid #334155;
+    }
+    
+    .audit-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+    
+    .pass {
+      color: #10b981;
+      font-weight: 600;
+    }
+    
+    .fail {
+      color: #ef4444;
+      font-weight: 600;
+    }
+    
+    .ratio {
+      font-family: 'Monaco', 'Courier New', monospace;
+      color: #94a3b8;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .stat-card {
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0ea5e9;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+    
+    .code-output {
+      background: #0f172a;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .code-output pre {
+      margin: 0;
+      color: #e2e8f0;
+    }
+    
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: #94a3b8;
+    }
+    
+    .loading.active {
+      display: block;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid #334155;
+      border-top-color: #0ea5e9;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎨 ColorScientist Playground</h1>
+      <p class="subtitle">Generate perceptually uniform OKLCH color ramps with WCAG accessibility</p>
+    </header>
+    
+    <div class="playground">
+      <!-- Controls -->
+      <div class="controls">
+        <h2 style="margin-bottom: 1.5rem;">Input Controls</h2>
+        
+        <div class="control-group">
+          <label for="colorInput">Primary Color</label>
+          <input type="color" id="colorInput" value="#0ea5e9">
+        </div>
+        
+        <div class="control-group">
+          <label for="hexInput">Or Enter Hex</label>
+          <input type="text" id="hexInput" value="#0ea5e9" placeholder="#0ea5e9">
+        </div>
+        
+        <div class="control-group">
+          <label for="wcagLevel">WCAG Level</label>
+          <select id="wcagLevel">
+            <option value="AA">AA (4.5:1 normal, 3:1 large)</option>
+            <option value="AAA">AAA (7:1 normal, 4.5:1 large)</option>
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label>Quick Presets</label>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+            <button onclick="setColor('#0ea5e9')" style="padding: 0.5rem; margin: 0; font-size: 0.875rem;">Sky</button>
+            <button onclick="setColor('#8b5cf6')" style="padding: 0.5rem; margin: 0; font-size: 0.875rem;">Purple</button>
+            <button onclick="setColor('#00ffff')" style="padding: 0.5rem; margin: 0; font-size: 0.875rem;">Cyan</button>
+            <button onclick="setColor('#ff0080')" style="padding: 0.5rem; margin: 0; font-size: 0.875rem;">Pink</button>
+          </div>
+        </div>
+        
+        <button onclick="generateColors()">✨ Generate Color Ramp</button>
+      </div>
+      
+      <!-- Results -->
+      <div class="results">
+        <div class="loading active">
+          <div class="spinner"></div>
+          <p>Enter a color and click "Generate Color Ramp" to see results</p>
+        </div>
+        
+        <div id="output" style="display: none;">
+          <!-- Color Ramp -->
+          <div class="ramp-container">
+            <div class="ramp-title">
+              <span>🎨</span>
+              <span>OKLCH Color Ramp</span>
+            </div>
+            <div class="ramp-grid" id="rampGrid"></div>
+          </div>
+          
+          <!-- Stats -->
+          <div class="stats">
+            <div class="stat-card">
+              <div class="stat-value" id="statShades">0</div>
+              <div class="stat-label">Total Shades</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="statPass">0</div>
+              <div class="stat-label">Audits Passed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="statRatio">0</div>
+              <div class="stat-label">Pass Rate</div>
+            </div>
+          </div>
+          
+          <!-- Audit Results -->
+          <div class="audit-results" style="margin-top: 2rem;">
+            <div class="audit-title">
+              <span>✓</span>
+              <span>WCAG Contrast Audits</span>
+            </div>
+            <div id="auditList"></div>
+          </div>
+          
+          <!-- CSS Output -->
+          <div style="margin-top: 2rem;">
+            <div class="ramp-title">
+              <span>📋</span>
+              <span>Tailwind v4 CSS Output</span>
+            </div>
+            <div class="code-output">
+              <pre id="cssOutput"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
+    // Import the NEXUS CSS Engine (we'll call the local server)
+    
+    function setColor(hex) {
+      document.getElementById('colorInput').value = hex;
+      document.getElementById('hexInput').value = hex;
+    }
+    
+    window.setColor = setColor;
+    
+    // Sync color picker and hex input
+    document.getElementById('colorInput').addEventListener('input', (e) => {
+      document.getElementById('hexInput').value = e.target.value;
+    });
+    
+    document.getElementById('hexInput').addEventListener('input', (e) => {
+      const hex = e.target.value;
+      if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+        document.getElementById('colorInput').value = hex;
+      }
+    });
+    
+    async function generateColors() {
+      const hex = document.getElementById('hexInput').value;
+      const wcagLevel = document.getElementById('wcagLevel').value;
+      
+      // Show loading
+      document.querySelector('.loading').classList.add('active');
+      document.getElementById('output').style.display = 'none';
+      
+      try {
+        // Call the NEXUS CSS Engine API
+        const response = await fetch('http://localhost:9000/design', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            input: {
+              type: 'color',
+              primary: hex
+            },
+            options: {
+              accessibilityTarget: wcagLevel,
+              budgetMs: 200
+            }
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`API error: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        displayResults(data);
+      } catch (error) {
+        console.error('Error generating colors:', error);
+        alert('Error: ' + error.message + '\n\nMake sure the NEXUS CSS Engine is running on http://localhost:9000');
+      }
+    }
+    
+    window.generateColors = generateColors;
+    
+    function displayResults(data) {
+      // Hide loading
+      document.querySelector('.loading').classList.remove('active');
+      document.getElementById('output').style.display = 'block';
+      
+      // Display color ramp
+      const rampGrid = document.getElementById('rampGrid');
+      rampGrid.innerHTML = '';
+      
+      const colorTokens = data.tokens.color;
+      Object.entries(colorTokens).forEach(([key, value]) => {
+        const swatch = document.createElement('div');
+        swatch.className = 'color-swatch';
+        swatch.style.background = value;
+        swatch.innerHTML = `
+          <div class="swatch-label">${key}</div>
+          <div class="swatch-value">${value.substring(0, 20)}...</div>
+        `;
+        swatch.onclick = () => {
+          navigator.clipboard.writeText(value);
+          alert(`Copied: ${value}`);
+        };
+        rampGrid.appendChild(swatch);
+      });
+      
+      // Display stats
+      const totalShades = Object.keys(colorTokens).length;
+      const audits = data.diagnostics.audits.filter(a => a.check.includes('contrast'));
+      const passed = audits.filter(a => a.pass).length;
+      const passRate = audits.length > 0 ? Math.round((passed / audits.length) * 100) : 0;
+      
+      document.getElementById('statShades').textContent = totalShades;
+      document.getElementById('statPass').textContent = passed;
+      document.getElementById('statRatio').textContent = passRate + '%';
+      
+      // Display audits
+      const auditList = document.getElementById('auditList');
+      auditList.innerHTML = '';
+      
+      audits.forEach(audit => {
+        const item = document.createElement('div');
+        item.className = 'audit-item';
+        item.innerHTML = `
+          <div class="audit-pair">
+            <div class="audit-color" style="background: ${audit.details?.foreground || '#000'}"></div>
+            <div class="audit-color" style="background: ${audit.details?.background || '#fff'}"></div>
+            <span>${audit.check}</span>
+          </div>
+          <div class="audit-status">
+            <span class="ratio">${audit.details?.ratio || 'N/A'}:1</span>
+            <span class="${audit.pass ? 'pass' : 'fail'}">${audit.pass ? '✓ PASS' : '✗ FAIL'}</span>
+          </div>
+        `;
+        auditList.appendChild(item);
+      });
+      
+      // Display CSS output
+      document.getElementById('cssOutput').textContent = data.cssVariables || data.tailwindV4CSS || '/* No CSS output */';
+    }
+  </script>
+</body>
+</html>

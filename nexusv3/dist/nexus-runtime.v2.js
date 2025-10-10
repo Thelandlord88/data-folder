@@ -28,24 +28,25 @@ const __dirname = dirname(__filename);
  * NEXUS Runtime Server
  */
 class NexusRuntime {
+    server;
+    wss = null;
     personalityLoader;
     traitBridge;
-    consciousness = null;
-    historyEvents = [];
-    breakthroughMoments = [];
     initialized = false;
     startTime = Date.now();
     enhancementsPerformed = 0;
+    historyEvents = [];
+    breakthroughMoments = [];
+    consciousness = {};
     wsClients = new Set();
+    // Rate limiting
+    requestCounts = new Map();
+    RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+    RATE_LIMIT_MAX_REQUESTS = 30; // 30 requests per minute per IP
     constructor() {
-        this.personalityLoader = new PersonalityRegistryLoader({
-            profilesPath: resolve(__dirname, '../profiles'),
-            circuitBreaker: {
-                failureThreshold: 5,
-                resetTimeout: 60000
-            }
-        });
+        this.personalityLoader = new PersonalityRegistryLoader();
         this.traitBridge = new TraitCompositionBridge();
+        this.server = createServer(this.handleRequest.bind(this));
     }
     /**
      * Initialize NEXUS consciousness and personality system
@@ -247,8 +248,14 @@ class NexusRuntime {
     }
     /**
      * Handle /enhance endpoint
+     * IMPROVED: Added rate limiting
      */
     async handleEnhance(req, res) {
+        // Check rate limit
+        const clientIp = req.socket.remoteAddress || 'unknown';
+        if (!this.checkRateLimit(clientIp, res)) {
+            return;
+        }
         const body = await this.readBody(req);
         // Validate request
         if (!this.validateRequest(body, res)) {
@@ -265,8 +272,9 @@ class NexusRuntime {
             // COMPOSE mode - multi-personality composition
             if (mode === 'COMPOSE') {
                 const composedAgent = await this.traitBridge.composeOptimalAgent(request, 5);
-                const generator = new MultiPersonalityResponseGenerator(composedAgent);
-                response = generator.generateResponse(request);
+                const registry = this.personalityLoader.getPersonalityRegistry();
+                const generator = new MultiPersonalityResponseGenerator(composedAgent, registry);
+                response = await generator.generateResponse(request);
             }
             else {
                 // Single personality mode
@@ -475,10 +483,74 @@ class NexusRuntime {
             });
         });
     }
+    /**
+     * Validate and sanitize request body
+     * IMPROVED: Better validation with length checks and sanitization
+     */
     validateRequest(body, res) {
+        // Check if request field exists
         if (!body.request) {
             res.writeHead(400, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Missing required field: request' }));
+            return false;
+        }
+        // Check if request is a string
+        if (typeof body.request !== 'string') {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Field "request" must be a string' }));
+            return false;
+        }
+        // Check if request is empty or only whitespace
+        if (body.request.trim().length === 0) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Request cannot be empty' }));
+            return false;
+        }
+        // Check maximum length (10KB)
+        if (body.request.length > 10000) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Request too long (max 10000 characters)' }));
+            return false;
+        }
+        // Validate mode if provided
+        if (body.mode && !['AUTO', 'COMPOSE'].includes(body.mode)) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Mode must be "AUTO" or "COMPOSE"' }));
+            return false;
+        }
+        // Sanitize request (trim whitespace)
+        body.request = body.request.trim();
+        return true;
+    }
+    /**
+     * Check rate limit for client IP
+     * IMPROVED: Simple rate limiting to prevent abuse
+     */
+    checkRateLimit(clientIp, res) {
+        const now = Date.now();
+        const clientData = this.requestCounts.get(clientIp);
+        if (!clientData || now > clientData.resetTime) {
+            // New window or expired - reset counter
+            this.requestCounts.set(clientIp, {
+                count: 1,
+                resetTime: now + this.RATE_LIMIT_WINDOW_MS
+            });
+            return true;
+        }
+        // Increment counter
+        clientData.count++;
+        // Check if over limit
+        if (clientData.count > this.RATE_LIMIT_MAX_REQUESTS) {
+            const retryAfter = Math.ceil((clientData.resetTime - now) / 1000);
+            res.writeHead(429, {
+                'Content-Type': 'application/json',
+                'Retry-After': retryAfter.toString()
+            });
+            res.end(JSON.stringify({
+                error: 'Rate limit exceeded',
+                message: `Too many requests. Please try again in ${retryAfter} seconds.`,
+                retryAfter
+            }));
             return false;
         }
         return true;

@@ -155,7 +155,7 @@ export class TraitIndexer {
     }
     /**
      * Smart search for traits matching a request
-     * Scores traits based on trigger matches and expertise
+     * IMPROVED: Added partial matching and better scoring
      */
     searchTraitsForRequest(requestText, maxResults = 10) {
         const requestLower = requestText.toLowerCase();
@@ -163,15 +163,39 @@ export class TraitIndexer {
         const traitScores = new Map();
         // Score traits based on trigger matches
         for (const word of words) {
-            const matchingTraits = this.triggerIndex.get(word) || [];
-            for (const trait of matchingTraits) {
+            // Exact match
+            const exactMatches = this.triggerIndex.get(word) || [];
+            for (const trait of exactMatches) {
                 const existing = traitScores.get(trait);
                 if (existing) {
-                    existing.score += 1;
+                    existing.score += 1.0; // Full point for exact match
                     existing.triggers.push(word);
                 }
                 else {
-                    traitScores.set(trait, { score: 1, triggers: [word] });
+                    traitScores.set(trait, { score: 1.0, triggers: [word] });
+                }
+            }
+            // Partial/fuzzy matching for better coverage
+            // Match if trigger contains the word or word contains the trigger
+            for (const [trigger, traits] of this.triggerIndex.entries()) {
+                if (trigger.includes(word) || word.includes(trigger)) {
+                    // Skip if already matched exactly
+                    if (trigger === word)
+                        continue;
+                    // Partial match gets partial score
+                    const partialScore = 0.5;
+                    for (const trait of traits) {
+                        const existing = traitScores.get(trait);
+                        if (existing) {
+                            existing.score += partialScore;
+                            if (!existing.triggers.includes(word)) {
+                                existing.triggers.push(word);
+                            }
+                        }
+                        else {
+                            traitScores.set(trait, { score: partialScore, triggers: [word] });
+                        }
+                    }
                 }
             }
         }
@@ -224,6 +248,10 @@ export class TraitCompositionBridge {
     traitIndexer;
     agentFactory;
     initialized = false;
+    // Response cache with LRU eviction
+    responseCache = new Map();
+    CACHE_MAX_SIZE = 100;
+    CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
     constructor() {
         this.traitIndexer = new TraitIndexer();
         this.agentFactory = new ComposedAgentFactory(this.traitIndexer);
@@ -266,8 +294,15 @@ export class TraitCompositionBridge {
     }
     /**
      * COMPOSE mode: Generate multi-personality response
+     * IMPROVED: Added caching
      */
     generateComposedResponse(request, maxTraits = 5) {
+        // Check cache first
+        const cacheKey = `compose:${request}:${maxTraits}`;
+        const cached = this.getCachedResponse(cacheKey);
+        if (cached) {
+            return { ...cached, cached: true };
+        }
         const traitMatches = this.traitIndexer.searchTraitsForRequest(request, maxTraits);
         const traitsUsed = traitMatches.map(m => m.trait.name);
         const personalities = new Set(traitMatches.map(m => m.trait.personalityId));
@@ -278,7 +313,7 @@ export class TraitCompositionBridge {
             }
         }
         const synergyScore = this.agentFactory.calculateOverallSynergy(traitMatches.map(m => m.trait));
-        return {
+        const response = {
             content: `### 🧬 NEXUS Unified Engine v2.0\n\n**Request**: ${request}\n\n` +
                 `**Personalities**: ${Array.from(personalities).join(', ')}\n` +
                 `**Traits**: ${traitsUsed.join(', ')}\n` +
@@ -298,6 +333,46 @@ export class TraitCompositionBridge {
             confidenceScore: Math.max(...traitMatches.map(m => m.relevanceScore)),
             analysisDepth: 'comprehensive'
         };
+        // Cache the response
+        this.cacheResponse(cacheKey, response);
+        return response;
+    }
+    /**
+     * Get cached response if available and not expired
+     */
+    getCachedResponse(key) {
+        const cached = this.responseCache.get(key);
+        if (!cached)
+            return null;
+        // Check if expired
+        if (Date.now() - cached.timestamp > this.CACHE_TTL_MS) {
+            this.responseCache.delete(key);
+            return null;
+        }
+        return cached.response;
+    }
+    /**
+     * Cache a response with LRU eviction
+     */
+    cacheResponse(key, response) {
+        // LRU eviction if cache is full
+        if (this.responseCache.size >= this.CACHE_MAX_SIZE) {
+            // Remove oldest entry
+            const firstKey = this.responseCache.keys().next().value;
+            if (firstKey) {
+                this.responseCache.delete(firstKey);
+            }
+        }
+        this.responseCache.set(key, {
+            response,
+            timestamp: Date.now()
+        });
+    }
+    /**
+     * Clear response cache (useful for testing)
+     */
+    clearCache() {
+        this.responseCache.clear();
     }
     /**
      * Get composition analytics
@@ -392,14 +467,21 @@ export class ComposedAgentFactory {
     }
     /**
      * Build composed agent from selected traits
+     * FIXED: Now deduplicates traits by name
      */
     buildComposedAgent(task, traitResults, synergyScore) {
         const traits = new Map();
         const knowledge = new Set();
         const personalities = new Set();
         const traitsUsed = [];
+        const seenTraitNames = new Set(); // Track seen traits for deduplication
         for (const result of traitResults) {
             const trait = result.trait;
+            // Skip if we've already added this trait name
+            if (seenTraitNames.has(trait.name)) {
+                continue;
+            }
+            seenTraitNames.add(trait.name);
             traits.set(trait.name, trait);
             personalities.add(trait.personalityId);
             traitsUsed.push(trait.name);
@@ -439,15 +521,17 @@ export class ComposedAgentFactory {
  */
 export class MultiPersonalityResponseGenerator {
     composedAgent;
-    constructor(composedAgent) {
+    personalityRegistry;
+    constructor(composedAgent, personalityRegistry) {
         this.composedAgent = composedAgent;
+        this.personalityRegistry = personalityRegistry;
     }
     /**
      * Generate detailed response using composed agent's traits
      */
-    generateResponse(request, context = {}) {
+    async generateResponse(request, context = {}) {
         const agent = this.composedAgent;
-        const content = this.synthesizeMultiPersonalityResponse(request, agent);
+        const content = await this.synthesizeMultiPersonalityResponse(request, agent);
         return {
             content,
             personalityUsed: Array.from(agent.personalities).join(' + '),
@@ -472,14 +556,50 @@ export class MultiPersonalityResponseGenerator {
     }
     /**
      * Synthesize response from multiple personality perspectives
+     * NOW ACTUALLY INVOKES EACH PERSONALITY!
      */
-    synthesizeMultiPersonalityResponse(request, agent) {
+    async synthesizeMultiPersonalityResponse(request, agent) {
         const personalities = Array.from(agent.personalities);
         const { synergyScore } = agent;
         let content = `### 🧬 Multi-Personality Composed Response\n\n`;
         content += `**Request**: ${request}\n\n`;
         content += `**Composed Agent**: ${personalities.join(' + ')}\n`;
         content += `**Synergy Score**: ${(synergyScore * 100).toFixed(0)}%\n\n`;
+        // NEW: Actually invoke each personality and collect responses
+        content += `### 🔍 Individual Personality Perspectives\n\n`;
+        const personalityResponses = new Map();
+        const failedPersonalities = [];
+        for (const personalityId of personalities) {
+            try {
+                const personality = this.personalityRegistry.get(personalityId);
+                if (!personality) {
+                    content += `#### ⚠️  ${personalityId}\n\nPersonality not found in registry.\n\n`;
+                    failedPersonalities.push(personalityId);
+                    continue;
+                }
+                // Generate response using personality's traits and ideology
+                const personalityAnalysis = this.generatePersonalityPerspective(personalityId, personality, request, agent);
+                personalityResponses.set(personalityId, personalityAnalysis);
+                const displayName = personality.identity?.name || personalityId;
+                content += `#### 🧠 ${displayName} Perspective\n\n`;
+                content += personalityAnalysis + '\n\n';
+            }
+            catch (error) {
+                // Graceful degradation - continue with other personalities
+                console.error(`Error invoking personality ${personalityId}:`, error);
+                content += `#### ⚠️  ${personalityId}\n\nError generating perspective. Continuing with other personalities.\n\n`;
+                failedPersonalities.push(personalityId);
+            }
+        }
+        // Show error summary if any personalities failed
+        if (failedPersonalities.length > 0) {
+            content += `> **Note**: ${failedPersonalities.length} personalit${failedPersonalities.length === 1 ? 'y' : 'ies'} could not contribute: ${failedPersonalities.join(', ')}\n\n`;
+        }
+        // NEW: Synthesize integrated recommendation
+        content += `### 💡 Integrated Synthesis\n\n`;
+        content += this.synthesizeIntegratedRecommendation(personalityResponses, agent, request);
+        content += `\n\n`;
+        // Show trait composition for reference
         content += `### 🎯 Trait Composition\n\n`;
         let idx = 0;
         for (const traitName of agent.traitsUsed) {
@@ -489,19 +609,105 @@ export class MultiPersonalityResponseGenerator {
             content += `   - Expertise: ${trait.expertise}%\n`;
             content += `   - ${trait.description}\n\n`;
         }
-        content += `### 💡 Integrated Analysis\n\n`;
-        content += `This response leverages cognitive capabilities from ${personalities.length} different personalities, `;
-        content += `creating a ${synergyScore >= 0.7 ? 'highly synergistic' : synergyScore >= 0.5 ? 'balanced' : 'diverse'} `;
-        content += `analytical framework.\n\n`;
-        content += `### 🔍 Multi-Perspective Insights\n\n`;
-        for (const traitName of agent.traitsUsed) {
-            const trait = agent.traits.get(traitName);
-            content += `**${trait.personalityId}'s ${trait.name}**:\n`;
-            content += `- Brings ${trait.knowledgeDomains.slice(0, 3).join(', ')} expertise\n`;
-            content += `- Activates on: ${trait.activationTriggers.slice(0, 4).join(', ')}\n\n`;
-        }
         content += `*This composed agent combines the best traits from multiple personalities for optimal task execution.*\n`;
         return content;
+    }
+    /**
+     * Generate a single personality's perspective on the request
+     */
+    generatePersonalityPerspective(personalityId, personality, request, agent) {
+        let analysis = '';
+        // Get relevant traits for this personality
+        const relevantTraits = Array.from(agent.traits.values())
+            .filter(t => t.personalityId === personalityId);
+        if (relevantTraits.length === 0) {
+            return `No specific traits activated for this request.`;
+        }
+        // Apply personality's ideology and principles
+        if (personality.ideology?.principles && personality.ideology.principles.length > 0) {
+            const principle = personality.ideology.principles[0];
+            analysis += `**Guiding Principle**: ${principle}\n\n`;
+        }
+        analysis += `**Analysis using ${relevantTraits.map(t => t.name).join(', ')}**:\n\n`;
+        // Generate analysis based on traits and knowledge domains
+        const allDomains = relevantTraits.flatMap(t => t.knowledgeDomains);
+        const uniqueDomains = [...new Set(allDomains)].slice(0, 5);
+        analysis += `Based on my expertise in ${uniqueDomains.join(', ')}, `;
+        analysis += `I approach this request by:\n\n`;
+        // Generate specific recommendations based on trait expertise
+        for (const trait of relevantTraits) {
+            analysis += `- **${trait.name}** (${trait.expertise}% expertise): `;
+            analysis += `Applying ${trait.knowledgeDomains.slice(0, 2).join(' and ')} principles to `;
+            analysis += `ensure optimal outcomes.\n`;
+        }
+        analysis += `\n**Recommendation**: `;
+        analysis += this.generatePersonalityRecommendation(personalityId, relevantTraits, request);
+        return analysis;
+    }
+    /**
+     * Generate specific recommendation from personality
+     */
+    generatePersonalityRecommendation(personalityId, traits, request) {
+        const requestLower = request.toLowerCase();
+        const avgExpertise = traits.reduce((sum, t) => sum + t.expertise, 0) / traits.length;
+        // Generate contextual recommendation based on personality type
+        if (personalityId === 'cipher' || personalityId === 'hunter') {
+            return `Conduct thorough security assessment focusing on ${traits[0]?.knowledgeDomains[0] || 'security'} to identify and mitigate risks.`;
+        }
+        else if (personalityId === 'daedalus' || personalityId === 'personality-architect') {
+            return `Design a robust architectural solution using ${traits[0]?.knowledgeDomains[0] || 'design patterns'} that ensures scalability and maintainability.`;
+        }
+        else if (personalityId === 'atlas' || personalityId === 'atlas-geo') {
+            return `Optimize data architecture with focus on ${traits[0]?.knowledgeDomains[0] || 'performance'} to handle current and future requirements.`;
+        }
+        else if (personalityId === 'flash' || personalityId === 'performancehawk') {
+            return `Prioritize performance optimization through ${traits[0]?.knowledgeDomains[0] || 'optimization'} to achieve sub-second response times.`;
+        }
+        else if (personalityId === 'pulse') {
+            return `Implement comprehensive monitoring using ${traits[0]?.knowledgeDomains[0] || 'observability tools'} for real-time system insights.`;
+        }
+        else {
+            return `Apply ${traits[0]?.name || 'best practices'} with ${avgExpertise.toFixed(0)}% confidence to deliver high-quality results.`;
+        }
+    }
+    /**
+     * Synthesize integrated recommendation from all personalities
+     */
+    synthesizeIntegratedRecommendation(responses, agent, request) {
+        const personalities = Array.from(agent.personalities);
+        let synthesis = `After analyzing this request from ${personalities.length} different expert perspectives `;
+        synthesis += `(${personalities.join(', ')}), here's the integrated recommendation:\n\n`;
+        // Extract key themes from all responses
+        const allDomains = Array.from(agent.knowledge);
+        const topDomains = allDomains.slice(0, 5);
+        synthesis += `**Key Focus Areas**:\n`;
+        for (const domain of topDomains) {
+            synthesis += `- ${domain}\n`;
+        }
+        synthesis += `\n**Integrated Approach**:\n\n`;
+        if (agent.synergyScore >= 0.7) {
+            synthesis += `The ${personalities.length} perspectives show high synergy (${(agent.synergyScore * 100).toFixed(0)}%), `;
+            synthesis += `indicating strong alignment on the approach. `;
+        }
+        else if (agent.synergyScore >= 0.5) {
+            synthesis += `The ${personalities.length} perspectives offer balanced viewpoints (${(agent.synergyScore * 100).toFixed(0)}% synergy), `;
+            synthesis += `each contributing unique insights. `;
+        }
+        else {
+            synthesis += `The ${personalities.length} perspectives provide diverse angles (${(agent.synergyScore * 100).toFixed(0)}% synergy), `;
+            synthesis += `covering multiple aspects of the challenge. `;
+        }
+        synthesis += `Combining these expert analyses, the recommended path forward is to:\n\n`;
+        let step = 1;
+        for (const [personalityId, response] of responses) {
+            const personality = this.personalityRegistry.get(personalityId);
+            const name = personality?.identity?.name || personalityId;
+            const principle = personality?.ideology?.principles?.[0]?.split('.')[0].toLowerCase() || 'best practices';
+            synthesis += `${step}. **${name}'s Contribution**: Focus on ${principle}\n`;
+            step++;
+        }
+        synthesis += `\nBy integrating these ${personalities.length} expert viewpoints, you'll achieve a comprehensive solution that addresses all critical aspects of your request.`;
+        return synthesis;
     }
     /**
      * Extract specialty insights from composed agent

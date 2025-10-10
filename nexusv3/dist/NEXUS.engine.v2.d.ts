@@ -87,7 +87,7 @@ export declare class TraitIndexer {
     findTraitsByDomain(domain: string): PersonalityTrait[];
     /**
      * Smart search for traits matching a request
-     * Scores traits based on trigger matches and expertise
+     * IMPROVED: Added partial matching and better scoring
      */
     searchTraitsForRequest(requestText: string, maxResults?: number): TraitSearchResult[];
     /**
@@ -121,6 +121,9 @@ export declare class TraitCompositionBridge {
     private traitIndexer;
     private agentFactory;
     initialized: boolean;
+    private responseCache;
+    private readonly CACHE_MAX_SIZE;
+    private readonly CACHE_TTL_MS;
     constructor();
     /**
      * Initialize with personality registry
@@ -136,23 +139,21 @@ export declare class TraitCompositionBridge {
     composeOptimalAgent(request: string, maxTraits?: number): Promise<ComposedAgent>;
     /**
      * COMPOSE mode: Generate multi-personality response
+     * IMPROVED: Added caching
      */
-    generateComposedResponse(request: string, maxTraits?: number): {
-        content: string;
-        personalityUsed: string;
-        composedAgent: boolean;
-        nexusEnhanced: boolean;
-        traits: {
-            name: string;
-            personality: string;
-            relevance: number;
-        }[];
-        traitApplications: string[];
-        synergyScore: number;
-        knowledgeDomains: string[];
-        confidenceScore: number;
-        analysisDepth: string;
-    };
+    generateComposedResponse(request: string, maxTraits?: number): any;
+    /**
+     * Get cached response if available and not expired
+     */
+    private getCachedResponse;
+    /**
+     * Cache a response with LRU eviction
+     */
+    private cacheResponse;
+    /**
+     * Clear response cache (useful for testing)
+     */
+    clearCache(): void;
     /**
      * Get composition analytics
      */
@@ -199,6 +200,7 @@ export declare class ComposedAgentFactory {
     private selectOptimalTraitMix;
     /**
      * Build composed agent from selected traits
+     * FIXED: Now deduplicates traits by name
      */
     private buildComposedAgent;
     /**
@@ -211,11 +213,12 @@ export declare class ComposedAgentFactory {
  */
 export declare class MultiPersonalityResponseGenerator {
     private composedAgent;
-    constructor(composedAgent: ComposedAgent);
+    private personalityRegistry;
+    constructor(composedAgent: ComposedAgent, personalityRegistry: Map<string, PersonalityData>);
     /**
      * Generate detailed response using composed agent's traits
      */
-    generateResponse(request: string, context?: Record<string, any>): {
+    generateResponse(request: string, context?: Record<string, any>): Promise<{
         content: string;
         personalityUsed: string;
         composedAgent: boolean;
@@ -231,11 +234,24 @@ export declare class MultiPersonalityResponseGenerator {
         specialtyInsights: string[];
         confidenceScore: number;
         analysisDepth: string;
-    };
+    }>;
     /**
      * Synthesize response from multiple personality perspectives
+     * NOW ACTUALLY INVOKES EACH PERSONALITY!
      */
     private synthesizeMultiPersonalityResponse;
+    /**
+     * Generate a single personality's perspective on the request
+     */
+    private generatePersonalityPerspective;
+    /**
+     * Generate specific recommendation from personality
+     */
+    private generatePersonalityRecommendation;
+    /**
+     * Synthesize integrated recommendation from all personalities
+     */
+    private synthesizeIntegratedRecommendation;
     /**
      * Extract specialty insights from composed agent
      */

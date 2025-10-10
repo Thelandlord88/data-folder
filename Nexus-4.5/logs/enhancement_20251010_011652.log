@@ -1,0 +1,145 @@
+2025-10-10 01:16:52,435 - INFO - Discovered 2 source folders
+2025-10-10 01:16:52,436 - INFO - 🚀 Starting NEXUS-4 Enhancement v2.0
+2025-10-10 01:16:52,436 - INFO - ============================================================
+2025-10-10 01:16:52,436 - INFO - 🔍 DRY RUN MODE - No changes will be made
+
+2025-10-10 01:16:52,437 - INFO - ⚙️  Created enhancement configuration
+
+2025-10-10 01:16:52,437 - INFO - 🧠 Adding consciousness files...
+2025-10-10 01:16:52,437 - INFO -   ✅ Copied consciousness: enhancement-history.json
+2025-10-10 01:16:52,438 - INFO -   ✅ Copied consciousness: breakthrough-moments.json
+2025-10-10 01:16:52,439 - INFO -   ✅ Copied consciousness: pattern-evolution-engine.json
+2025-10-10 01:16:52,439 - INFO -   ✅ Copied consciousness: problem-decomposition.json
+2025-10-10 01:16:52,440 - INFO -   ✅ Copied consciousness: systems-thinking.json
+2025-10-10 01:16:52,440 - INFO -   ✅ Copied consciousness: workflow-efficiency.json
+2025-10-10 01:16:52,440 - INFO - ✅ Added 6 consciousness files
+
+2025-10-10 01:16:52,441 - INFO - 📦 Adding compiled dist files...
+2025-10-10 01:16:52,441 - INFO -   📁 Using dist source: nexusv3/dist
+2025-10-10 01:16:52,442 - INFO -   ✅ Copied dist file: fs-utils.js.map
+2025-10-10 01:16:52,442 - INFO -   ✅ Copied dist file: nexus-runtime.v2.d.ts
+2025-10-10 01:16:52,442 - INFO -   ✅ Copied dist file: fs-utils.js
+2025-10-10 01:16:52,443 - INFO -   ✅ Copied dist file: nexus-trait-bridge.js.map
+2025-10-10 01:16:52,443 - INFO -   ✅ Copied dist file: NEXUS.integration.d.ts.map
+2025-10-10 01:16:52,443 - INFO -   ✅ Copied dist file: run-hunter-audit.d.ts.map
+2025-10-10 01:16:52,444 - INFO -   ✅ Copied dist file: NEXUS.engine.js.map
+2025-10-10 01:16:52,444 - INFO -   ✅ Copied dist file: types.js.map
+2025-10-10 01:16:52,444 - INFO -   ✅ Copied dist file: NEXUS.engine.d.ts
+2025-10-10 01:16:52,445 - INFO -   ✅ Copied dist file: Hunter.policy.js
+2025-10-10 01:16:52,445 - INFO -   ✅ Copied dist file: Hunter.policy.js.map
+2025-10-10 01:16:52,445 - INFO -   ✅ Copied dist file: fs-utils.d.ts.map
+2025-10-10 01:16:52,446 - INFO -   ✅ Copied dist file: systemic-scanner.js.map
+2025-10-10 01:16:52,446 - INFO -   ✅ Copied dist file: personality-architect-integration-test.d.ts
+2025-10-10 01:16:52,446 - INFO -   ✅ Copied dist file: Hunter.audit.js
+2025-10-10 01:16:52,447 - INFO -   ✅ Copied dist file: Hunter.auditAgent.js
+2025-10-10 01:16:52,447 - INFO -   ✅ Copied dist file: nexus-runtime.d.ts.map
+2025-10-10 01:16:52,447 - INFO -   ✅ Copied dist file: run-hunter-audit.js.map
+2025-10-10 01:16:52,448 - INFO -   ✅ Copied dist file: architect-designs-hunter.d.ts.map
+2025-10-10 01:16:52,448 - INFO -   ✅ Copied dist file: NEXUS.engine.v2.d.ts
+2025-10-10 01:16:52,448 - INFO -   ✅ Copied dist file: fs-utils.d.ts
+2025-10-10 01:16:52,449 - INFO -   ✅ Copied dist file: run-hunter-audit.d.ts
+2025-10-10 01:16:52,449 - INFO -   ✅ Copied dist file: Hunter.policy.d.ts
+2025-10-10 01:16:52,450 - INFO -   ✅ Copied dist file: systemic-scanner.js
+2025-10-10 01:16:52,450 - INFO -   ✅ Copied dist file: run-hunter-audit.js
+2025-10-10 01:16:52,450 - INFO -   ✅ Copied dist file: architect-designs-hunter.d.ts
+2025-10-10 01:16:52,451 - INFO -   ✅ Copied dist file: systemic-scanner.d.ts.map
+2025-10-10 01:16:52,451 - INFO -   ✅ Copied dist file: personality-architect-integration-test.d.ts.map
+2025-10-10 01:16:52,452 - INFO -   ✅ Copied dist file: architect-designs-hunter.js
+2025-10-10 01:16:52,452 - INFO -   ✅ Copied dist file: Hunter.audit.d.ts
+2025-10-10 01:16:52,452 - INFO -   ✅ Copied dist file: nexus-integration.d.ts
+2025-10-10 01:16:52,452 - INFO -   ✅ Copied dist file: types.js
+2025-10-10 01:16:52,453 - INFO -   ✅ Copied dist file: guardian-orchestrator.js
+2025-10-10 01:16:52,453 - INFO -   ✅ Copied dist file: personality.types.ts
+2025-10-10 01:16:52,453 - INFO -   ✅ Copied dist file: personality-architect-integration-test.js
+2025-10-10 01:16:52,454 - INFO -   ✅ Copied dist file: Hunter.policy.d.ts.map
+2025-10-10 01:16:52,454 - INFO -   ✅ Copied dist file: nexus-runtime.d.ts
+2025-10-10 01:16:52,455 - INFO -   ✅ Copied dist file: nexus-runtime.v2.js.map
+2025-10-10 01:16:52,455 - INFO -   ✅ Copied dist file: guardian-orchestrator.d.ts.map
+2025-10-10 01:16:52,455 - INFO -   ✅ Copied dist file: demo-personality-loader.js
+2025-10-10 01:16:52,455 - INFO -   ✅ Copied dist file: Hunter.audit.js.map
+2025-10-10 01:16:52,456 - INFO -   ✅ Copied dist file: personality-architect-integration-test.js.map
+2025-10-10 01:16:52,456 - INFO -   ✅ Copied dist file: Hunter.audit.d.ts.map
+2025-10-10 01:16:52,456 - INFO -   ✅ Copied dist file: PersonalityRegistryLoader.ts
+2025-10-10 01:16:52,456 - INFO -   ✅ Copied dist file: Hunter.auditAgent.js.map
+2025-10-10 01:16:52,457 - INFO -   ✅ Copied dist file: nexus-integration.d.ts.map
+2025-10-10 01:16:52,457 - INFO -   ✅ Copied dist file: NEXUS.engine.v2.js.map
+2025-10-10 01:16:52,457 - INFO -   ✅ Copied dist file: nexus-trait-bridge.d.ts.map
+2025-10-10 01:16:52,458 - INFO -   ✅ Copied dist file: NEXUS.engine.d.ts.map
+2025-10-10 01:16:52,458 - INFO -   ✅ Copied dist file: demo-personality-loader.d.ts.map
+2025-10-10 01:16:52,458 - INFO -   ✅ Copied dist file: nexus-integration.js.map
+2025-10-10 01:16:52,459 - INFO -   ✅ Copied dist file: Hunter.auditAgent.d.ts
+2025-10-10 01:16:52,459 - INFO -   ✅ Copied dist file: NEXUS.integration.js.map
+2025-10-10 01:16:52,459 - INFO -   ✅ Copied dist file: demo-personality-loader.js.map
+2025-10-10 01:16:52,460 - INFO -   ✅ Copied dist file: nexus-runtime.js.map
+2025-10-10 01:16:52,460 - INFO -   ✅ Copied dist file: types.d.ts
+2025-10-10 01:16:52,460 - INFO -   ✅ Copied dist file: nexus-integration.js
+2025-10-10 01:16:52,461 - INFO -   ✅ Copied dist file: types.d.ts.map
+2025-10-10 01:16:52,461 - INFO -   ✅ Copied dist file: NEXUS.engine.v2.js
+2025-10-10 01:16:52,461 - INFO -   ✅ Copied dist file: guardian-orchestrator.d.ts
+2025-10-10 01:16:52,461 - INFO -   ✅ Copied dist file: architect-designs-hunter.js.map
+2025-10-10 01:16:52,462 - INFO -   ✅ Copied dist file: demo-personality-loader.d.ts
+2025-10-10 01:16:52,462 - INFO -   ✅ Copied dist file: nexus-runtime.v2.d.ts.map
+2025-10-10 01:16:52,463 - INFO -   ✅ Copied dist file: nexus-bridge.js.map
+2025-10-10 01:16:52,463 - INFO -   ✅ Copied dist file: nexus-bridge.d.ts
+2025-10-10 01:16:52,463 - INFO -   ✅ Copied dist file: nexus-runtime.v2.js
+2025-10-10 01:16:52,464 - INFO -   ✅ Copied dist file: systemic-scanner.d.ts
+2025-10-10 01:16:52,464 - INFO -   ✅ Copied dist file: Hunter.auditAgent.d.ts.map
+2025-10-10 01:16:52,464 - INFO -   ✅ Copied dist file: guardian-orchestrator.js.map
+2025-10-10 01:16:52,465 - INFO -   ✅ Copied dist file: nexus-runtime.js
+2025-10-10 01:16:52,465 - INFO -   ✅ Copied dist file: nexus-trait-bridge.d.ts
+2025-10-10 01:16:52,465 - INFO -   ✅ Copied dist file: nexus-trait-bridge.js
+2025-10-10 01:16:52,466 - INFO -   ✅ Copied dist file: NEXUS.integration.js
+2025-10-10 01:16:52,466 - INFO -   ✅ Copied dist file: nexus-bridge.js
+2025-10-10 01:16:52,466 - INFO -   ✅ Copied dist file: NEXUS.engine.js
+2025-10-10 01:16:52,467 - INFO -   ✅ Copied dist file: nexus-bridge.d.ts.map
+2025-10-10 01:16:52,467 - INFO -   ✅ Copied dist file: NEXUS.engine.v2.d.ts.map
+2025-10-10 01:16:52,467 - INFO -   ✅ Copied dist file: NEXUS.integration.d.ts
+2025-10-10 01:16:52,468 - INFO -   ✅ Copied dist file: personality-schema.js.map
+2025-10-10 01:16:52,468 - INFO -   ✅ Copied dist file: personality-schema.d.ts.map
+2025-10-10 01:16:52,469 - INFO -   ✅ Copied dist file: personality-schema.js
+2025-10-10 01:16:52,469 - INFO -   ✅ Copied dist file: personality-schema.d.ts
+2025-10-10 01:16:52,469 - INFO -   ✅ Copied dist file: ResponseGeneratorFactory.js
+2025-10-10 01:16:52,470 - INFO -   ✅ Copied dist file: HunterResponseGenerator.js.map
+2025-10-10 01:16:52,470 - INFO -   ✅ Copied dist file: ResponseGenerator.interface.d.ts
+2025-10-10 01:16:52,470 - INFO -   ✅ Copied dist file: DaedalusResponseGenerator.d.ts
+2025-10-10 01:16:52,471 - INFO -   ✅ Copied dist file: DaedalusResponseGenerator.js.map
+2025-10-10 01:16:52,471 - INFO -   ✅ Copied dist file: ResponseGenerator.interface.js.map
+2025-10-10 01:16:52,471 - INFO -   ✅ Copied dist file: HunterResponseGenerator.js
+2025-10-10 01:16:52,472 - INFO -   ✅ Copied dist file: HunterResponseGenerator.d.ts
+2025-10-10 01:16:52,472 - INFO -   ✅ Copied dist file: ResponseGenerator.interface.js
+2025-10-10 01:16:52,472 - INFO -   ✅ Copied dist file: ResponseGeneratorFactory.js.map
+2025-10-10 01:16:52,473 - INFO -   ✅ Copied dist file: DaedalusResponseGenerator.d.ts.map
+2025-10-10 01:16:52,473 - INFO -   ✅ Copied dist file: DaedalusResponseGenerator.js
+2025-10-10 01:16:52,473 - INFO -   ✅ Copied dist file: ResponseGeneratorFactory.d.ts.map
+2025-10-10 01:16:52,474 - INFO -   ✅ Copied dist file: HunterResponseGenerator.d.ts.map
+2025-10-10 01:16:52,474 - INFO -   ✅ Copied dist file: ResponseGeneratorFactory.d.ts
+2025-10-10 01:16:52,474 - INFO -   ✅ Copied dist file: ResponseGenerator.interface.d.ts.map
+2025-10-10 01:16:52,475 - INFO -   ✅ Copied dist file: PersonalityRegistryLoader.d.ts.map
+2025-10-10 01:16:52,475 - INFO -   ✅ Copied dist file: PersonalityRegistryLoader.js
+2025-10-10 01:16:52,475 - INFO -   ✅ Copied dist file: PersonalityRegistryLoader.js.map
+2025-10-10 01:16:52,476 - INFO -   ✅ Copied dist file: PersonalityRegistryLoader.d.ts
+2025-10-10 01:16:52,476 - INFO -   ✅ Copied dist file: personality.types.d.ts
+2025-10-10 01:16:52,476 - INFO -   ✅ Copied dist file: personality.types.js
+2025-10-10 01:16:52,477 - INFO -   ✅ Copied dist file: personality.types.d.ts.map
+2025-10-10 01:16:52,477 - INFO -   ✅ Copied dist file: personality.types.js.map
+2025-10-10 01:16:52,477 - INFO - ✅ Added 106 dist files (identical: 0, skipped: 0)
+
+2025-10-10 01:16:52,477 - INFO - 👂 Adding sensor files...
+2025-10-10 01:16:52,478 - INFO -   📁 Found sensors in: nexus/sensors
+2025-10-10 01:16:52,478 - INFO -   ✅ Copied sensor: conversation-hearing.mjs
+2025-10-10 01:16:52,479 - INFO - ✅ Added 1 sensor files
+
+2025-10-10 01:16:52,479 - INFO - 📝 Updating manifest...
+2025-10-10 01:16:52,479 - INFO - ✅ Manifest updated
+
+2025-10-10 01:16:52,479 - INFO - ============================================================
+2025-10-10 01:16:52,479 - INFO - ✅ NEXUS-4 Enhancement Complete!
+2025-10-10 01:16:52,479 - INFO - ============================================================
+2025-10-10 01:16:52,480 - INFO - 📊 Enhancement Summary:
+2025-10-10 01:16:52,480 - INFO -   🧠 Consciousness: 6 files
+2025-10-10 01:16:52,480 - INFO -   📦 Dist: 106 files
+2025-10-10 01:16:52,480 - INFO -   👂 Sensors: 1 files
+2025-10-10 01:16:52,480 - INFO -   💾 Backups: 0 files
+2025-10-10 01:16:52,480 - INFO -   📁 Total: 113 files processed
+2025-10-10 01:16:52,480 - INFO -   🔍 DRY RUN - No actual changes made
+2025-10-10 01:16:52,480 - INFO - ============================================================
