@@ -772,7 +772,6 @@ class NexusRuntime {
           id,
           name: personality.identity?.name || id,
           tagline: personality.identity?.tagline || '',
-          role: personality.identity?.role || '',
           version: personality.version || 'unknown',
           traitCount,
           principles: personality.ideology?.principles?.length || 0,

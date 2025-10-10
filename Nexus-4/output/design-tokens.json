@@ -1,0 +1,67 @@
+{
+  "color": {
+    "primary-50": "oklch(28.47% 0.089 237.3)",
+    "primary-100": "oklch(36.47% 0.101 237.3)",
+    "primary-200": "oklch(44.47% 0.112 237.3)",
+    "primary-300": "oklch(52.47% 0.124 237.3)",
+    "primary-400": "oklch(60.47% 0.136 237.3)",
+    "primary-500": "oklch(68.47% 0.148 237.3)",
+    "primary-600": "oklch(76.47% 0.136 237.3)",
+    "primary-700": "oklch(84.47% 0.124 237.3)",
+    "primary-800": "oklch(92.47% 0.112 237.3)",
+    "primary-900": "oklch(100.00% 0.101 237.3)",
+    "on-light": "#86ff148",
+    "on-dark": "#0ea5e9",
+    "light-bg": "#ddf2100",
+    "dark-bg": "#-f0735"
+  },
+  "spacing": {
+    "0": 0,
+    "1": 0.125,
+    "2": 0.25,
+    "3": 0.375,
+    "4": 0.5,
+    "5": 0.625,
+    "6": 0.75,
+    "8": 1,
+    "10": 1.25,
+    "12": 1.5,
+    "16": 2,
+    "20": 2.5,
+    "24": 3
+  },
+  "typography": {
+    "xs": 9,
+    "sm": 12,
+    "base": 16,
+    "lg": 21.33,
+    "xl": 28.43,
+    "2xl": 37.9,
+    "3xl": 50.52,
+    "4xl": 67.34,
+    "5xl": 89.76
+  },
+  "breakpoints": {
+    "xs": 320,
+    "sm": 640,
+    "md": 768,
+    "lg": 1024,
+    "xl": 1280,
+    "2xl": 1536
+  },
+  "elevation": {
+    "none": "none",
+    "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    "base": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+    "md": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+    "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+    "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+    "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25)"
+  },
+  "animation": {
+    "duration-fast": "100ms",
+    "duration-base": "150ms",
+    "duration-slow": "300ms",
+    "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+  }
+}

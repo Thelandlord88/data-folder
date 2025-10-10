@@ -5,7 +5,7 @@
 
 import { DesignSystemArchitect } from './specialists/DesignSystemArchitect.js';
 import type { DesignDNA } from './contracts.js';
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 async function finalIntegrationTest() {
@@ -91,6 +91,7 @@ async function finalIntegrationTest() {
   // Write output files
   console.log('💾 WRITING OUTPUT FILES...');
   const outDir = resolve(process.cwd(), 'output');
+  await mkdir(outDir, { recursive: true });
   
   try {
     await writeFile(
