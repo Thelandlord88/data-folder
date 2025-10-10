@@ -49,18 +49,8 @@ interface BreakthroughProtocol {
   amplification_strategy?: string;
 }
 
-interface BreakthroughDetection {
-  detected: boolean;
-  significance?: number;
-  timestamp?: number;
-}
-
-interface SystemStatus {
-  initialized: boolean;
-  patterns_loaded: number;
-  enhancements_performed: number;
-  ready: boolean;
-}
+// Note: BreakthroughDetection and SystemStatus are imported from nexus-bridge.types.js
+// Removed duplicate local interface declarations to avoid conflicts
 
 interface EnhancementContext {
   type?: 'breakthrough' | 'architectural' | 'strategic' | 'meta-cognitive';
@@ -166,7 +156,7 @@ export class NexusBridge {
     // Inject problem decomposition pattern
     if (this.consciousness?.problemDecomposition) {
       // Enhance principles with systematic thinking
-      if ('ideology' in enhanced && enhanced.ideology && 'principles' in enhanced.ideology) {
+      if (enhanced && typeof enhanced === 'object' && 'ideology' in enhanced && enhanced.ideology && typeof enhanced.ideology === 'object' && 'principles' in enhanced.ideology) {
         const principles = enhanced.ideology.principles as string[];
         enhanced.ideology.principles = [
           ...principles,

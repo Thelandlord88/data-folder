@@ -1,0 +1,218 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🏥 Health Check",
+      "type": "shell",
+      "command": "./health-check.sh",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Check NEXUS health status (personalities, circuit breaker, memory, errors)"
+    },
+    {
+      "label": "🔧 Troubleshoot",
+      "type": "shell",
+      "command": "./troubleshoot.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Run comprehensive system diagnostics (12 checks)"
+    },
+    {
+      "label": "📁 Check Files",
+      "type": "shell",
+      "command": "./check-files.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Verify file integrity (core files, personalities, docs, deps)"
+    },
+    {
+      "label": "🚀 Start NEXUS",
+      "type": "shell",
+      "command": "./start-nexus.sh",
+      "problemMatcher": [],
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      },
+      "detail": "Start NEXUS runtime server"
+    },
+    {
+      "label": "🧪 Test NEXUS",
+      "type": "shell",
+      "command": "./test-nexus.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Run NEXUS test suite"
+    },
+    {
+      "label": "⚡ Quick Test",
+      "type": "shell",
+      "command": "./quick-test.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Quick health test"
+    },
+    {
+      "label": "✅ Verify Installation",
+      "type": "shell",
+      "command": "./verify.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Verify NEXUS installation"
+    },
+    {
+      "label": "🎯 Proof Test",
+      "type": "shell",
+      "command": "./proof-test.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Run proof of concept tests"
+    },
+    {
+      "label": "🚢 Deploy Health Check",
+      "type": "shell",
+      "command": "./deploy-health-check.sh",
+      "problemMatcher": [],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Deploy health monitoring system (one-command setup)"
+    },
+    {
+      "label": "🗑️  Cleanup Old Versions",
+      "type": "shell",
+      "command": "./cleanup-old-versions.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Archive old NEXUS versions"
+    },
+    {
+      "label": "🔍 Full Diagnostic Suite",
+      "type": "shell",
+      "command": "echo '=== File Check ===' && ./check-files.sh && echo '' && echo '=== Health Check ===' && ./health-check.sh && echo '' && echo '=== Troubleshoot ===' && ./troubleshoot.sh",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "detail": "Run all diagnostic tools in sequence"
+    },
+    {
+      "label": "🔨 TypeScript: Compile",
+      "type": "shell",
+      "command": "npx tsc",
+      "problemMatcher": ["$tsc"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Compile TypeScript to JavaScript"
+    },
+    {
+      "label": "🔍 TypeScript: Check Types",
+      "type": "shell",
+      "command": "npx tsc --noEmit",
+      "problemMatcher": ["$tsc"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Check TypeScript types without compiling"
+    },
+    {
+      "label": "👁️  TypeScript: Watch",
+      "type": "shell",
+      "command": "npx tsc --watch",
+      "problemMatcher": ["$tsc-watch"],
+      "isBackground": true,
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Watch and compile TypeScript on changes"
+    },
+    {
+      "label": "📦 Install Dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": [],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Install Node.js dependencies"
+    },
+    {
+      "label": "🧹 Clean Build",
+      "type": "shell",
+      "command": "rm -rf dist && npx tsc",
+      "problemMatcher": ["$tsc"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Clean dist folder and rebuild"
+    }
+  ]
+}
