@@ -1,0 +1,21 @@
+{
+  "tests": [
+    {
+      "name": "Multi-Personality Collaboration",
+      "mode": "COMPOSE",
+      "personalities": ["promptcrafter", "pythonista", "sage"],
+      "request": "Explain how to use AI image generation with Python code examples"
+    },
+    {
+      "name": "Creative + Technical Fusion",
+      "mode": "COMPOSE", 
+      "personalities": ["promptsmith", "scribe"],
+      "request": "Write documentation explaining prompt engineering best practices"
+    },
+    {
+      "name": "Smart AUTO Selection Test",
+      "mode": "AUTO",
+      "request": "I need to generate product images for my e-commerce site using AI"
+    }
+  ]
+}

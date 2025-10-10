@@ -1,0 +1,1645 @@
+{
+  "created": "2025-10-10T00:52:42.421531",
+  "source_analysis": "2025-10-10T00:51:14.178451",
+  "statistics": {
+    "files_kept": 96,
+    "files_skipped": 167,
+    "profiles": 45,
+    "docs": 4,
+    "source_files": 100,
+    "consciousness_files": 6,
+    "dist_files": 104,
+    "sensor_files": 1
+  },
+  "decisions": {
+    "kept": [
+      {
+        "file": "personality-schema.ts",
+        "source": "nexus2/nexus2/runtime/nexus/validation/personality-schema.ts",
+        "lines": 122
+      },
+      {
+        "file": "cognitive-exercises.ts",
+        "source": "nexus2/nexus2/runtime/nexus/cognitive-exercises.ts",
+        "lines": 269
+      },
+      {
+        "file": "nexus-runtime.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-runtime.ts",
+        "lines": 2190
+      },
+      {
+        "file": "nexus-integration.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-integration.ts",
+        "lines": 657
+      },
+      {
+        "file": "types.ts",
+        "source": "nexus2/nexus2/runtime/nexus/types.ts",
+        "lines": 508
+      },
+      {
+        "file": "Hunter.audit.ts",
+        "source": "nexus2/nexus2/runtime/nexus/Hunter.audit.ts",
+        "lines": 266
+      },
+      {
+        "file": "debug-loader.ts",
+        "source": "nexus2/nexus2/runtime/nexus/debug-loader.ts",
+        "lines": 48
+      },
+      {
+        "file": "systemic-scanner.ts",
+        "source": "nexus2/nexus2/runtime/nexus/systemic-scanner.ts",
+        "lines": 482
+      },
+      {
+        "file": "architect-designs-hunter.ts",
+        "source": "nexus2/nexus2/runtime/nexus/architect-designs-hunter.ts",
+        "lines": 361
+      },
+      {
+        "file": "nexus-runtime.backup_20251010_001846.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-runtime.backup_20251010_001846.ts",
+        "lines": 2191
+      },
+      {
+        "file": "ResponseGeneratorFactory.ts",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/ResponseGeneratorFactory.ts",
+        "lines": 105
+      },
+      {
+        "file": "ResponseGenerator.interface.ts",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/ResponseGenerator.interface.ts",
+        "lines": 57
+      },
+      {
+        "file": "ResponseGenerator.interface.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/ResponseGenerator.interface.d.ts",
+        "lines": 45
+      },
+      {
+        "file": "HunterResponseGenerator.ts",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/HunterResponseGenerator.ts",
+        "lines": 524
+      },
+      {
+        "file": "DaedalusResponseGenerator.ts",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/DaedalusResponseGenerator.ts",
+        "lines": 381
+      },
+      {
+        "file": "Hunter.auditAgent.ts",
+        "source": "nexus2/nexus2/runtime/nexus/Hunter.auditAgent.ts",
+        "lines": 63
+      },
+      {
+        "file": "demo-personality-loader.ts",
+        "source": "nexus2/nexus2/runtime/nexus/demo-personality-loader.ts",
+        "lines": 158
+      },
+      {
+        "file": "NEXUS.engine.v2.ts",
+        "source": "nexus2/nexus2/runtime/nexus/NEXUS.engine.v2.ts",
+        "lines": 686
+      },
+      {
+        "file": "run-hunter-audit.ts",
+        "source": "nexus2/nexus2/runtime/nexus/run-hunter-audit.ts",
+        "lines": 124
+      },
+      {
+        "file": "NEXUS.engine.ts",
+        "source": "nexus2/nexus2/runtime/nexus/NEXUS.engine.ts",
+        "lines": 848
+      },
+      {
+        "file": "nexus-trait-bridge.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-trait-bridge.ts",
+        "lines": 499
+      },
+      {
+        "file": "Hunter.policy.ts",
+        "source": "nexus2/nexus2/runtime/nexus/Hunter.policy.ts",
+        "lines": 382
+      },
+      {
+        "file": "PersonalityRegistryLoader.ts",
+        "source": "nexus2/nexus2/runtime/nexus/loaders/PersonalityRegistryLoader.ts",
+        "lines": 535
+      },
+      {
+        "file": "nexus-runtime.backup_20251010_001921.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-runtime.backup_20251010_001921.ts",
+        "lines": 2191
+      },
+      {
+        "file": "guardian-orchestrator.ts",
+        "source": "nexus2/nexus2/runtime/nexus/guardian-orchestrator.ts",
+        "lines": 154
+      },
+      {
+        "file": "NEXUS.integration.ts",
+        "source": "nexus2/nexus2/runtime/nexus/NEXUS.integration.ts",
+        "lines": 342
+      },
+      {
+        "file": "fs-utils.ts",
+        "source": "nexus2/nexus2/runtime/nexus/fs-utils.ts",
+        "lines": 55
+      },
+      {
+        "file": "nexus-runtime.backup_20251010_001805.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-runtime.backup_20251010_001805.ts",
+        "lines": 2206
+      },
+      {
+        "file": "personality.types.ts",
+        "source": "nexus2/nexus2/runtime/nexus/types/personality.types.ts",
+        "lines": 129
+      },
+      {
+        "file": "nexus-runtime.v2.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-runtime.v2.ts",
+        "lines": 635
+      },
+      {
+        "file": "nexus-bridge.ts",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-bridge.ts",
+        "lines": 398
+      },
+      {
+        "file": "nexus-runtime.v2.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/nexus-runtime.v2.d.ts",
+        "lines": 18
+      },
+      {
+        "file": "personality-schema.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/validation/personality-schema.d.ts",
+        "lines": 70
+      },
+      {
+        "file": "NEXUS.engine.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/NEXUS.engine.d.ts",
+        "lines": 85
+      },
+      {
+        "file": "NEXUS.engine.v2.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/NEXUS.engine.v2.d.ts",
+        "lines": 249
+      },
+      {
+        "file": "fs-utils.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/fs-utils.d.ts",
+        "lines": 5
+      },
+      {
+        "file": "run-hunter-audit.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/run-hunter-audit.d.ts",
+        "lines": 8
+      },
+      {
+        "file": "Hunter.policy.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/Hunter.policy.d.ts",
+        "lines": 96
+      },
+      {
+        "file": "architect-designs-hunter.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/architect-designs-hunter.d.ts",
+        "lines": 9
+      },
+      {
+        "file": "Hunter.audit.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/Hunter.audit.d.ts",
+        "lines": 18
+      },
+      {
+        "file": "nexus-integration.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/nexus-integration.d.ts",
+        "lines": 158
+      },
+      {
+        "file": "nexus-runtime.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/nexus-runtime.d.ts",
+        "lines": 36
+      },
+      {
+        "file": "DaedalusResponseGenerator.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/response-generators/DaedalusResponseGenerator.d.ts",
+        "lines": 33
+      },
+      {
+        "file": "HunterResponseGenerator.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/response-generators/HunterResponseGenerator.d.ts",
+        "lines": 38
+      },
+      {
+        "file": "ResponseGeneratorFactory.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/response-generators/ResponseGeneratorFactory.d.ts",
+        "lines": 20
+      },
+      {
+        "file": "Hunter.auditAgent.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/Hunter.auditAgent.d.ts",
+        "lines": 11
+      },
+      {
+        "file": "types.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/types.d.ts",
+        "lines": 417
+      },
+      {
+        "file": "guardian-orchestrator.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/guardian-orchestrator.d.ts",
+        "lines": 91
+      },
+      {
+        "file": "demo-personality-loader.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/demo-personality-loader.d.ts",
+        "lines": 6
+      },
+      {
+        "file": "PersonalityRegistryLoader.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/loaders/PersonalityRegistryLoader.d.ts",
+        "lines": 37
+      },
+      {
+        "file": "nexus-bridge.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/nexus-bridge.d.ts",
+        "lines": 81
+      },
+      {
+        "file": "systemic-scanner.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/systemic-scanner.d.ts",
+        "lines": 45
+      },
+      {
+        "file": "nexus-trait-bridge.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/nexus-trait-bridge.d.ts",
+        "lines": 70
+      },
+      {
+        "file": "personality.types.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/types/personality.types.d.ts",
+        "lines": 118
+      },
+      {
+        "file": "NEXUS.integration.d.ts",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/dist/NEXUS.integration.d.ts",
+        "lines": 97
+      },
+      {
+        "file": "add-milestone-to-history.mjs",
+        "source": "nexus2/nexus2/runtime/add-milestone-to-history.mjs",
+        "lines": 118
+      },
+      {
+        "file": "bulk-create-personalities.mjs",
+        "source": "nexus2/nexus2/runtime/bulk-create-personalities.mjs",
+        "lines": 103
+      },
+      {
+        "file": "test-runtime-loader.mjs",
+        "source": "nexus2/nexus2/runtime/test-runtime-loader.mjs",
+        "lines": 130
+      },
+      {
+        "file": "test-all-45-personalities.mjs",
+        "source": "nexus2/nexus2/runtime/test-all-45-personalities.mjs",
+        "lines": 298
+      },
+      {
+        "file": "verify-circuit-breaker.mjs",
+        "source": "nexus2/nexus2/runtime/verify-circuit-breaker.mjs",
+        "lines": 60
+      },
+      {
+        "file": "upgrade-personalities.mjs",
+        "source": "nexus2/nexus2/runtime/upgrade-personalities.mjs",
+        "lines": 159
+      },
+      {
+        "file": "nexus-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-demo.mjs",
+        "lines": 111
+      },
+      {
+        "file": "nexus-stellar-component-optimization.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-stellar-component-optimization.mjs",
+        "lines": 314
+      },
+      {
+        "file": "test-paths-simple.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/test-paths-simple.mjs",
+        "lines": 31
+      },
+      {
+        "file": "architectural-challenge-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/architectural-challenge-demo.mjs",
+        "lines": 468
+      },
+      {
+        "file": "enhanced-performance-validation.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/enhanced-performance-validation.mjs",
+        "lines": 358
+      },
+      {
+        "file": "nexus-security.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-security.mjs",
+        "lines": 220
+      },
+      {
+        "file": "nexus-repository-exploration.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-repository-exploration.mjs",
+        "lines": 166
+      },
+      {
+        "file": "trait-composition-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/trait-composition-demo.mjs",
+        "lines": 172
+      },
+      {
+        "file": "stellar-repository-analysis.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/stellar-repository-analysis.mjs",
+        "lines": 181
+      },
+      {
+        "file": "nexus-diagnose.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-diagnose.mjs",
+        "lines": 224
+      },
+      {
+        "file": "run-type-safety-analysis.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/run-type-safety-analysis.mjs",
+        "lines": 126
+      },
+      {
+        "file": "nexus-personality-orchestrator.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-personality-orchestrator.mjs",
+        "lines": 485
+      },
+      {
+        "file": "PersonalityGeneratorTemplate.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/PersonalityGeneratorTemplate.mjs",
+        "lines": 301
+      },
+      {
+        "file": "ResponseGeneratorFactoryJS.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/response-generators/ResponseGeneratorFactoryJS.mjs",
+        "lines": 267
+      },
+      {
+        "file": "nexus-experiential-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-experiential-demo.mjs",
+        "lines": 305
+      },
+      {
+        "file": "hunter-prime-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/hunter-prime-demo.mjs",
+        "lines": 0
+      },
+      {
+        "file": "nexus-experiential-simple.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-experiential-simple.mjs",
+        "lines": 172
+      },
+      {
+        "file": "pattern-evolution.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/pattern-evolution.mjs",
+        "lines": 357
+      },
+      {
+        "file": "test-startswith.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/test-startswith.mjs",
+        "lines": 16
+      },
+      {
+        "file": "trait-bridge.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/trait-bridge.mjs",
+        "lines": 153
+      },
+      {
+        "file": "trait-bridge-simple.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/trait-bridge-simple.mjs",
+        "lines": 138
+      },
+      {
+        "file": "conversation-analyzer.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/conversation-analyzer.mjs",
+        "lines": 496
+      },
+      {
+        "file": "personality-architect-integration-test.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/personality-architect-integration-test.mjs",
+        "lines": 167
+      },
+      {
+        "file": "nexus-engine-adapter.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-engine-adapter.mjs",
+        "lines": 190
+      },
+      {
+        "file": "nervous-system.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/core/nervous-system.mjs",
+        "lines": 292
+      },
+      {
+        "file": "trait-composition-engine.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/trait-composition-engine.mjs",
+        "lines": 797
+      },
+      {
+        "file": "conversation-hearing.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/sensors/conversation-hearing.mjs",
+        "lines": 425
+      },
+      {
+        "file": "nexus-personality-optimization-consultation.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-personality-optimization-consultation.mjs",
+        "lines": 167
+      },
+      {
+        "file": "personality-architect-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/personality-architect-demo.mjs",
+        "lines": 315
+      },
+      {
+        "file": "strategic-next-steps-analysis.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/strategic-next-steps-analysis.mjs",
+        "lines": 358
+      },
+      {
+        "file": "nexus-collaborative-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-collaborative-demo.mjs",
+        "lines": 308
+      },
+      {
+        "file": "nexus-template-demo.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/nexus-template-demo.mjs",
+        "lines": 196
+      },
+      {
+        "file": "hunter-strategic-analysis.mjs",
+        "source": "nexus2/nexus2/runtime/nexus/hunter-strategic-analysis.mjs",
+        "lines": 347
+      },
+      {
+        "file": "generate-new-personalities.mjs",
+        "source": "nexus2/nexus2/runtime/generate-new-personalities.mjs",
+        "lines": 240
+      },
+      {
+        "file": "test-nexus-v2.mjs",
+        "source": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/test-nexus-v2.mjs",
+        "lines": 497
+      }
+    ],
+    "skipped": [
+      {
+        "file": "nexus2/nexus2/runtime/nexus/nexus-runtime.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/nexus-runtime.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/response-generators/PersonalityRegistryLoader.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/loaders/PersonalityRegistryLoader.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/response-generators/HunterResponseGenerator.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/response-generators/HunterResponseGenerator.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/response-generators/DaedalusResponseGenerator.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/response-generators/DaedalusResponseGenerator.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/nexus-integration.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/nexus-integration.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/nexus-trait-bridge.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/nexus-trait-bridge.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/run-hunter-audit.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/run-hunter-audit.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus/nexus-bridge.mjs",
+        "reason": "TypeScript version exists: nexus2/nexus2/runtime/nexus/nexus-bridge.ts"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/daedalus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/daedalus.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/pythonista.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pythonista.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/forge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/forge.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/touch.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/touch.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/chorus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chorus.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/aria.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/aria.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/route-master.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/route-master.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/atlas.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/nexus-api.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/nexus-api.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/personality-architect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/personality-architect.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/flash.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/flash.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/localize.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/localize.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/stellar.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/stellar.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/sage.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/pulsewriter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulsewriter.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/guardian.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/guardian.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/codex-liaison.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/codex-liaison.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/atlas-geo.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas-geo.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/cipher.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/cipher.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/hunter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/hunter.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/pulse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulse.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/scribe.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/scribe.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/property-sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/property-sage.json"
+      },
+      {
+        "file": "nexus2/nexus2/runtime/nexus-v2.0-complete_20251007_043832/profiles/symphony.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/symphony.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/performancehawk.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/performancehawk.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/narrative.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/narrative.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/daedalus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/daedalus.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/pythonista.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pythonista.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/tokenmaster.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/tokenmaster.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/ethicsguard.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/ethicsguard.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/forge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/forge.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/touch.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/touch.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/promptcrafter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/promptcrafter.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/finetuner.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/finetuner.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/chromatic.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chromatic.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/visualarchitect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/visualarchitect.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/chorus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chorus.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/aria.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/aria.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/route-master.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/route-master.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/atlas.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/nexus-api.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/nexus-api.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/visionary.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/visionary.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/promptsmith.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/promptsmith.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/personality-architect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/personality-architect.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/quantumlogic.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/quantumlogic.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/photorealist.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/photorealist.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/flash.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/flash.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/muse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/muse.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/localize.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/localize.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/stellar.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/stellar.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/datawhisperer.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/datawhisperer.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/integrationmaestro.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/integrationmaestro.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/manifest.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/manifest.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/sage.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/styleforge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/styleforge.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/pulsewriter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulsewriter.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/guardian.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/guardian.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/codex-liaison.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/codex-liaison.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/atlas-geo.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas-geo.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/cipher.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/cipher.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/hunter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/hunter.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/pulse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulse.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/scribe.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/scribe.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/wordsmith.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/wordsmith.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/chainarchitect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chainarchitect.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/property-sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/property-sage.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/artdirector.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/artdirector.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/symphony.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/symphony.json"
+      },
+      {
+        "file": "nexusv3-deploy/profiles/contextweaver.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/contextweaver.json"
+      },
+      {
+        "file": "nexusv3/profiles/performancehawk.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/performancehawk.json"
+      },
+      {
+        "file": "nexusv3/profiles/narrative.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/narrative.json"
+      },
+      {
+        "file": "nexusv3/profiles/daedalus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/daedalus.json"
+      },
+      {
+        "file": "nexusv3/profiles/pythonista.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pythonista.json"
+      },
+      {
+        "file": "nexusv3/profiles/tokenmaster.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/tokenmaster.json"
+      },
+      {
+        "file": "nexusv3/profiles/ethicsguard.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/ethicsguard.json"
+      },
+      {
+        "file": "nexusv3/profiles/forge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/forge.json"
+      },
+      {
+        "file": "nexusv3/profiles/touch.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/touch.json"
+      },
+      {
+        "file": "nexusv3/profiles/promptcrafter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/promptcrafter.json"
+      },
+      {
+        "file": "nexusv3/profiles/finetuner.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/finetuner.json"
+      },
+      {
+        "file": "nexusv3/profiles/chromatic.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chromatic.json"
+      },
+      {
+        "file": "nexusv3/profiles/visualarchitect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/visualarchitect.json"
+      },
+      {
+        "file": "nexusv3/profiles/chorus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chorus.json"
+      },
+      {
+        "file": "nexusv3/profiles/aria.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/aria.json"
+      },
+      {
+        "file": "nexusv3/profiles/route-master.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/route-master.json"
+      },
+      {
+        "file": "nexusv3/profiles/atlas.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas.json"
+      },
+      {
+        "file": "nexusv3/profiles/nexus-api.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/nexus-api.json"
+      },
+      {
+        "file": "nexusv3/profiles/visionary.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/visionary.json"
+      },
+      {
+        "file": "nexusv3/profiles/promptsmith.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/promptsmith.json"
+      },
+      {
+        "file": "nexusv3/profiles/personality-architect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/personality-architect.json"
+      },
+      {
+        "file": "nexusv3/profiles/quantumlogic.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/quantumlogic.json"
+      },
+      {
+        "file": "nexusv3/profiles/photorealist.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/photorealist.json"
+      },
+      {
+        "file": "nexusv3/profiles/flash.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/flash.json"
+      },
+      {
+        "file": "nexusv3/profiles/muse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/muse.json"
+      },
+      {
+        "file": "nexusv3/profiles/localize.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/localize.json"
+      },
+      {
+        "file": "nexusv3/profiles/stellar.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/stellar.json"
+      },
+      {
+        "file": "nexusv3/profiles/datawhisperer.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/datawhisperer.json"
+      },
+      {
+        "file": "nexusv3/profiles/integrationmaestro.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/integrationmaestro.json"
+      },
+      {
+        "file": "nexusv3/profiles/manifest.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/manifest.json"
+      },
+      {
+        "file": "nexusv3/profiles/sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/sage.json"
+      },
+      {
+        "file": "nexusv3/profiles/styleforge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/styleforge.json"
+      },
+      {
+        "file": "nexusv3/profiles/pulsewriter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulsewriter.json"
+      },
+      {
+        "file": "nexusv3/profiles/guardian.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/guardian.json"
+      },
+      {
+        "file": "nexusv3/profiles/codex-liaison.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/codex-liaison.json"
+      },
+      {
+        "file": "nexusv3/profiles/atlas-geo.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas-geo.json"
+      },
+      {
+        "file": "nexusv3/profiles/cipher.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/cipher.json"
+      },
+      {
+        "file": "nexusv3/profiles/hunter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/hunter.json"
+      },
+      {
+        "file": "nexusv3/profiles/pulse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulse.json"
+      },
+      {
+        "file": "nexusv3/profiles/scribe.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/scribe.json"
+      },
+      {
+        "file": "nexusv3/profiles/wordsmith.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/wordsmith.json"
+      },
+      {
+        "file": "nexusv3/profiles/chainarchitect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chainarchitect.json"
+      },
+      {
+        "file": "nexusv3/profiles/property-sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/property-sage.json"
+      },
+      {
+        "file": "nexusv3/profiles/artdirector.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/artdirector.json"
+      },
+      {
+        "file": "nexusv3/profiles/symphony.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/symphony.json"
+      },
+      {
+        "file": "nexusv3/profiles/contextweaver.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/contextweaver.json"
+      },
+      {
+        "file": "nexus/profiles/performancehawk.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/performancehawk.json"
+      },
+      {
+        "file": "nexus/profiles/narrative.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/narrative.json"
+      },
+      {
+        "file": "nexus/profiles/daedalus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/daedalus.json"
+      },
+      {
+        "file": "nexus/profiles/pythonista.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pythonista.json"
+      },
+      {
+        "file": "nexus/profiles/tokenmaster.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/tokenmaster.json"
+      },
+      {
+        "file": "nexus/profiles/ethicsguard.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/ethicsguard.json"
+      },
+      {
+        "file": "nexus/profiles/forge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/forge.json"
+      },
+      {
+        "file": "nexus/profiles/touch.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/touch.json"
+      },
+      {
+        "file": "nexus/profiles/promptcrafter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/promptcrafter.json"
+      },
+      {
+        "file": "nexus/profiles/finetuner.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/finetuner.json"
+      },
+      {
+        "file": "nexus/profiles/chromatic.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chromatic.json"
+      },
+      {
+        "file": "nexus/profiles/visualarchitect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/visualarchitect.json"
+      },
+      {
+        "file": "nexus/profiles/chorus.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chorus.json"
+      },
+      {
+        "file": "nexus/profiles/aria.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/aria.json"
+      },
+      {
+        "file": "nexus/profiles/route-master.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/route-master.json"
+      },
+      {
+        "file": "nexus/profiles/atlas.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas.json"
+      },
+      {
+        "file": "nexus/profiles/nexus-api.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/nexus-api.json"
+      },
+      {
+        "file": "nexus/profiles/visionary.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/visionary.json"
+      },
+      {
+        "file": "nexus/profiles/promptsmith.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/promptsmith.json"
+      },
+      {
+        "file": "nexus/profiles/personality-architect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/personality-architect.json"
+      },
+      {
+        "file": "nexus/profiles/quantumlogic.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/quantumlogic.json"
+      },
+      {
+        "file": "nexus/profiles/photorealist.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/photorealist.json"
+      },
+      {
+        "file": "nexus/profiles/flash.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/flash.json"
+      },
+      {
+        "file": "nexus/profiles/muse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/muse.json"
+      },
+      {
+        "file": "nexus/profiles/localize.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/localize.json"
+      },
+      {
+        "file": "nexus/profiles/stellar.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/stellar.json"
+      },
+      {
+        "file": "nexus/profiles/datawhisperer.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/datawhisperer.json"
+      },
+      {
+        "file": "nexus/profiles/integrationmaestro.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/integrationmaestro.json"
+      },
+      {
+        "file": "nexus/profiles/manifest.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/manifest.json"
+      },
+      {
+        "file": "nexus/profiles/sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/sage.json"
+      },
+      {
+        "file": "nexus/profiles/styleforge.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/styleforge.json"
+      },
+      {
+        "file": "nexus/profiles/pulsewriter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulsewriter.json"
+      },
+      {
+        "file": "nexus/profiles/guardian.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/guardian.json"
+      },
+      {
+        "file": "nexus/profiles/codex-liaison.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/codex-liaison.json"
+      },
+      {
+        "file": "nexus/profiles/atlas-geo.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/atlas-geo.json"
+      },
+      {
+        "file": "nexus/profiles/cipher.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/cipher.json"
+      },
+      {
+        "file": "nexus/profiles/hunter.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/hunter.json"
+      },
+      {
+        "file": "nexus/profiles/pulse.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/pulse.json"
+      },
+      {
+        "file": "nexus/profiles/scribe.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/scribe.json"
+      },
+      {
+        "file": "nexus/profiles/wordsmith.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/wordsmith.json"
+      },
+      {
+        "file": "nexus/profiles/chainarchitect.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/chainarchitect.json"
+      },
+      {
+        "file": "nexus/profiles/property-sage.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/property-sage.json"
+      },
+      {
+        "file": "nexus/profiles/artdirector.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/artdirector.json"
+      },
+      {
+        "file": "nexus/profiles/symphony.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/symphony.json"
+      },
+      {
+        "file": "nexus/profiles/contextweaver.json",
+        "reason": "Duplicate of nexus2/nexus2/runtime/profiles/contextweaver.json"
+      }
+    ],
+    "consolidated": []
+  },
+  "structure": {
+    "src": "TypeScript source files (best versions)",
+    "dist": "Compiled JavaScript outputs",
+    "profiles": "Personality profiles (deduplicated)",
+    "docs": "Key documentation files",
+    "config": "Configuration files",
+    "consciousness": "Runtime data storage",
+    "tests": "Test files"
+  },
+  "enhancements": {
+    "enhanced_at": "2025-10-10T01:03:24.124662",
+    "additions": {
+      "consciousness_files": 6,
+      "dist_files": 104,
+      "sensor_files": 1
+    },
+    "details": {
+      "consciousness": [
+        {
+          "file": "enhancement-history.json",
+          "source": "nexus2/nexus2/runtime/nexus/consciousness/enhancement-history.json",
+          "size": 6985
+        },
+        {
+          "file": "breakthrough-moments.json",
+          "source": "nexus2/nexus2/runtime/nexus/consciousness/breakthrough-moments.json",
+          "size": 19
+        },
+        {
+          "file": "pattern-evolution-engine.json",
+          "source": "nexus2/nexus2/runtime/nexus/consciousness/pattern-evolution-engine.json",
+          "size": 20600
+        },
+        {
+          "file": "problem-decomposition.json",
+          "source": "nexus2/nexus2/runtime/nexus/consciousness/problem-decomposition.json",
+          "size": 3761
+        },
+        {
+          "file": "systems-thinking.json",
+          "source": "nexus2/nexus2/runtime/nexus/consciousness/systems-thinking.json",
+          "size": 4760
+        },
+        {
+          "file": "workflow-efficiency.json",
+          "source": "nexus2/nexus2/runtime/nexus/consciousness/workflow-efficiency.json",
+          "size": 5909
+        }
+      ],
+      "dist": [
+        {
+          "file": "fs-utils.js.map",
+          "size": 1674
+        },
+        {
+          "file": "nexus-runtime.v2.d.ts",
+          "size": 630
+        },
+        {
+          "file": "fs-utils.js",
+          "size": 1444
+        },
+        {
+          "file": "nexus-trait-bridge.js.map",
+          "size": 12439
+        },
+        {
+          "file": "NEXUS.integration.d.ts.map",
+          "size": 1796
+        },
+        {
+          "file": "run-hunter-audit.d.ts.map",
+          "size": 141
+        },
+        {
+          "file": "NEXUS.engine.js.map",
+          "size": 24495
+        },
+        {
+          "file": "types.js.map",
+          "size": 131
+        },
+        {
+          "file": "NEXUS.engine.d.ts",
+          "size": 2851
+        },
+        {
+          "file": "Hunter.policy.js",
+          "size": 13049
+        },
+        {
+          "file": "Hunter.policy.js.map",
+          "size": 9097
+        },
+        {
+          "file": "fs-utils.d.ts.map",
+          "size": 395
+        },
+        {
+          "file": "systemic-scanner.js.map",
+          "size": 14016
+        },
+        {
+          "file": "personality-architect-integration-test.d.ts",
+          "size": 300
+        },
+        {
+          "file": "Hunter.audit.js",
+          "size": 9222
+        },
+        {
+          "file": "Hunter.auditAgent.js",
+          "size": 2084
+        },
+        {
+          "file": "nexus-runtime.d.ts.map",
+          "size": 426
+        },
+        {
+          "file": "run-hunter-audit.js.map",
+          "size": 4732
+        },
+        {
+          "file": "architect-designs-hunter.d.ts.map",
+          "size": 158
+        },
+        {
+          "file": "NEXUS.engine.v2.d.ts",
+          "size": 7397
+        },
+        {
+          "file": "fs-utils.d.ts",
+          "size": 345
+        },
+        {
+          "file": "run-hunter-audit.d.ts",
+          "size": 262
+        },
+        {
+          "file": "Hunter.policy.d.ts",
+          "size": 2861
+        },
+        {
+          "file": "systemic-scanner.js",
+          "size": 18965
+        },
+        {
+          "file": "run-hunter-audit.js",
+          "size": 4840
+        },
+        {
+          "file": "architect-designs-hunter.d.ts",
+          "size": 320
+        },
+        {
+          "file": "systemic-scanner.d.ts.map",
+          "size": 1241
+        },
+        {
+          "file": "personality-architect-integration-test.d.ts.map",
+          "size": 186
+        },
+        {
+          "file": "architect-designs-hunter.js",
+          "size": 19769
+        },
+        {
+          "file": "Hunter.audit.d.ts",
+          "size": 578
+        },
+        {
+          "file": "nexus-integration.d.ts",
+          "size": 5296
+        },
+        {
+          "file": "types.js",
+          "size": 320
+        },
+        {
+          "file": "guardian-orchestrator.js",
+          "size": 6193
+        },
+        {
+          "file": "personality-architect-integration-test.js",
+          "size": 7342
+        },
+        {
+          "file": "Hunter.policy.d.ts.map",
+          "size": 1651
+        },
+        {
+          "file": "nexus-runtime.d.ts",
+          "size": 1334
+        },
+        {
+          "file": "nexus-runtime.v2.js.map",
+          "size": 16843
+        },
+        {
+          "file": "guardian-orchestrator.d.ts.map",
+          "size": 531
+        },
+        {
+          "file": "demo-personality-loader.js",
+          "size": 6870
+        },
+        {
+          "file": "Hunter.audit.js.map",
+          "size": 6069
+        },
+        {
+          "file": "personality-architect-integration-test.js.map",
+          "size": 5446
+        },
+        {
+          "file": "Hunter.audit.d.ts.map",
+          "size": 449
+        },
+        {
+          "file": "Hunter.auditAgent.js.map",
+          "size": 1583
+        },
+        {
+          "file": "nexus-integration.d.ts.map",
+          "size": 2822
+        },
+        {
+          "file": "NEXUS.engine.v2.js.map",
+          "size": 16236
+        },
+        {
+          "file": "nexus-trait-bridge.d.ts.map",
+          "size": 1196
+        },
+        {
+          "file": "NEXUS.engine.d.ts.map",
+          "size": 2291
+        },
+        {
+          "file": "demo-personality-loader.d.ts.map",
+          "size": 153
+        },
+        {
+          "file": "nexus-integration.js.map",
+          "size": 13533
+        },
+        {
+          "file": "Hunter.auditAgent.d.ts",
+          "size": 447
+        },
+        {
+          "file": "NEXUS.integration.js.map",
+          "size": 7405
+        },
+        {
+          "file": "demo-personality-loader.js.map",
+          "size": 6790
+        },
+        {
+          "file": "nexus-runtime.js.map",
+          "size": 56687
+        },
+        {
+          "file": "types.d.ts",
+          "size": 14219
+        },
+        {
+          "file": "nexus-integration.js",
+          "size": 20201
+        },
+        {
+          "file": "types.d.ts.map",
+          "size": 12854
+        },
+        {
+          "file": "NEXUS.engine.v2.js",
+          "size": 21049
+        },
+        {
+          "file": "guardian-orchestrator.d.ts",
+          "size": 2867
+        },
+        {
+          "file": "architect-designs-hunter.js.map",
+          "size": 10905
+        },
+        {
+          "file": "demo-personality-loader.d.ts",
+          "size": 177
+        },
+        {
+          "file": "nexus-runtime.v2.d.ts.map",
+          "size": 151
+        },
+        {
+          "file": "nexus-bridge.js.map",
+          "size": 7929
+        },
+        {
+          "file": "nexus-bridge.d.ts",
+          "size": 2674
+        },
+        {
+          "file": "nexus-runtime.v2.js",
+          "size": 20383
+        },
+        {
+          "file": "systemic-scanner.d.ts",
+          "size": 1453
+        },
+        {
+          "file": "Hunter.auditAgent.d.ts.map",
+          "size": 467
+        },
+        {
+          "file": "guardian-orchestrator.js.map",
+          "size": 5708
+        },
+        {
+          "file": "nexus-runtime.js",
+          "size": 62977
+        },
+        {
+          "file": "nexus-trait-bridge.d.ts",
+          "size": 2399
+        },
+        {
+          "file": "nexus-trait-bridge.js",
+          "size": 18375
+        },
+        {
+          "file": "NEXUS.integration.js",
+          "size": 9675
+        },
+        {
+          "file": "nexus-bridge.js",
+          "size": 12488
+        },
+        {
+          "file": "NEXUS.engine.js",
+          "size": 39762
+        },
+        {
+          "file": "nexus-bridge.d.ts.map",
+          "size": 1468
+        },
+        {
+          "file": "NEXUS.engine.v2.d.ts.map",
+          "size": 3007
+        },
+        {
+          "file": "NEXUS.integration.d.ts",
+          "size": 2782
+        },
+        {
+          "file": "validation/personality-schema.js.map",
+          "size": 4228
+        },
+        {
+          "file": "validation/personality-schema.d.ts.map",
+          "size": 1164
+        },
+        {
+          "file": "validation/personality-schema.js",
+          "size": 3767
+        },
+        {
+          "file": "validation/personality-schema.d.ts",
+          "size": 6943
+        },
+        {
+          "file": "response-generators/ResponseGeneratorFactory.js",
+          "size": 3637
+        },
+        {
+          "file": "response-generators/HunterResponseGenerator.js.map",
+          "size": 13291
+        },
+        {
+          "file": "response-generators/ResponseGenerator.interface.d.ts",
+          "size": 1388
+        },
+        {
+          "file": "response-generators/DaedalusResponseGenerator.d.ts",
+          "size": 1636
+        },
+        {
+          "file": "response-generators/DaedalusResponseGenerator.js.map",
+          "size": 8917
+        },
+        {
+          "file": "response-generators/ResponseGenerator.interface.js.map",
+          "size": 182
+        },
+        {
+          "file": "response-generators/HunterResponseGenerator.js",
+          "size": 17067
+        },
+        {
+          "file": "response-generators/HunterResponseGenerator.d.ts",
+          "size": 1717
+        },
+        {
+          "file": "response-generators/ResponseGenerator.interface.js",
+          "size": 181
+        },
+        {
+          "file": "response-generators/ResponseGeneratorFactory.js.map",
+          "size": 2285
+        },
+        {
+          "file": "response-generators/DaedalusResponseGenerator.d.ts.map",
+          "size": 1116
+        },
+        {
+          "file": "response-generators/DaedalusResponseGenerator.js",
+          "size": 12855
+        },
+        {
+          "file": "response-generators/ResponseGeneratorFactory.d.ts.map",
+          "size": 541
+        },
+        {
+          "file": "response-generators/HunterResponseGenerator.d.ts.map",
+          "size": 1227
+        },
+        {
+          "file": "response-generators/ResponseGeneratorFactory.d.ts",
+          "size": 666
+        },
+        {
+          "file": "response-generators/ResponseGenerator.interface.d.ts.map",
+          "size": 1393
+        },
+        {
+          "file": "loaders/PersonalityRegistryLoader.d.ts.map",
+          "size": 1128
+        },
+        {
+          "file": "loaders/PersonalityRegistryLoader.js",
+          "size": 18095
+        },
+        {
+          "file": "loaders/PersonalityRegistryLoader.js.map",
+          "size": 16096
+        },
+        {
+          "file": "loaders/PersonalityRegistryLoader.d.ts",
+          "size": 1575
+        },
+        {
+          "file": "types/personality.types.d.ts",
+          "size": 3178
+        },
+        {
+          "file": "types/personality.types.js",
+          "size": 149
+        },
+        {
+          "file": "types/personality.types.d.ts.map",
+          "size": 2986
+        },
+        {
+          "file": "types/personality.types.js.map",
+          "size": 148
+        }
+      ],
+      "sensors": [
+        {
+          "file": "conversation-hearing.mjs",
+          "source": "nexus2/nexus2/runtime/nexus/sensors/conversation-hearing.mjs",
+          "size": 14091
+        }
+      ]
+    }
+  }
+}

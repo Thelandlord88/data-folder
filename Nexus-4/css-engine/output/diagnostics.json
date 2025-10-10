@@ -1,0 +1,98 @@
+{
+  "notes": [
+    "✅ Generated 14 color shades",
+    "✅ Generated 9 typography sizes (ratio: 1.333)",
+    "✅ Generated 13 spacing values",
+    "✅ Grid: 12 columns, 60-120px"
+  ],
+  "audits": [
+    {
+      "check": "contrast-ratio",
+      "pass": false,
+      "details": {
+        "foreground": "oklch(100.00% 0.101 237.3)",
+        "background": "oklch(28.47% 0.089 237.3)",
+        "ratio": "1.94",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": true,
+      "details": {
+        "foreground": "oklch(92.47% 0.112 237.3)",
+        "background": "oklch(36.47% 0.101 237.3)",
+        "ratio": "9.58",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": true,
+      "details": {
+        "foreground": "oklch(84.47% 0.124 237.3)",
+        "background": "oklch(44.47% 0.112 237.3)",
+        "ratio": "4.57",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": true,
+      "details": {
+        "foreground": "oklch(76.47% 0.136 237.3)",
+        "background": "oklch(52.47% 0.124 237.3)",
+        "ratio": "9.29",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": true,
+      "details": {
+        "foreground": "oklch(68.47% 0.148 237.3)",
+        "background": "oklch(60.47% 0.136 237.3)",
+        "ratio": "4.31",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": false,
+      "details": {
+        "foreground": "oklch(28.47% 0.089 237.3)",
+        "background": "oklch(100.00% 0.101 237.3)",
+        "ratio": "1.94",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": true,
+      "details": {
+        "foreground": "oklch(36.47% 0.101 237.3)",
+        "background": "oklch(92.47% 0.112 237.3)",
+        "ratio": "9.58",
+        "level": "AA"
+      }
+    },
+    {
+      "check": "contrast-ratio",
+      "pass": true,
+      "details": {
+        "foreground": "oklch(44.47% 0.112 237.3)",
+        "background": "oklch(84.47% 0.124 237.3)",
+        "ratio": "4.57",
+        "level": "AA"
+      }
+    }
+  ],
+  "timings": {
+    "perception": 2.6558310000000063,
+    "synthesis": 0.7360919999999851,
+    "total": 3.7162979999999948,
+    "colorScientist": 0.8852770000000021,
+    "typographyArchitect": 0.8852770000000021,
+    "spatialEngineer": 0.8852770000000021
+  }
+}

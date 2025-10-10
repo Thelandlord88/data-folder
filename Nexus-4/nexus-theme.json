@@ -1,0 +1,173 @@
+{
+  "generated": "2025-10-10T03:18:27.064Z",
+  "concept": "NEXUS-4 Cosmic Intelligence Interface",
+  "colors": [
+    "#6366f1"
+  ],
+  "tokens": {
+    "color": {
+      "primary-50": "oklch(18.54% 0.122 277.1)",
+      "primary-100": "oklch(26.54% 0.139 277.1)",
+      "primary-200": "oklch(34.54% 0.155 277.1)",
+      "primary-300": "oklch(42.54% 0.171 277.1)",
+      "primary-400": "oklch(50.54% 0.188 277.1)",
+      "primary-500": "oklch(58.54% 0.204 277.1)",
+      "primary-600": "oklch(66.54% 0.188 277.1)",
+      "primary-700": "oklch(74.54% 0.171 277.1)",
+      "primary-800": "oklch(82.54% 0.155 277.1)",
+      "primary-900": "oklch(90.54% 0.139 277.1)",
+      "on-light": "#deef188",
+      "on-dark": "#0d-1330",
+      "light-bg": "#e7ed10b",
+      "dark-bg": "#10-194d"
+    },
+    "spacing": {
+      "0": 0,
+      "1": 0.125,
+      "2": 0.25,
+      "3": 0.375,
+      "4": 0.5,
+      "5": 0.625,
+      "6": 0.75,
+      "8": 1,
+      "10": 1.25,
+      "12": 1.5,
+      "16": 2,
+      "20": 2.5,
+      "24": 3
+    },
+    "typography": {
+      "xs": 6.11,
+      "sm": 9.89,
+      "base": 16,
+      "lg": 25.89,
+      "xl": 41.89,
+      "2xl": 67.77,
+      "3xl": 109.66,
+      "4xl": 177.42,
+      "5xl": 287.07
+    },
+    "breakpoints": {
+      "xs": 320,
+      "sm": 640,
+      "md": 768,
+      "lg": 1024,
+      "xl": 1280,
+      "2xl": 1536
+    },
+    "elevation": {
+      "none": "none",
+      "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "base": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      "md": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+      "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+      "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25)"
+    },
+    "animation": {
+      "duration-fast": "100ms",
+      "duration-base": "150ms",
+      "duration-slow": "300ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "css": "@theme {\n  /* Colors */\n  --color-primary-50: oklch(18.54% 0.122 277.1);\n  --color-primary-100: oklch(26.54% 0.139 277.1);\n  --color-primary-200: oklch(34.54% 0.155 277.1);\n  --color-primary-300: oklch(42.54% 0.171 277.1);\n  --color-primary-400: oklch(50.54% 0.188 277.1);\n  --color-primary-500: oklch(58.54% 0.204 277.1);\n  --color-primary-600: oklch(66.54% 0.188 277.1);\n  --color-primary-700: oklch(74.54% 0.171 277.1);\n  --color-primary-800: oklch(82.54% 0.155 277.1);\n  --color-primary-900: oklch(90.54% 0.139 277.1);\n  --color-on-light: #deef188;\n  --color-on-dark: #0d-1330;\n  --color-light-bg: #e7ed10b;\n  --color-dark-bg: #10-194d;\n\n  /* Typography */\n  --font-size-xs: 6.11px;\n  --font-size-sm: 9.89px;\n  --font-size-base: 16px;\n  --font-size-lg: 25.89px;\n  --font-size-xl: 41.89px;\n  --font-size-2xl: 67.77px;\n  --font-size-3xl: 109.66px;\n  --font-size-4xl: 177.42px;\n  --font-size-5xl: 287.07px;\n\n  /* Fluid Typography */\n  --font-size-xs-fluid: clamp(5.50px, 5.25px + 0.08vw, 6.72px);\n  --font-size-sm-fluid: clamp(8.90px, 8.51px + 0.12vw, 10.88px);\n  --font-size-base-fluid: clamp(14.40px, 13.76px + 0.20vw, 17.60px);\n  --font-size-lg-fluid: clamp(23.30px, 22.27px + 0.32vw, 28.48px);\n  --font-size-xl-fluid: clamp(37.70px, 36.03px + 0.52vw, 46.08px);\n  --font-size-2xl-fluid: clamp(60.99px, 58.28px + 0.85vw, 74.55px);\n  --font-size-3xl-fluid: clamp(98.69px, 94.31px + 1.37vw, 120.63px);\n  --font-size-4xl-fluid: clamp(159.68px, 152.58px + 2.22vw, 195.16px);\n  --font-size-5xl-fluid: clamp(258.36px, 246.88px + 3.59vw, 315.78px);\n\n  /* Line Heights */\n  --leading: 1.5;\n\n  /* Spacing */\n  --spacing-0: 0rem;\n  --spacing-1: 0.125rem;\n  --spacing-2: 0.25rem;\n  --spacing-3: 0.375rem;\n  --spacing-4: 0.5rem;\n  --spacing-5: 0.625rem;\n  --spacing-6: 0.75rem;\n  --spacing-8: 1rem;\n  --spacing-10: 1.25rem;\n  --spacing-12: 1.5rem;\n  --spacing-16: 2rem;\n  --spacing-20: 2.5rem;\n  --spacing-24: 3rem;\n\n  /* Breakpoints */\n  --breakpoint-xs: 320px;\n  --breakpoint-sm: 640px;\n  --breakpoint-md: 768px;\n  --breakpoint-lg: 1024px;\n  --breakpoint-xl: 1280px;\n  --breakpoint-2xl: 1536px;\n\n  /* Grid */\n  --grid-columns: 12;\n\n  /* Elevation (shadows) */\n  --shadow-none: none;\n  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n  --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);\n  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);\n  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);\n  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);\n\n  /* Animation */\n  --duration-fast: 100ms;\n  --duration-base: 150ms;\n  --duration-slow: 300ms;\n  --easing: cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n/* Utility Classes */\n.text-primary { color: var(--color-primary-500); }\n.bg-primary { background-color: var(--color-primary-500); }\n.border-primary { border-color: var(--color-primary-500); }",
+  "diagnostics": {
+    "notes": [
+      "✅ Generated 14 color shades",
+      "✅ Generated 9 typography sizes (ratio: 1.618)",
+      "✅ Generated 13 spacing values",
+      "✅ Grid: 12 columns, 60-120px"
+    ],
+    "audits": [
+      {
+        "check": "contrast-ratio",
+        "pass": true,
+        "details": {
+          "foreground": "oklch(90.54% 0.139 277.1)",
+          "background": "oklch(18.54% 0.122 277.1)",
+          "ratio": "12.05",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": true,
+        "details": {
+          "foreground": "oklch(82.54% 0.155 277.1)",
+          "background": "oklch(26.54% 0.139 277.1)",
+          "ratio": "7.54",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": false,
+        "details": {
+          "foreground": "oklch(74.54% 0.171 277.1)",
+          "background": "oklch(34.54% 0.155 277.1)",
+          "ratio": "4.17",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": false,
+        "details": {
+          "foreground": "oklch(66.54% 0.188 277.1)",
+          "background": "oklch(42.54% 0.171 277.1)",
+          "ratio": "2.12",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": false,
+        "details": {
+          "foreground": "oklch(58.54% 0.204 277.1)",
+          "background": "oklch(50.54% 0.188 277.1)",
+          "ratio": "1.40",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": true,
+        "details": {
+          "foreground": "oklch(18.54% 0.122 277.1)",
+          "background": "oklch(90.54% 0.139 277.1)",
+          "ratio": "12.05",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": true,
+        "details": {
+          "foreground": "oklch(26.54% 0.139 277.1)",
+          "background": "oklch(82.54% 0.155 277.1)",
+          "ratio": "7.54",
+          "level": "AAA"
+        }
+      },
+      {
+        "check": "contrast-ratio",
+        "pass": false,
+        "details": {
+          "foreground": "oklch(34.54% 0.155 277.1)",
+          "background": "oklch(74.54% 0.171 277.1)",
+          "ratio": "4.17",
+          "level": "AAA"
+        }
+      }
+    ],
+    "timings": {
+      "perception": 2.399456000000015,
+      "synthesis": 0.8363700000000165,
+      "total": 3.566051999999985,
+      "colorScientist": 0.7998186666666717,
+      "typographyArchitect": 0.7998186666666717,
+      "spatialEngineer": 0.7998186666666717
+    }
+  }
+}

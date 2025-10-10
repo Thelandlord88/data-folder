@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One N Done | Bond Cleaning Specialists</title>
+  <meta name="description" content="Drowning in moving-out problems? We bring the REIQ sheet. Professional bond cleaning services. Leave agent ready or free re-clean guarantee!">
+  <style>
+    /* CSS Engine Generated Theme - Cyan/Teal */
+    :root {
+      /* Colors - OKLCH from CSS Engine */
+      --color-primary: #0891b2;
+      --color-primary-light: #06b6d4;
+      --color-primary-dark: #0e7490;
+      --bg-dark: #1e293b;
+      --bg-darker: #0f172a;
+      --bg-card: #334155;
+      --text-white: #ffffff;
+      --text-light: #cbd5e1;
+      --text-muted: #94a3b8;
+      
+      /* Typography */
+      --font-size-xs: 12px;
+      --font-size-sm: 14px;
+      --font-size-base: 16px;
+      --font-size-lg: 18px;
+      --font-size-xl: 24px;
+      --font-size-2xl: 32px;
+      --font-size-3xl: 48px;
+      --font-size-4xl: 64px;
+      
+      /* Spacing */
+      --spacing-2: 0.5rem;
+      --spacing-3: 0.75rem;
+      --spacing-4: 1rem;
+      --spacing-6: 1.5rem;
+      --spacing-8: 2rem;
+      --spacing-12: 3rem;
+      --spacing-16: 4rem;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      color: var(--text-white);
+      background: var(--bg-darker);
+    }
+    
+    /* Header */
+    .header {
+      background: var(--bg-dark);
+      padding: var(--spacing-4) var(--spacing-6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      text-decoration: none;
+      color: var(--text-white);
+    }
+    
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    
+    .logo-text {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--text-white);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: var(--spacing-8);
+      list-style: none;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+    
+    .nav-cta {
+      background: var(--color-primary);
+      color: white;
+      padding: var(--spacing-3) var(--spacing-6);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+    }
+    
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-12);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-16) var(--spacing-6);
+      align-items: center;
+    }
+    
+    .hero-content h1 {
+      font-size: var(--font-size-3xl);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: var(--spacing-6);
+      color: var(--text-white);
+    }
+    
+    .hero-content p {
+      font-size: var(--font-size-lg);
+      color: var(--text-light);
+      margin-bottom: var(--spacing-2);
+      line-height: 1.7;
+    }
+    
+    .hero-emphasis {
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-6);
+      display: block;
+    }
+    
+    .hero-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-6);
+    }
+    
+    .hero-feature {
+      background: var(--bg-card);
+      padding: var(--spacing-4);
+      border-radius: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-3);
+    }
+    
+    .hero-feature-icon {
+      font-size: var(--font-size-xl);
+      flex-shrink: 0;
+    }
+    
+    .hero-feature-text {
+      flex: 1;
+    }
+    
+    .hero-feature strong {
+      display: block;
+      color: var(--text-white);
+      margin-bottom: var(--spacing-2);
+      font-size: var(--font-size-base);
+    }
+    
+    .hero-feature p {
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    .hero-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    
+    .hero-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-image-content {
+      text-align: center;
+      font-size: var(--font-size-4xl);
+      z-index: 2;
+      position: relative;
+    }
+    
+    .hero-badge {
+      position: absolute;
+      bottom: var(--spacing-6);
+      left: var(--spacing-6);
+      background: var(--color-primary);
+      color: white;
+      padding: var(--spacing-3) var(--spacing-4);
+      border-radius: 50px;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      z-index: 3;
+    }
+    
+    /* Promise Card */
+    .promise-card {
+      background: var(--bg-card);
+      border: 2px solid var(--color-primary);
+      border-radius: 16px;
+      padding: var(--spacing-6);
+      margin-top: var(--spacing-6);
+      text-align: center;
+      position: relative;
+    }
+    
+    .promise-badge {
+      background: var(--color-primary);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-2xl);
+      margin: -40px auto var(--spacing-4);
+    }
+    
+    .promise-card h3 {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-3);
+      color: var(--text-white);
+    }
+    
+    .promise-card p {
+      color: var(--text-light);
+      margin-bottom: var(--spacing-6);
+    }
+    
+    .promise-card .highlight {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+    
+    .cta-button {
+      background: var(--color-primary);
+      color: white;
+      padding: var(--spacing-4) var(--spacing-8);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: var(--font-size-lg);
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .cta-button:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(8, 145, 178, 0.4);
+    }
+    
+    /* Services Section */
+    .services {
+      background: var(--bg-dark);
+      padding: var(--spacing-16) var(--spacing-6);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--spacing-12);
+    }
+    
+    .section-badge {
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: var(--font-size-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--spacing-3);
+    }
+    
+    .section-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .section-description {
+      font-size: var(--font-size-lg);
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-6);
+    }
+    
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: var(--spacing-6);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(8, 145, 178, 0.2);
+    }
+    
+    .service-icon {
+      font-size: var(--font-size-3xl);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .service-card h3 {
+      font-size: var(--font-size-xl);
+      color: var(--text-white);
+      margin-bottom: var(--spacing-3);
+    }
+    
+    .service-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .service-price {
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: var(--font-size-lg);
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--bg-darker);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: var(--spacing-8) var(--spacing-6);
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-8);
+      margin-bottom: var(--spacing-6);
+      text-align: left;
+    }
+    
+    .footer-section h4 {
+      color: var(--text-white);
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: var(--spacing-2);
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-primary);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: var(--spacing-6);
+      margin-top: var(--spacing-6);
+      color: var(--text-muted);
+      font-size: var(--font-size-sm);
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-8) var(--spacing-4);
+      }
+      
+      .hero-image {
+        order: -1;
+      }
+      
+      .hero-content h1 {
+        font-size: var(--font-size-2xl);
+      }
+      
+      .hero-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <div class="logo-icon">🏠</div>
+        <span class="logo-text">One N Done</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#quote">Quote</a></li>
+      </ul>
+      <a href="#quote" class="nav-cta">Get a Quote</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Drowning in moving-out problems?</h1>
+      <p>Boxes everywhere, agents calling, deadlines looming.</p>
+      <p class="hero-emphasis">The last thing you need is <em>bond-clean panic</em>.</p>
+      
+      <div class="hero-features">
+        <div class="hero-feature">
+          <div class="hero-feature-icon">✓</div>
+          <div class="hero-feature-text">
+            <strong>No checklist headaches</strong>
+            <p>– we bring the REIQ sheet.</p>
+          </div>
+        </div>
+        
+        <div class="hero-feature">
+          <div class="hero-feature-icon">📱</div>
+          <div class="hero-feature-text">
+            <strong>Live status updates sent</strong>
+            <p>to your phone.</p>
+          </div>
+        </div>
+        
+        <div class="hero-feature">
+          <div class="hero-feature-icon">🔄</div>
+          <div class="hero-feature-text">
+            <strong>Free re-clean within 7 days</strong>
+            <p>if the agent isn't happy.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="promise-card">
+        <div class="promise-badge">🏆</div>
+        <h3>Our Moving-Day Promise</h3>
+        <p>Leave agent ready, or we'll come back <span class="highlight">free of charge</span>.</p>
+        <a href="#quote" class="cta-button">Get My Guaranteed Quote</a>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="hero-image-placeholder">
+        <div class="hero-image-content">
+          👨‍🦱<br>
+          🐕
+        </div>
+        <div class="hero-badge">
+          😎 Pro Bond Cleaner + Buddy
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Our Services</div>
+        <h2 class="section-title">End of Lease Cleaning Services</h2>
+        <p class="section-description">
+          Professional bond cleaning with REIQ checklist compliance. We guarantee your bond back.
+        </p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Full Bond Clean</h3>
+          <p>Complete property cleaning following REIQ standards. Guaranteed to pass inspection or we'll re-clean for free.</p>
+          <div class="service-price">From $299</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🪟</div>
+          <h3>Window Cleaning</h3>
+          <p>Crystal clear windows inside and out. Tracks, frames, and sills included. Essential for bond approval.</p>
+          <div class="service-price">From $89</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🛋️</div>
+          <h3>Carpet Steam Clean</h3>
+          <p>Professional steam cleaning removes deep stains and odors. REIQ compliant receipt provided.</p>
+          <div class="service-price">From $149</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🚿</div>
+          <h3>Bathroom Deep Clean</h3>
+          <p>Thorough sanitization of all bathroom surfaces. Grout cleaning, mold removal, and deodorizing included.</p>
+          <div class="service-price">From $129</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🍳</div>
+          <h3>Kitchen Detail Clean</h3>
+          <p>Oven, stovetop, range hood, and all cupboards. We remove grease and grime from every surface.</p>
+          <div class="service-price">From $149</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🌿</div>
+          <h3>Outdoor Areas</h3>
+          <p>Balcony, patio, and outdoor spaces cleaned. Cobwebs removed, floors swept and mopped.</p>
+          <div class="service-price">From $79</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>🏠 One N Done</h4>
+        <p style="color: var(--text-muted);">Professional bond cleaning specialists. We guarantee your bond back with our free re-clean promise.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#areas">Areas</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#quote">Get a Quote</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Full Bond Clean</a></li>
+          <li><a href="#services">Carpet Cleaning</a></li>
+          <li><a href="#services">Window Cleaning</a></li>
+          <li><a href="#services">Bathroom Cleaning</a></li>
+          <li><a href="#services">Kitchen Cleaning</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li>📞 1300 XXX XXX</li>
+          <li>✉️ info@onendonebondclean.com.au</li>
+          <li>📍 Brisbane, QLD</li>
+          <li>🕐 7 Days a Week</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 One N Done Bond Clean. All rights reserved. | Designed with CSS Engine (3.60ms generation) | REIQ Compliant Cleaning</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

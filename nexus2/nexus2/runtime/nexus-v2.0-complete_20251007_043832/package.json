@@ -1,0 +1,23 @@
+{
+  "name": "nexus-runtime",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "NEXUS Intelligence System - Production Runtime",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "demo:loader": "tsx nexus/demo-personality-loader.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lru-cache": "^11.2.2",
+    "ws": "^8.18.3",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.9.3"
+  }
+}
