@@ -9,7 +9,9 @@
  * This is the production-ready TypeScript engine that maintains all working features
  * while adding full type safety and maintainability.
  */
-import type { PersonalityData, CognitiveTrait } from './types/personality.types.js';
+import type { ComposedAgent, PersonalityTrait } from './types/personality.types';
+/**
+
 /**
  * Personality Trait - Core cognitive module
  */
@@ -143,11 +145,11 @@ export declare class TraitCompositionBridge {
         composedAgent: boolean;
         nexusEnhanced: boolean;
         traits: {
-            name: string;
-            personality: string;
+            name: any;
+            personality: any;
             relevance: number;
         }[];
-        traitApplications: string[];
+        traitApplications: any[];
         synergyScore: number;
         knowledgeDomains: string[];
         confidenceScore: number;
@@ -220,14 +222,10 @@ export declare class MultiPersonalityResponseGenerator {
         personalityUsed: string;
         composedAgent: boolean;
         nexusEnhanced: boolean;
-        traits: {
-            name: string;
-            personality: string;
-            expertise: number;
-        }[];
-        traitApplications: string[];
-        synergyScore: number;
-        knowledgeDomains: string[];
+        traits: any;
+        traitApplications: any;
+        synergyScore: any;
+        knowledgeDomains: unknown[];
         specialtyInsights: string[];
         confidenceScore: number;
         analysisDepth: string;

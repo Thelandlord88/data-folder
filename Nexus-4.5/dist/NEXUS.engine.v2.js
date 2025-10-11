@@ -9,6 +9,7 @@
  * This is the production-ready TypeScript engine that maintains all working features
  * while adding full type safety and maintainability.
  */
+import { PersonalityVentriloquist } from './PersonalityVentriloquist';
 /**
  * TraitIndexer - Indexes and searches cognitive traits across all personalities
  *
@@ -477,9 +478,7 @@ export class MultiPersonalityResponseGenerator {
     synthesizeMultiPersonalityResponse(request, agent) {
         const personalities = Array.from(agent.personalities);
         try {
-            // Import the Ventriloquist dynamically
-            const { PersonalityVentriloquist } = require('./src/PersonalityVentriloquist');
-            // Generate irresistible role-play instructions
+            // Use the Ventriloquist to generate irresistible role-play instructions
             return PersonalityVentriloquist.generateIrresistibleInstructions(request, personalities);
         }
         catch (error) {

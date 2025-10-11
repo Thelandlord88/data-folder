@@ -11,7 +11,7 @@
  */
 
 import type { AgentResponse, ComposedAgent, PersonalityProfile, PersonalityTrait } from './types/personality.types';
-import { PersonalityVentriloquist } from './src/PersonalityVentriloquist';
+import { PersonalityVentriloquist } from './PersonalityVentriloquist';
 
 /**
 
@@ -603,13 +603,10 @@ export class MultiPersonalityResponseGenerator {
    * Returns compelling instructions that make AI agents role-play personalities
    */
   private synthesizeMultiPersonalityResponse(request: string, agent: ComposedAgent): string {
-    const personalities = Array.from(agent.personalities);
+    const personalities = Array.from(agent.personalities) as string[];
     
     try {
-      // Import the Ventriloquist dynamically
-      const { PersonalityVentriloquist } = require('./src/PersonalityVentriloquist');
-      
-      // Generate irresistible role-play instructions
+      // Use the Ventriloquist to generate irresistible role-play instructions
       return PersonalityVentriloquist.generateIrresistibleInstructions(request, personalities);
       
     } catch (error) {

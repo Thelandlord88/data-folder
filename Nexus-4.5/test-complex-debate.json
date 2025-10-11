@@ -1,0 +1,5 @@
+{
+  "mode": "COMPOSE",
+  "request": "We need to analyze Python performance bottlenecks in our API integration layer while ensuring the system architecture scales. Should we use profiling first, optimize the integration patterns, or redesign the API contracts? I want technical debate!",
+  "maxTraits": 8
+}
