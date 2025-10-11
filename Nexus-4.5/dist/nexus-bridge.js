@@ -104,7 +104,7 @@ export class NexusBridge {
         // Inject problem decomposition pattern
         if (this.consciousness?.problemDecomposition) {
             // Enhance principles with systematic thinking
-            if ('ideology' in enhanced && enhanced.ideology && 'principles' in enhanced.ideology) {
+            if (enhanced && typeof enhanced === 'object' && 'ideology' in enhanced && enhanced.ideology && typeof enhanced.ideology === 'object' && 'principles' in enhanced.ideology) {
                 const principles = enhanced.ideology.principles;
                 enhanced.ideology.principles = [
                     ...principles,

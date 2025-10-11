@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Test NEXUS thoroughly. Write unit tests, integration tests, property-based tests. Mock dependencies, use pytest fixtures, achieve 100% coverage.",
+  "maxTraits": 5,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for Pythonista/Guardian",
+    "experimentName": "testing_quality"
+  }
+}

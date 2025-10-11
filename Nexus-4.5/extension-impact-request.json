@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Analyze the impact of installing these VS Code extensions on NEXUS development capabilities: Jupyter Notebooks, REST Client, Data Wrangler, Coverage Gutters, PostgreSQL, MongoDB, Redis Explorer, Python Test Explorer, Todo Tree, Pylint, Black Formatter, IntelliCode, Thunder Client, Markdown All in One. Explain specifically: (1) How each tool enhances NEXUS development, (2) What new capabilities we gain, (3) Performance improvements expected, (4) Development workflow improvements, (5) Which extensions synergize best together. Be specific and technical.",
+  "maxTraits": 8,
+  "context": {
+    "type": "strategic",
+    "situation": "Just installed 15+ new VS Code extensions - need expert analysis of capability improvements",
+    "strategicScope": "Development environment enhancement analysis"
+  }
+}

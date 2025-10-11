@@ -471,37 +471,34 @@ export class MultiPersonalityResponseGenerator {
         };
     }
     /**
-     * Synthesize response from multiple personality perspectives
+     * Synthesize response using Personality Ventriloquist trick
+     * Returns compelling instructions that make AI agents role-play personalities
      */
     synthesizeMultiPersonalityResponse(request, agent) {
         const personalities = Array.from(agent.personalities);
-        const { synergyScore } = agent;
-        let content = `### 🧬 Multi-Personality Composed Response\n\n`;
-        content += `**Request**: ${request}\n\n`;
-        content += `**Composed Agent**: ${personalities.join(' + ')}\n`;
-        content += `**Synergy Score**: ${(synergyScore * 100).toFixed(0)}%\n\n`;
-        content += `### 🎯 Trait Composition\n\n`;
-        let idx = 0;
-        for (const traitName of agent.traitsUsed) {
-            const trait = agent.traits.get(traitName);
-            idx++;
-            content += `${idx}. **${trait.name}** (${trait.personalityId})\n`;
-            content += `   - Expertise: ${trait.expertise}%\n`;
-            content += `   - ${trait.description}\n\n`;
+        try {
+            // Import the Ventriloquist dynamically
+            const { PersonalityVentriloquist } = require('./src/PersonalityVentriloquist');
+            // Generate irresistible role-play instructions
+            return PersonalityVentriloquist.generateIrresistibleInstructions(request, personalities);
         }
-        content += `### 💡 Integrated Analysis\n\n`;
-        content += `This response leverages cognitive capabilities from ${personalities.length} different personalities, `;
-        content += `creating a ${synergyScore >= 0.7 ? 'highly synergistic' : synergyScore >= 0.5 ? 'balanced' : 'diverse'} `;
-        content += `analytical framework.\n\n`;
-        content += `### 🔍 Multi-Perspective Insights\n\n`;
-        for (const traitName of agent.traitsUsed) {
-            const trait = agent.traits.get(traitName);
-            content += `**${trait.personalityId}'s ${trait.name}**:\n`;
-            content += `- Brings ${trait.knowledgeDomains.slice(0, 3).join(', ')} expertise\n`;
-            content += `- Activates on: ${trait.activationTriggers.slice(0, 4).join(', ')}\n\n`;
+        catch (error) {
+            console.error('❌ Ventriloquist failed:', error);
+            // Fallback that at least tries to get conversational content
+            return `🎭 **RESPOND AS THESE PERSONALITIES** 🎭
+
+Personalities: ${personalities.join(', ')}
+
+Question: "${request}"
+
+INSTRUCTIONS: Have these personalities discuss the question. Each should:
+- Speak in their unique voice
+- Provide specific advice
+- Disagree if perspectives differ
+- End with consensus
+
+BEGIN CONVERSATION NOW:`;
         }
-        content += `*This composed agent combines the best traits from multiple personalities for optimal task execution.*\n`;
-        return content;
     }
     /**
      * Extract specialty insights from composed agent

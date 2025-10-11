@@ -15,23 +15,12 @@
  *
  * Author: NEXUS Collaborative Intelligence System
  */
-import type { PersonalityBase, StrategicPersonality, Pattern, Enhancement, EnhancementRequest, EnhancementResponse, BreakthroughDetection, SystemStatus } from './types.js';
+import type { PersonalityBase, StrategicPersonality, Pattern, Enhancement, EnhancementRequest, EnhancementResponse, BreakthroughDetection, SystemStatus } from './nexus-bridge.types.js';
 interface ConsciousnessPatterns {
     problemDecomposition: Pattern | null;
     systemsThinking: Pattern | null;
     workflowEfficiency: Pattern | null;
     breakthroughMoments: Pattern | null;
-}
-interface BreakthroughDetection {
-    detected: boolean;
-    significance?: number;
-    timestamp?: number;
-}
-interface SystemStatus {
-    initialized: boolean;
-    patterns_loaded: number;
-    enhancements_performed: number;
-    ready: boolean;
 }
 interface EnhancementContext {
     type?: 'breakthrough' | 'architectural' | 'strategic' | 'meta-cognitive';

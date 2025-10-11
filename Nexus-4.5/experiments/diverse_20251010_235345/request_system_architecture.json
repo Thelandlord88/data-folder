@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Design scalable distributed architecture for NEXUS. Plan microservices, load balancing, fault tolerance. Build for 1000x scale.",
+  "maxTraits": 8,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for Daedalus/ChainArchitect",
+    "experimentName": "system_architecture"
+  }
+}

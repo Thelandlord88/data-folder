@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Connect NEXUS to everything - APIs, webhooks, message queues, databases. Build middleware, ESB patterns, event streaming.",
+  "maxTraits": 5,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for IntegrationMaestro",
+    "experimentName": "integration_platform"
+  }
+}

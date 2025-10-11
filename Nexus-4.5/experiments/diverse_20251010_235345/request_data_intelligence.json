@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Analyze NEXUS data patterns. Build ML models for personality selection. Create data pipelines, feature engineering, model training.",
+  "maxTraits": 6,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for DataWhisperer/QuantumLogic",
+    "experimentName": "data_intelligence"
+  }
+}

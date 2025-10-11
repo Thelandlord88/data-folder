@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "META-ANALYSIS REQUEST: We just completed a 60-minute integration sprint where we integrated cache/profiler into NEXUS and proved 1.5x speedup with 50% cache hit rate and sub-2ms responses. Now I want YOU (the composed NEXUS personalities) to have a DEEP DISCUSSION among yourselves about: (1) Quality of your own advice - did integrationmaestro, flash, pythonista, performancehawk, and atlas give GOOD strategic guidance? Were they on-task or generic? (2) The integration work - what did we do RIGHT? What could be BETTER? (3) NEXUS self-improvement - what features, personalities, or capabilities should we ADD to make NEXUS more powerful? (4) Communication patterns - do you notice any personalities being too generic vs specific? Be BRUTALLY HONEST about your own performance. This is a self-reflection exercise. I want to see personalities DEBATE and DISAGREE if needed. Give me the raw, unfiltered discussion.",
+  "maxTraits": 15,
+  "context": {
+    "type": "meta-analysis",
+    "situation": "Post-sprint reflection and system improvement brainstorming",
+    "requireDebate": true
+  }
+}

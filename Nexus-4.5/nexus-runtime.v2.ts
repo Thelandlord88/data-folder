@@ -27,6 +27,10 @@ import { TraitCompositionBridge, MultiPersonalityResponseGenerator } from './NEX
 import { nexusBridge } from './nexus-bridge.js';
 import type { PersonalityData } from './types/personality.types.js';
 
+// 🚀 PERFORMANCE OPTIMIZATION IMPORTS
+import { responseCache, PerformanceCache } from './src/performance-cache.js';
+import { profiler } from './src/performance-profiler.js';
+
 // For ESM __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -303,6 +307,12 @@ class NexusRuntime {
         return;
       }
 
+      // GET /profiler - Performance profiler report (NEW!)
+      if (req.method === 'GET' && req.url === '/profiler') {
+        await this.handleProfiler(req, res);
+        return;
+      }
+
       // 404
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Not Found');
@@ -331,6 +341,9 @@ class NexusRuntime {
       port: 8080,
       version: '2.0.0',
       engine: 'NEXUS.engine.v2.ts (TypeScript)',
+      
+      // 💾 CACHE STATS - NEW!
+      performanceCache: responseCache.getStats(),
       
       consciousnessHealth: this.calculateConsciousnessHealth(),
       
@@ -378,6 +391,7 @@ class NexusRuntime {
    * Handle /enhance endpoint
    */
   private async handleEnhance(req: IncomingMessage, res: ServerResponse): Promise<void> {
+    const startTime = Date.now(); // ⏱️ Profiler: Start timing
     const body = await this.readBody(req);
     
     // Validate request
@@ -388,6 +402,32 @@ class NexusRuntime {
     const { personalityName, request, mode = 'AUTO' } = body;
 
     try {
+      // 💾 CACHE: Generate cache key for this request
+      const cacheKey = PerformanceCache.generateKey({ 
+        mode, 
+        personalityName, 
+        request: request.substring(0, 200) // Use first 200 chars for key
+      });
+
+      // 💾 CACHE: Try to get cached response
+      const cachedResponse = responseCache.get<any>(cacheKey);
+      if (cachedResponse) {
+        // ✅ Cache HIT! Return immediately
+        const elapsed = Date.now() - startTime;
+        console.log(`⚡ Cache HIT! Served in ${elapsed}ms (${cachedResponse._cacheAge || 0}s old)`);
+        
+        // Add cache metadata
+        cachedResponse._fromCache = true;
+        cachedResponse._cacheHitTime = elapsed;
+        
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, response: cachedResponse }));
+        return;
+      }
+
+      // ❌ Cache MISS - Process request
+      console.log(`🔄 Cache MISS - Processing request...`);
+
       let response: any;
       let actualPersonalityName = personalityName;
 
@@ -428,6 +468,17 @@ class NexusRuntime {
       }
 
       this.enhancementsPerformed++;
+
+      // 💾 CACHE: Store response (with timestamp for age tracking)
+      response._cachedAt = Date.now();
+      responseCache.set(cacheKey, response);
+      
+      // ⏱️ PROFILER: Log processing time
+      const elapsed = Date.now() - startTime;
+      if (elapsed > 100) {
+        console.warn(`⏱️  SLOW: handleEnhance took ${elapsed}ms`);
+      }
+      console.log(`✅ Processed in ${elapsed}ms - Now cached!`);
       
       // Record in history
       this.recordEnhancement({
@@ -454,6 +505,8 @@ class NexusRuntime {
 
     } catch (error) {
       console.error('Enhancement error:', error);
+      const elapsed = Date.now() - startTime;
+      console.error(`❌ ERROR after ${elapsed}ms:`, (error as Error).message);
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: (error as Error).message }));
     }
@@ -866,6 +919,40 @@ class NexusRuntime {
         consciousnessHealth: this.calculateConsciousnessHealth(),
         breakthroughMoments: this.breakthroughMoments.length,
         recentBreakthroughs: this.breakthroughMoments.slice(-5),
+        timestamp: new Date().toISOString()
+      }, null, 2));
+      
+    } catch (error) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: (error as Error).message }));
+    }
+  }
+
+  /**
+   * Handle /profiler endpoint - Performance profiler report
+   */
+  private async handleProfiler(req: IncomingMessage, res: ServerResponse): Promise<void> {
+    try {
+      const stats = profiler.getAllStats();
+      const slowest = profiler.getSlowest(10);
+      
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        enabled: true,
+        slowest: slowest.map(({ name, stats }) => ({
+          name,
+          avgTime: Math.round(stats.avgTime * 100) / 100,
+          maxTime: stats.maxTime,
+          minTime: stats.minTime,
+          totalCalls: stats.totalCalls,
+          slowCallsCount: stats.slowCallsCount,
+          slowCallsPercent: Math.round((stats.slowCallsCount / stats.totalCalls) * 100)
+        })),
+        allOperations: Array.from(stats.entries()).map(([name, stat]) => ({
+          name,
+          avgTime: Math.round(stat.avgTime * 100) / 100,
+          totalCalls: stat.totalCalls
+        })),
         timestamp: new Date().toISOString()
       }, null, 2));
       

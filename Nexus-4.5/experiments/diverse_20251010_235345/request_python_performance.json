@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Optimize NEXUS Python code for maximum speed. Profile bottlenecks, implement Cython extensions, use async/await patterns. Make it blazing fast.",
+  "maxTraits": 7,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for Pythonista",
+    "experimentName": "python_performance"
+  }
+}

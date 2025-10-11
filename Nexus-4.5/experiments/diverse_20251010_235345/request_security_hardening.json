@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Secure NEXUS against vulnerabilities. Implement authentication, input validation, cryptography. Protect against injection attacks and exploits.",
+  "maxTraits": 6,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for Guardian/EthicsGuard",
+    "experimentName": "security_hardening"
+  }
+}

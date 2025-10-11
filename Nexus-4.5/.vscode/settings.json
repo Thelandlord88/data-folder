@@ -1,0 +1,67 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  
+  // Python Auto-Formatting
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  
+  // TypeScript/JavaScript Formatting
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  
+  // Python Analysis
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  
+  // Python Linting
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.lintOnSave": true,
+  
+  // Python Testing
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  
+  // Jupyter
+  "jupyter.askForKernelRestart": false,
+  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
+  
+  // Auto Save
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  
+  // File Associations
+  "files.associations": {
+    "*.http": "http"
+  },
+  
+  // Editor Settings
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.suggestSelection": "first",
+  "editor.inlineSuggest.enabled": true,
+  
+  // IntelliCode
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  
+  // Coverage Gutters
+  "coverage-gutters.showLineCoverage": true,
+  "coverage-gutters.showRulerCoverage": true,
+  
+  // Todo Tree
+  "todo-tree.general.tags": ["TODO", "FIXME", "HACK", "NOTE", "BUG"],
+  "todo-tree.highlights.enabled": true
+}

@@ -233,7 +233,8 @@ export declare class MultiPersonalityResponseGenerator {
         analysisDepth: string;
     };
     /**
-     * Synthesize response from multiple personality perspectives
+     * Synthesize response using Personality Ventriloquist trick
+     * Returns compelling instructions that make AI agents role-play personalities
      */
     private synthesizeMultiPersonalityResponse;
     /**

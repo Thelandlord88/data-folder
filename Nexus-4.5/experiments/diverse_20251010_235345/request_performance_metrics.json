@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Profile NEXUS performance. Measure latency, throughput, memory usage. Optimize hot paths, implement caching, reduce overhead.",
+  "maxTraits": 7,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for PerformanceHawk/Flash",
+    "experimentName": "performance_metrics"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Audit NEXUS-4.5 for gaps, blind spots, and missing intelligence. Verify all claims with evidence. Identify failure classes and create automated guards.",
+  "maxTraits": 4,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for Hunter",
+    "experimentName": "forensic_audit"
+  }
+}

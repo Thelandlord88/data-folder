@@ -10,6 +10,7 @@
  * Endpoints:
  * - GET /status - System status and health
  * - POST /enhance - Main personality enhancement
+ * - POST /design - CSS Engine (Design System Generation)
  * - POST /breakthrough - Report breakthrough moments
  * - POST /reload-consciousness - Hot reload patterns
  * - WebSocket /ws - Live updates

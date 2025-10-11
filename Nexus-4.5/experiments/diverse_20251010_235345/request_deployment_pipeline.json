@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Build CI/CD for NEXUS. Automate testing, build Docker images, deploy to Kubernetes. Create blue-green deployments with rollback.",
+  "maxTraits": 6,
+  "context": {
+    "type": "strategic",
+    "situation": "Specialized request for Forge",
+    "experimentName": "deployment_pipeline"
+  }
+}

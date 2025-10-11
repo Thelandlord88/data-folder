@@ -1,0 +1,10 @@
+{
+  "mode": "COMPOSE",
+  "request": "Analyze NEXUS-4.5 and suggest POWERFUL improvements to make it 10x-100x more capable. Focus on: Performance, Scalability, New Features, Integration, and Revolutionary Ideas. Be specific and actionable.",
+  "maxTraits": 5,
+  "context": {
+    "type": "strategic",
+    "situation": "Power improvement analysis - Creative thinkers: Visionary + Muse + Aria",
+    "experimentName": "creative_minds"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ms-toolsai.jupyter",
+    "ms-python.python",
+    "humao.rest-client",
+    "ms-toolsai.datawrangler",
+    "ckolkman.vscode-postgres",
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens",
+    "ryanluker.vscode-coverage-gutters",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}

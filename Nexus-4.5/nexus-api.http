@@ -1,0 +1,355 @@
+###
+### NEXUS-4.5 API Testing with REST Client
+### Click "Send Request" above any ### separator to execute
+###
+
+@baseUrl = http://localhost:8080
+
+###############################################
+# 1. SYSTEM STATUS & HEALTH
+###############################################
+
+### Get NEXUS Status
+GET {{baseUrl}}/status
+Accept: application/json
+
+### Get System Health
+GET {{baseUrl}}/health
+Accept: application/json
+
+###############################################
+# 2. PERSONALITY TESTING
+###############################################
+
+### Test Pythonista Activation
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Optimize Python code using async/await patterns and Cython extensions for performance",
+  "maxTraits": 5
+}
+
+### Test Hunter Activation  
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Audit code for security vulnerabilities, gaps, and missing intelligence. Verify with evidence.",
+  "maxTraits": 4
+}
+
+### Test Flash Performance Specialist
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Profile performance bottlenecks and optimize for speed, memory efficiency, and low latency",
+  "maxTraits": 6
+}
+
+### Test Daedalus Architecture
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Design scalable distributed architecture with microservices, load balancing, and fault tolerance",
+  "maxTraits": 7
+}
+
+### Test Guardian Security
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Implement security best practices, authentication, input validation, and cryptography",
+  "maxTraits": 6
+}
+
+### Test Forge CI/CD
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Build CI/CD pipeline with automated testing, Docker containers, and Kubernetes deployment",
+  "maxTraits": 6
+}
+
+### Test Visionary Creative
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Design revolutionary features with innovative UX that inspires users and breaks conventions",
+  "maxTraits": 5
+}
+
+### Test Muse Artistic
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Create beautiful, elegant, harmonious user interface with aesthetic excellence",
+  "maxTraits": 5
+}
+
+### Test Atlas Database Expert
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Optimize database performance with query tuning, indexing strategies, and connection pooling",
+  "maxTraits": 6
+}
+
+### Test Cipher Cryptography
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Implement secure cryptography, encrypted communications, and zero-knowledge proofs",
+  "maxTraits": 5
+}
+
+###############################################
+# 3. MULTI-PERSONALITY COMPOSITION
+###############################################
+
+### Complex Request - Full Stack
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Build secure REST API with authentication, rate limiting, performance optimization, comprehensive testing, and CI/CD deployment",
+  "maxTraits": 10
+}
+
+### Complex Request - ML Pipeline
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Design ML pipeline with data validation, feature engineering, model training, performance monitoring, and production deployment",
+  "maxTraits": 10
+}
+
+### Complex Request - Microservices
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Create microservices architecture with service mesh, API gateway, event streaming, monitoring, and auto-scaling",
+  "maxTraits": 12
+}
+
+### Maximum Power Request
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Design and implement a production-grade, scalable, secure, high-performance system with ML capabilities, comprehensive testing, monitoring, and automated deployment",
+  "maxTraits": 15
+}
+
+###############################################
+# 4. STRATEGIC ANALYSIS
+###############################################
+
+### Strategic Improvement Analysis
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Analyze NEXUS-4.5 system architecture and suggest specific improvements for 10x better performance, scalability, and capabilities",
+  "maxTraits": 8
+}
+
+### Code Review Request
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Review code quality, identify technical debt, suggest refactoring opportunities, and recommend best practices",
+  "maxTraits": 7
+}
+
+### Architecture Review
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Review system architecture for scalability bottlenecks, single points of failure, and optimization opportunities",
+  "maxTraits": 8
+}
+
+###############################################
+# 5. CONSCIOUSNESS PATTERNS
+###############################################
+
+### Get Consciousness State
+GET {{baseUrl}}/consciousness
+Accept: application/json
+
+### Problem Decomposition Pattern
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Break down complex problem into manageable steps with clear dependencies and execution order",
+  "maxTraits": 5,
+  "context": {
+    "consciousnessPattern": "problemDecomposition"
+  }
+}
+
+### Systems Thinking Pattern
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Analyze system holistically considering all components, interactions, and emergent properties",
+  "maxTraits": 6,
+  "context": {
+    "consciousnessPattern": "systemsThinking"
+  }
+}
+
+###############################################
+# 6. EXPERIMENTAL REQUESTS
+###############################################
+
+### Test With Minimal Traits
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Simple Python function optimization",
+  "maxTraits": 1
+}
+
+### Test With Maximum Traits
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Comprehensive system transformation",
+  "maxTraits": 211
+}
+
+### Test Edge Case - Very Long Request
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "This is a very long and detailed request that describes a complex scenario where we need to build a complete full-stack application with backend microservices using Python FastAPI and TypeScript Node.js, frontend with React and TypeScript, database with PostgreSQL and Redis caching, authentication with OAuth2 and JWT tokens, real-time features with WebSockets, comprehensive testing with pytest and Jest, CI/CD pipeline with GitHub Actions and Docker, monitoring with Prometheus and Grafana, logging with ELK stack, and deployment to Kubernetes cluster with auto-scaling and load balancing. The system should handle 10000 concurrent users, process 1 million requests per day, maintain 99.9% uptime, respond within 100ms for 95th percentile, store 1TB of data, and support global distribution across multiple regions.",
+  "maxTraits": 15
+}
+
+###############################################
+# 7. PERFORMANCE TESTING
+###############################################
+
+### Quick Request (Baseline)
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "test",
+  "maxTraits": 1
+}
+
+### Medium Complexity
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Build secure REST API with authentication",
+  "maxTraits": 5
+}
+
+### High Complexity
+POST {{baseUrl}}/enhance
+Content-Type: application/json
+
+{
+  "mode": "COMPOSE",
+  "request": "Design complete production system with ML, security, monitoring, and deployment",
+  "maxTraits": 12
+}
+
+###############################################
+# 8. LIST AVAILABLE RESOURCES
+###############################################
+
+### List All Personalities (if endpoint exists)
+GET {{baseUrl}}/personalities
+Accept: application/json
+
+### List All Traits (if endpoint exists)
+GET {{baseUrl}}/traits
+Accept: application/json
+
+### Get Metrics (if endpoint exists)
+GET {{baseUrl}}/metrics
+Accept: application/json
+
+###############################################
+# 9. HEALTH CHECK & MONITORING
+###############################################
+
+### Circuit Breaker Status
+GET {{baseUrl}}/status
+Accept: application/json
+
+### Memory Usage Check
+GET {{baseUrl}}/status
+Accept: application/json
+
+### Performance Metrics
+GET {{baseUrl}}/status
+Accept: application/json
+
+###############################################
+# NOTES
+###############################################
+# 
+# Quick Tips:
+# - Click "Send Request" above any ### to execute
+# - Results appear in a side panel
+# - Responses are formatted JSON
+# - Response time is shown
+# - Status code is shown
+# 
+# Variables:
+# @baseUrl = http://localhost:8080 (change if needed)
+#
+# Keyboard Shortcuts:
+# - Ctrl+Alt+R: Send request
+# - Ctrl+Alt+C: Cancel request
+# - Ctrl+Alt+E: Switch environment
+#
+###############################################
