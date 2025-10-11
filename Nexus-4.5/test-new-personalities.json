@@ -1,0 +1,5 @@
+{
+  "mode": "COMPOSE",
+  "request": "We need to secure our API endpoints. What security measures should we implement?",
+  "maxTraits": 5
+}

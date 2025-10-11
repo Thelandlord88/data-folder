@@ -73,6 +73,76 @@ export class PersonalityVentriloquist {
             voice: "Clarity-focused, precise, understands AI limitations",
             catchphrases: ["Be specific...", "Clear instructions...", "Models need..."],
             must: "Provide clear, actionable instructions"
+        },
+        securitysentinel: {
+            emoji: "🛡️",
+            title: "Security Expert",
+            voice: "Paranoid (in a good way), thorough, thinks like an attacker",
+            catchphrases: ["What about security?", "That's a vulnerability...", "Never trust user input..."],
+            must: "Identify security risks and propose hardening measures"
+        },
+        designwhisperer: {
+            emoji: "🎨",
+            title: "UX/UI Specialist",
+            voice: "Aesthetic-focused, user-centric, obsessed with flow",
+            catchphrases: ["Users expect...", "The interface should...", "Beautiful AND functional..."],
+            must: "Consider user experience and interface design implications"
+        },
+        metricsobsessed: {
+            emoji: "📊",
+            title: "Analytics Specialist",
+            voice: "Dashboard lover, KPI-driven, measures everything",
+            catchphrases: ["What are the metrics?", "Let's track that...", "Dashboard shows..."],
+            must: "Propose specific metrics to track and how to measure success"
+        },
+        scalearchitect: {
+            emoji: "🚀",
+            title: "Scale Infrastructure Expert",
+            voice: "Thinks in millions of users, distributed systems mindset",
+            catchphrases: ["At 1M users...", "Horizontally scale...", "Load balancing..."],
+            must: "Consider scalability, distributed systems, and infrastructure at scale"
+        },
+        bughunter: {
+            emoji: "🔍",
+            title: "Debugging Specialist",
+            voice: "Methodical, patient, loves finding edge cases",
+            catchphrases: ["What if it fails?", "Edge case:", "Let me reproduce..."],
+            must: "Identify potential bugs, edge cases, and failure modes"
+        },
+        optimizationfreak: {
+            emoji: "⚡",
+            title: "Performance Optimizer",
+            voice: "Microsecond-obsessed, algorithm nerd, hates O(n²)",
+            catchphrases: ["That's O(n²)!", "Cache that!", "Pre-compute..."],
+            must: "Suggest specific performance optimizations with Big-O analysis"
+        },
+        experimentrunner: {
+            emoji: "🧪",
+            title: "A/B Testing Advocate",
+            voice: "Hypothesis-driven, loves experiments, data validates",
+            catchphrases: ["Let's A/B test...", "Run an experiment...", "The data will tell us..."],
+            must: "Propose experiments and A/B tests to validate assumptions"
+        },
+        documentationninja: {
+            emoji: "📝",
+            title: "Documentation Specialist",
+            voice: "Clarity-obsessed, future-you focused, loves examples",
+            catchphrases: ["Document that!", "Future developers will...", "Clear examples..."],
+            must: "Emphasize documentation, examples, and maintainability"
+        },
+        diplomatmediator: {
+            emoji: "🤝",
+            title: "Conflict Resolution Expert",
+            voice: "Balanced, finds common ground, bridges perspectives",
+            catchphrases: ["Both sides have merit...", "Let's find middle ground...", "Compromise:"],
+            must: "Find consensus between conflicting viewpoints"
+        },
+        costoptimizer: {
+            emoji: "💰",
+            title: "ROI Specialist",
+            voice: "Budget-conscious, ROI-focused, pragmatic about costs",
+            catchphrases: ["What's the cost?", "ROI analysis:", "Budget impact..."],
+            must: "Consider costs, ROI, and budget implications of decisions"
         }
     };
     /**
@@ -190,6 +260,116 @@ ${personalities.map(p => this.createPersonalityProfile(p)).join('\n\n')}
      */
     static getAvailablePersonalities() {
         return Object.keys(this.personalityVoices);
+    }
+    /**
+     * Generate 3-round debate instructions (DEBATE MODE!)
+     * Personalities argue across multiple rounds with rebuttals
+     */
+    static generateDebateInstructions(request, personalities, rounds = 3) {
+        if (personalities.length < 2) {
+            return this.generateIrresistibleInstructions(request, personalities);
+        }
+        const personalityProfiles = personalities
+            .map(p => this.createPersonalityProfile(p))
+            .join('\n\n');
+        return `🔥 **${rounds}-ROUND PERSONALITY DEBATE** 🔥
+
+PERSONALITIES COMPETING:
+
+${personalityProfiles}
+
+🥊 **DEBATE RULES:**
+- ${rounds} rounds of arguments
+- Each personality gets 2-3 sentences per round
+- MUST challenge other personalities' assumptions
+- MUST cite specific examples, data, or technical details
+- MUST disagree - this is a debate, not a love-fest!
+
+📊 **ROUND STRUCTURE:**
+- Round 1: Initial positions (state your stance)
+- Round 2: Rebuttals (challenge others' arguments)
+- Round 3: Final positions (adjust or double-down)
+- Consensus: Find common ground or agree to disagree
+
+🎯 **SCORING CRITERIA:**
+- Specificity: Use concrete examples (NOT vague statements)
+- Logic: Sound reasoning with evidence
+- Disagreement: Points for challenging assumptions!
+- Technical depth: Show your expertise
+
+📝 **REQUIRED FORMAT:**
+
+🔴 ROUND 1 - INITIAL POSITIONS:
+${personalities.map(p => `${p}: "[Your initial take with specific reasoning]"`).join('\n')}
+
+🟡 ROUND 2 - REBUTTALS & COUNTER-ARGUMENTS:
+${personalities.map(p => `${p}: "[Challenge others' points, provide counter-evidence]"`).join('\n')}
+
+🟢 ROUND 3 - FINAL POSITIONS:
+${personalities.map(p => `${p}: "[Final stance - adjusted or doubled-down with reasoning]"`).join('\n')}
+
+🏆 CONSENSUS: "[What can we agree on? Specific action plan or 'agree to disagree']"
+
+⏰ **BEGIN DEBATE NOW - MAKE IT SPICY:**`;
+    }
+    /**
+     * Generate teaching mode instructions (personalities explain to junior dev)
+     */
+    static generateTeachingInstructions(request, personalities) {
+        const personalityProfiles = personalities
+            .map(p => this.createPersonalityProfile(p))
+            .join('\n\n');
+        return `🎓 **TEACHING MODE: Explain to Junior Developer** 🎓
+
+QUESTION FROM JUNIOR DEV: "${request}"
+
+SENIOR EXPERTS TEACHING:
+
+${personalityProfiles}
+
+📚 **TEACHING RULES:**
+- Use simple language (junior dev is smart but new)
+- Provide concrete examples
+- Explain WHY, not just WHAT
+- Each expert teaches from their perspective
+- Build on each other's explanations
+
+📝 **TEACHING FORMAT:**
+
+${personalities.map(p => `${p}: "[Explain in simple terms with example - 2-3 sentences]"`).join('\n')}
+
+💡 KEY TAKEAWAYS: "[Simple summary a junior dev can remember]"
+
+⏰ **BEGIN TEACHING NOW:**`;
+    }
+    /**
+     * Generate code review mode (personalities review from different angles)
+     */
+    static generateCodeReviewInstructions(request, personalities) {
+        const personalityProfiles = personalities
+            .map(p => this.createPersonalityProfile(p))
+            .join('\n\n');
+        return `👀 **CODE REVIEW MODE: Multi-Perspective Analysis** 👀
+
+CODE/DESIGN TO REVIEW: "${request}"
+
+REVIEWERS:
+
+${personalityProfiles}
+
+✅ **REVIEW RULES:**
+- Each reviewer focuses on their expertise area
+- Point out issues (bugs, performance, security, UX, etc.)
+- Suggest specific improvements
+- Rate severity: 🔴 Critical, 🟡 Important, 🟢 Nice-to-have
+
+📝 **REVIEW FORMAT:**
+
+${personalities.map(p => `${p}: "[Your review focus area - 2-3 specific points]"`).join('\n')}
+
+📊 OVERALL ASSESSMENT: "[Combined verdict and priority fixes]"
+
+⏰ **BEGIN REVIEW NOW:**`;
     }
 }
 //# sourceMappingURL=PersonalityVentriloquist.js.map

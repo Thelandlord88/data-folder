@@ -47,5 +47,18 @@ export declare class PersonalityVentriloquist {
      * Get all registered personality names
      */
     static getAvailablePersonalities(): string[];
+    /**
+     * Generate 3-round debate instructions (DEBATE MODE!)
+     * Personalities argue across multiple rounds with rebuttals
+     */
+    static generateDebateInstructions(request: string, personalities: string[], rounds?: number): string;
+    /**
+     * Generate teaching mode instructions (personalities explain to junior dev)
+     */
+    static generateTeachingInstructions(request: string, personalities: string[]): string;
+    /**
+     * Generate code review mode (personalities review from different angles)
+     */
+    static generateCodeReviewInstructions(request: string, personalities: string[]): string;
 }
 //# sourceMappingURL=PersonalityVentriloquist.d.ts.map
