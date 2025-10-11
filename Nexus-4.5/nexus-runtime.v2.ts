@@ -313,6 +313,12 @@ class NexusRuntime {
         return;
       }
 
+      // GET /stream-debate - Server-Sent Events streaming debate (WEEK 2 FEATURE!)
+      if (req.method === 'GET' && req.url?.startsWith('/stream-debate')) {
+        await this.handleStreamDebate(req, res);
+        return;
+      }
+
       // 404
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Not Found');
@@ -1155,6 +1161,51 @@ class NexusRuntime {
         breakthroughCapture
       }
     };
+  }
+
+  /**
+   * 🎭 STREAMING DEBATE HANDLER - WEEK 2 FEATURE!
+   * Server-Sent Events endpoint for real-time personality streaming
+   */
+  private async handleStreamDebate(req: IncomingMessage, res: ServerResponse): Promise<void> {
+    // Parse query parameters
+    const url = new URL(req.url || '', `http://${req.headers.host}`);
+    const request = url.searchParams.get('request') || 'Default debate topic';
+    const personalitiesParam = url.searchParams.get('personalities') || 'flash,pythonista,bughunter';
+    const personalities = personalitiesParam.split(',').map(p => p.trim());
+    const rounds = parseInt(url.searchParams.get('rounds') || '3', 10);
+
+    // Set up Server-Sent Events
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+      'Access-Control-Allow-Origin': '*'
+    });
+
+    try {
+      // Import StreamingVentriloquist
+      const { StreamingVentriloquist } = await import('./StreamingVentriloquist.js');
+
+      // Stream the debate
+      for await (const chunk of StreamingVentriloquist.streamDebate({
+        request,
+        personalities,
+        rounds
+      })) {
+        // Send as SSE format
+        res.write(`data: ${JSON.stringify(chunk)}\n\n`);
+      }
+
+      // Close the stream
+      res.write('data: {"type":"complete"}\n\n');
+      res.end();
+
+    } catch (error) {
+      console.error('❌ Streaming failed:', error);
+      res.write(`data: ${JSON.stringify({ type: 'error', message: 'Streaming failed' })}\n\n`);
+      res.end();
+    }
   }
 
   /**

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🥊 NEXUS Streaming Debate Mode - LIVE!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    .controls {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .debate-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      min-height: 400px;
+    }
+
+    .chunk {
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chunk-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .chunk-thinking {
+      background: #fff3cd;
+      color: #856404;
+      border-left: 4px solid #ffc107;
+    }
+
+    .chunk-content {
+      background: #e7f3ff;
+      color: #004085;
+      border-left: 4px solid #0066cc;
+    }
+
+    .chunk-round {
+      background: #f8f9fa;
+      color: #495057;
+      font-weight: 600;
+      font-size: 1.1em;
+      border-left: 4px solid #6c757d;
+    }
+
+    .chunk-consensus {
+      background: #d4edda;
+      color: #155724;
+      border-left: 4px solid #28a745;
+      font-weight: 600;
+    }
+
+    .chunk-complete {
+      background: #d1ecf1;
+      color: #0c5460;
+      border-left: 4px solid #17a2b8;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .status {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .status-streaming {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-complete {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🥊 NEXUS Streaming Debate Mode</h1>
+      <p class="subtitle">Watch personalities debate in real-time! Week 2 Feature - Implemented Early! ⚡</p>
+    </div>
+
+    <div class="controls">
+      <div class="form-group">
+        <label for="question">Debate Question:</label>
+        <textarea id="question" placeholder="Enter your controversial question...">Should we prioritize SPEED (ship fast, iterate) or QUALITY (thorough testing, robust code) in software development?</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="personalities">Personalities (comma-separated):</label>
+        <input type="text" id="personalities" value="flash,pythonista,bughunter" placeholder="flash,pythonista,bughunter">
+      </div>
+
+      <div class="form-group">
+        <label for="rounds">Number of Rounds:</label>
+        <select id="rounds">
+          <option value="2">2 Rounds</option>
+          <option value="3" selected>3 Rounds</option>
+          <option value="4">4 Rounds</option>
+          <option value="5">5 Rounds</option>
+        </select>
+      </div>
+
+      <button id="startBtn" onclick="startDebate()">🚀 Start Debate</button>
+      <button id="stopBtn" onclick="stopDebate()" style="display: none; background: #dc3545;">⏹️ Stop</button>
+    </div>
+
+    <div class="debate-container">
+      <div id="output"></div>
+      <div id="status"></div>
+    </div>
+  </div>
+
+  <script>
+    let eventSource = null;
+
+    function startDebate() {
+      const question = document.getElementById('question').value;
+      const personalities = document.getElementById('personalities').value;
+      const rounds = document.getElementById('rounds').value;
+
+      // Clear output
+      document.getElementById('output').innerHTML = '';
+      document.getElementById('status').innerHTML = '';
+
+      // Disable start button
+      document.getElementById('startBtn').disabled = true;
+      document.getElementById('stopBtn').style.display = 'inline-block';
+
+      // Build URL
+      const url = `http://localhost:8080/stream-debate?request=${encodeURIComponent(question)}&personalities=${encodeURIComponent(personalities)}&rounds=${rounds}`;
+
+      // Create EventSource
+      eventSource = new EventSource(url);
+
+      // Show status
+      showStatus('🎭 Debate streaming...', 'streaming');
+
+      eventSource.onmessage = (event) => {
+        const chunk = JSON.parse(event.data);
+        
+        if (chunk.type === 'complete') {
+          stopDebate();
+          showStatus('✅ Debate complete!', 'complete');
+          return;
+        }
+
+        displayChunk(chunk);
+      };
+
+      eventSource.onerror = (error) => {
+        console.error('SSE error:', error);
+        stopDebate();
+        showStatus('❌ Stream error occurred', 'error');
+      };
+    }
+
+    function stopDebate() {
+      if (eventSource) {
+        eventSource.close();
+        eventSource = null;
+      }
+      document.getElementById('startBtn').disabled = false;
+      document.getElementById('stopBtn').style.display = 'none';
+    }
+
+    function displayChunk(chunk) {
+      const output = document.getElementById('output');
+      
+      let className = 'chunk';
+      let content = chunk.content || '';
+
+      switch (chunk.type) {
+        case 'header':
+          className += ' chunk-header';
+          break;
+        case 'personality-thinking':
+          className += ' chunk-thinking';
+          break;
+        case 'content':
+          className += ' chunk-content';
+          // Append to last content chunk if it exists and is from same personality
+          const lastChunk = output.lastElementChild;
+          if (lastChunk && lastChunk.classList.contains('chunk-content') && 
+              lastChunk.dataset.personality === chunk.personality) {
+            lastChunk.textContent += content;
+            return; // Don't create new div
+          }
+          break;
+        case 'round-start':
+          className += ' chunk-round';
+          break;
+        case 'consensus':
+          className += ' chunk-consensus';
+          // Append consensus text
+          const lastConsensus = output.lastElementChild;
+          if (lastConsensus && lastConsensus.classList.contains('chunk-consensus')) {
+            lastConsensus.textContent += content;
+            return;
+          }
+          break;
+        case 'debate-complete':
+          className += ' chunk-complete';
+          break;
+      }
+
+      const div = document.createElement('div');
+      div.className = className;
+      div.textContent = content;
+      div.dataset.personality = chunk.personality || '';
+      
+      output.appendChild(div);
+      div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function showStatus(message, type) {
+      const status = document.getElementById('status');
+      status.className = `status status-${type}`;
+      status.textContent = message;
+    }
+  </script>
+</body>
+</html>
