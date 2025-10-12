@@ -319,6 +319,41 @@ class NexusRuntime {
         return;
       }
 
+      // GET /layout-tokens.css - Layout CSS tokens (SPRINT 4 FEATURE!)
+      if (req.method === 'GET' && req.url?.startsWith('/layout-tokens.css')) {
+        const { getLayoutTokensCSS } = await import('./src/endpoints/layout-tokens.js');
+        await getLayoutTokensCSS(req, res);
+        return;
+      }
+
+      // POST /api/layout/matrix - Generate layout matrix (SPRINT 4 FEATURE!)
+      if (req.method === 'POST' && req.url === '/api/layout/matrix') {
+        const { generateLayoutMatrix } = await import('./src/endpoints/layout-tokens.js');
+        await generateLayoutMatrix(req, res);
+        return;
+      }
+
+      // GET /preview - HTML preview page with AI-readable metadata (SPRINT 4 FEATURE!)
+      if (req.method === 'GET' && req.url?.startsWith('/preview')) {
+        const { getPreviewPage } = await import('./src/endpoints/preview.js');
+        await getPreviewPage(req, res);
+        return;
+      }
+
+      // GET /test-layout - Structured JSON test results (SPRINT 4 FEATURE!)
+      if (req.method === 'GET' && req.url?.startsWith('/test-layout')) {
+        const { testLayoutSystem } = await import('./src/endpoints/preview.js');
+        await testLayoutSystem(req, res);
+        return;
+      }
+
+      // GET /demo/bond-cleaning - Live demo with NEXUS tokens (SPRINT 4 DEMO!)
+      if (req.method === 'GET' && req.url?.startsWith('/demo/bond-cleaning')) {
+        const { getBondCleaningDemo } = await import('./src/endpoints/bond-cleaning-demo.js');
+        await getBondCleaningDemo(req, res);
+        return;
+      }
+
       // 404
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Not Found');
@@ -416,7 +451,7 @@ class NexusRuntime {
       });
 
       // 💾 CACHE: Try to get cached response
-      const cachedResponse = responseCache.get<any>(cacheKey);
+      const cachedResponse = responseCache.get(cacheKey);
       if (cachedResponse) {
         // ✅ Cache HIT! Return immediately
         const elapsed = Date.now() - startTime;

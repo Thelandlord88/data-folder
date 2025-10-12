@@ -1,0 +1,5 @@
+{
+  "mode": "COMPOSE",
+  "request": "CRITICAL REVIEW: Analyze our NEXUS CSS Engine and tell us what you REALLY think. Be brutally honest! What's brilliant? What's missing? What would make it 10x better? We have: ColorScientist (OKLCH color generation), TypographyArchitect (Golden ratio typography), SpatialArchitect (spacing systems), DesignSystemArchitect (orchestrates everything). It generates complete design systems in 3-5ms. What are your thoughts? What improvements would you prioritize?",
+  "maxTraits": 8
+}

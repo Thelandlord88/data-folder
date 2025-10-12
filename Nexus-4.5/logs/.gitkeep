@@ -1,0 +1,10 @@
+# Log Directory
+
+This directory stores NEXUS runtime logs when running in background mode.
+
+## Files Generated Here
+- `nexus.log` - Main application log (stdout/stderr)
+- `nexus.pid` - Process ID file for background process tracking
+
+## Retention
+Logs are rotated/cleaned manually. See `docs/runbooks/STARTUP.md` for log management.

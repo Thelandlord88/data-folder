@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-10-11T23:24:51.854Z",
+  "summary": {
+    "totalIssues": 0,
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0,
+    "passed": 0
+  },
+  "tests": [
+    {
+      "test": "typography",
+      "passed": false,
+      "message": "2 font sizes below 16px minimum",
+      "details": {
+        "minSize": 16,
+        "tooSmall": [
+          9,
+          12
+        ]
+      }
+    },
+    {
+      "test": "spacing",
+      "passed": true,
+      "message": "Spacing scale is consistent and accessible",
+      "details": {
+        "count": 13
+      }
+    },
+    {
+      "test": "layout",
+      "passed": false,
+      "message": "Insufficient responsive breakpoints",
+      "details": {
+        "breakpoints": 0
+      }
+    }
+  ],
+  "colorPairs": [],
+  "recommendations": [
+    {
+      "severity": "moderate",
+      "category": "typography",
+      "message": "Some font sizes below recommended minimum",
+      "action": "Increase font sizes to at least 16px for body text"
+    },
+    {
+      "severity": "info",
+      "category": "general",
+      "message": "Design system passes all automated accessibility checks",
+      "action": "Continue manual testing with screen readers and keyboard navigation"
+    }
+  ]
+}

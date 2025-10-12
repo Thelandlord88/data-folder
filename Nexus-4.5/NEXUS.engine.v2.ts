@@ -10,7 +10,7 @@
  * while adding full type safety and maintainability.
  */
 
-import type { AgentResponse, ComposedAgent, PersonalityProfile, PersonalityTrait } from './types/personality.types';
+import type { PersonalityData, CognitiveTrait } from './types/personality.types.js';
 import { PersonalityVentriloquist } from './PersonalityVentriloquist';
 
 /**
@@ -103,25 +103,25 @@ export class TraitIndexer {
     let traitCount = 0;
 
     for (const [personalityId, personality] of this.personalities.entries()) {
-      if (personality.cognitiveTraits) {
-        const traits = Object.entries(personality.cognitiveTraits);
+      const traits = Object.entries(personality.cognitiveTraits ?? {}) as Array<[string, CognitiveTrait]>;
 
-        for (const [traitKey, trait] of traits) {
-          const traitName = trait.name;
-          traitCount++;
+      for (const [, trait] of traits) {
+        const traitName = trait.name;
+        traitCount++;
 
-          if (!this.traitIndex.has(traitName)) {
-            this.traitIndex.set(traitName, []);
-          }
-
-          this.traitIndex.get(traitName)!.push({
-            ...trait,
-            personalityId,
-            activationTriggers: trait.activationTriggers || [],
-            knowledgeDomains: trait.knowledgeDomains || [],
-            expertise: trait.expertise || 50
-          });
+        if (!this.traitIndex.has(traitName)) {
+          this.traitIndex.set(traitName, []);
         }
+
+        const enrichedTrait: PersonalityTrait = {
+          ...trait,
+          personalityId,
+          activationTriggers: trait.activationTriggers ?? [],
+          knowledgeDomains: trait.knowledgeDomains ?? [],
+          expertise: trait.expertise ?? 50,
+        };
+
+        this.traitIndex.get(traitName)!.push(enrichedTrait);
       }
     }
 
@@ -136,26 +136,27 @@ export class TraitIndexer {
     const uniqueTriggers = new Set<string>();
 
     for (const [personalityId, personality] of this.personalities.entries()) {
-      if (personality.cognitiveTraits) {
-        for (const [traitKey, trait] of Object.entries(personality.cognitiveTraits)) {
-          if (trait.activationTriggers) {
-            for (const trigger of trait.activationTriggers) {
-              const normalizedTrigger = trigger.toLowerCase();
-              uniqueTriggers.add(normalizedTrigger);
+      const traits = Object.entries(personality.cognitiveTraits ?? {}) as Array<[string, CognitiveTrait]>;
 
-              if (!this.triggerIndex.has(normalizedTrigger)) {
-                this.triggerIndex.set(normalizedTrigger, []);
-              }
+      for (const [, trait] of traits) {
+        const triggers = trait.activationTriggers ?? [];
+        for (const trigger of triggers) {
+          const normalizedTrigger = trigger.toLowerCase();
+          uniqueTriggers.add(normalizedTrigger);
 
-              this.triggerIndex.get(normalizedTrigger)!.push({
-                ...trait,
-                personalityId,
-                activationTriggers: trait.activationTriggers || [],
-                knowledgeDomains: trait.knowledgeDomains || [],
-                expertise: trait.expertise || 50
-              });
-            }
+          if (!this.triggerIndex.has(normalizedTrigger)) {
+            this.triggerIndex.set(normalizedTrigger, []);
           }
+
+          const enrichedTrait: PersonalityTrait = {
+            ...trait,
+            personalityId,
+            activationTriggers: triggers,
+            knowledgeDomains: trait.knowledgeDomains ?? [],
+            expertise: trait.expertise ?? 50,
+          };
+
+          this.triggerIndex.get(normalizedTrigger)!.push(enrichedTrait);
         }
       }
     }
@@ -171,26 +172,27 @@ export class TraitIndexer {
     const uniqueDomains = new Set<string>();
 
     for (const [personalityId, personality] of this.personalities.entries()) {
-      if (personality.cognitiveTraits) {
-        for (const [traitKey, trait] of Object.entries(personality.cognitiveTraits)) {
-          if (trait.knowledgeDomains) {
-            for (const domain of trait.knowledgeDomains) {
-              const normalizedDomain = domain.toLowerCase();
-              uniqueDomains.add(normalizedDomain);
+      const traits = Object.entries(personality.cognitiveTraits ?? {}) as Array<[string, CognitiveTrait]>;
 
-              if (!this.domainIndex.has(normalizedDomain)) {
-                this.domainIndex.set(normalizedDomain, []);
-              }
+      for (const [, trait] of traits) {
+        const domains = trait.knowledgeDomains ?? [];
+        for (const domain of domains) {
+          const normalizedDomain = domain.toLowerCase();
+          uniqueDomains.add(normalizedDomain);
 
-              this.domainIndex.get(normalizedDomain)!.push({
-                ...trait,
-                personalityId,
-                activationTriggers: trait.activationTriggers || [],
-                knowledgeDomains: trait.knowledgeDomains || [],
-                expertise: trait.expertise || 50
-              });
-            }
+          if (!this.domainIndex.has(normalizedDomain)) {
+            this.domainIndex.set(normalizedDomain, []);
           }
+
+          const enrichedTrait: PersonalityTrait = {
+            ...trait,
+            personalityId,
+            activationTriggers: trait.activationTriggers ?? [],
+            knowledgeDomains: domains,
+            expertise: trait.expertise ?? 50,
+          };
+
+          this.domainIndex.get(normalizedDomain)!.push(enrichedTrait);
         }
       }
     }

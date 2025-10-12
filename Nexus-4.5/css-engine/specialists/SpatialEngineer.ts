@@ -7,7 +7,8 @@
  * @architecture Scientific processing - geometric progressions, optimal grids
  */
 
-import type { Specialist, DesignDNA, SpatialFacts, CompileOptions } from '../contracts.js';
+import type { Specialist, DesignDNA, SpatialFacts, CompileOptions, GridComputation, ResponsiveGridMatrix } from '../contracts.js';
+import { GridMathematician } from './GridMathematician.js';
 
 /**
  * Spacing scale types
@@ -57,6 +58,69 @@ export const SPACING_NAMES = [
 export class SpatialEngineer implements Specialist<DesignDNA, SpatialFacts> {
   readonly id = 'spatial-engineer';
   readonly timeoutMs = 80;
+  private gridMathematician: GridMathematician;
+
+  constructor() {
+    this.gridMathematician = new GridMathematician();
+  }
+
+  private getPreferredColumns(dna: DesignDNA): number[] {
+    const defaultSet = [4, 6, 8, 12];
+    const featureRecord = dna.features as Record<string, unknown> | undefined;
+    const candidate = featureRecord?.['preferredColumns'];
+
+    if (Array.isArray(candidate)) {
+      const numeric = candidate.filter((col): col is number => typeof col === 'number' && Number.isInteger(col) && col > 0);
+      if (numeric.length) {
+        const unique = Array.from(new Set(numeric)).sort((a, b) => a - b);
+        return unique.length ? unique : defaultSet;
+      }
+    }
+
+    return defaultSet;
+  }
+
+  private getLayoutRatio(dna: DesignDNA): 'golden' | 'perfectFourth' | 'harmonic' {
+    switch (dna.constraints?.typeRatio) {
+      case 'golden':
+        return 'golden';
+      case 'perfectFourth':
+        return 'perfectFourth';
+      default:
+        return 'harmonic';
+    }
+  }
+
+  private estimateContainerWidths(breakpoints: Record<string, number>, baseSpace: number): Record<string, number> {
+    const minWidth = 320;
+    const maxWidth = 1600;
+    const widths: Record<string, number> = {};
+
+    for (const [name, value] of Object.entries(breakpoints)) {
+      const candidate = value > 0 ? value : minWidth;
+      const margin = baseSpace * 4;
+      const usable = Math.max(candidate - margin, minWidth);
+      widths[name] = Math.min(Math.max(usable, minWidth), maxWidth);
+    }
+
+    return widths;
+  }
+
+  private selectRepresentativeMatrix(computation: GridComputation): ResponsiveGridMatrix | null {
+    if (!computation.grids.length) {
+      return null;
+    }
+
+    const priorityOrder = ['lg', 'xl', '2xl', 'md'];
+    for (const key of priorityOrder) {
+      const match = computation.grids.find(matrix => matrix.breakpoint === key);
+      if (match) {
+        return match;
+      }
+    }
+
+    return computation.grids[computation.grids.length - 1];
+  }
 
   /**
    * Process design DNA and generate spatial facts
@@ -74,19 +138,41 @@ export class SpatialEngineer implements Specialist<DesignDNA, SpatialFacts> {
       
       // 2. Generate spacing scale (geometric by default)
       const spacing = this.generateSpacingScale(baseSpace, 'geometric');
-      
-      // 3. Calculate optimal grid
-      const grid = this.calculateOptimalGrid(dna.constraints);
-      
-      // 4. Generate breakpoints
+
+      // 3. Generate breakpoints
       const breakpoints = dna.constraints?.breakpoints ?? this.getDefaultBreakpoints();
 
+      // 4. Calculate advanced grid matrices
+      const gridInput = {
+        breakpoints,
+        preferredColumns: this.getPreferredColumns(dna),
+        ratio: this.getLayoutRatio(dna),
+        baseUnit: baseSpace,
+        containerWidths: this.estimateContainerWidths(breakpoints, baseSpace),
+      };
+
+      const gridComputation: GridComputation = await this.gridMathematician.run(gridInput);
+
+      // 5. Provide legacy grid summary for backward compatibility
+      const representativeMatrix = this.selectRepresentativeMatrix(gridComputation);
+      const grid = representativeMatrix
+        ? {
+            minColPx: Math.floor(representativeMatrix.grid.columnWidth),
+            maxColPx: Math.ceil(representativeMatrix.grid.columnWidth),
+            columns: representativeMatrix.grid.columns,
+          }
+        : this.calculateOptimalGrid(dna.constraints);
+
       const elapsed = performance.now() - t0;
-      
+
       return {
         spacing,
         grid,
         breakpoints,
+        grids: gridComputation.grids,
+        aspectRatios: gridComputation.aspectRatios,
+        contentWidthRecommendations: gridComputation.contentWidthRecommendations,
+        diagnostics: gridComputation.diagnostics,
       };
     } catch (error) {
       throw new Error(`SpatialEngineer failed: ${(error as Error).message}`);

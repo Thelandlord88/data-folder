@@ -267,15 +267,37 @@ fi
 section "5. NEXUS Service Status"
 
 info "Checking for NEXUS process..."
-if ps aux | grep -E "tsx.*nexus-runtime|node.*nexus" | grep -v grep > /dev/null; then
-    NEXUS_PID=$(ps aux | grep -E "tsx.*nexus-runtime|node.*nexus" | grep -v grep | awk '{print $2}' | head -1)
-    NEXUS_CMD=$(ps -p "$NEXUS_PID" -o cmd= | head -c 80)
-    success "NEXUS is running (PID: $NEXUS_PID)"
-    echo "  Command: $NEXUS_CMD..."
-else
-    error "NEXUS process not found"
-    echo "  Start NEXUS with: ./start-nexus.sh"
-    echo "  Or manually: npx tsx nexus-runtime.v2.ts"
+
+# First check PID file (background mode)
+FOUND_VIA_PID=false
+if [ -f "./logs/nexus.pid" ]; then
+    PID_FROM_FILE=$(cat ./logs/nexus.pid)
+    if ps -p "$PID_FROM_FILE" > /dev/null 2>&1; then
+        NEXUS_PID=$PID_FROM_FILE
+        NEXUS_CMD=$(ps -p "$NEXUS_PID" -o cmd= | head -c 80)
+        success "NEXUS is running in background (PID: $NEXUS_PID from logs/nexus.pid)"
+        echo "  Command: $NEXUS_CMD..."
+        echo "  Log file: ./logs/nexus.log"
+        FOUND_VIA_PID=true
+    else
+        warning "PID file exists but process is not running (stale PID: $PID_FROM_FILE)"
+        echo "  Remove stale PID: rm ./logs/nexus.pid"
+    fi
+fi
+
+# Fallback: check for any nexus process
+if [ "$FOUND_VIA_PID" = false ]; then
+    if ps aux | grep -E "tsx.*nexus-runtime|node.*nexus" | grep -v grep > /dev/null; then
+        NEXUS_PID=$(ps aux | grep -E "tsx.*nexus-runtime|node.*nexus" | grep -v grep | awk '{print $2}' | head -1)
+        NEXUS_CMD=$(ps -p "$NEXUS_PID" -o cmd= | head -c 80)
+        success "NEXUS is running in foreground (PID: $NEXUS_PID)"
+        echo "  Command: $NEXUS_CMD..."
+    else
+        error "NEXUS process not found"
+        echo "  Start foreground: ./start-nexus.sh"
+        echo "  Start background: ./start-nexus.sh --background"
+        echo "  Or manually: npx tsx nexus-runtime.v2.ts"
+    fi
 fi
 
 info "Testing NEXUS HTTP endpoint..."

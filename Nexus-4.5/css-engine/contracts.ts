@@ -78,6 +78,27 @@ export interface TypeFacts {
 /**
  * Spatial facts (output from SpatialEngineer)
  */
+export interface GridMatrix {
+  columns: number;
+  columnWidth: number;                      // Width per column (px)
+  gutterWidth: number;                      // Gutter size (px)
+  marginWidth: number;                      // Outer margin (px)
+  ratioUsed: 'golden' | 'perfectFourth' | 'harmonic';
+}
+
+export interface ResponsiveGridMatrix {
+  breakpoint: string;                       // xs, sm, md...
+  containerWidth: number;                   // Container size in px
+  grid: GridMatrix;
+}
+
+export interface GridComputation {
+  grids: ResponsiveGridMatrix[];
+  aspectRatios: Record<string, string>;
+  contentWidthRecommendations: Record<string, number>;
+  diagnostics: string[];
+}
+
 export interface SpatialFacts {
   spacing: Record<string, number>;          // 0, 1, 2, ..., 12
   grid: {
@@ -86,6 +107,35 @@ export interface SpatialFacts {
     columns: number;
   };
   breakpoints: Record<string, number>;      // xs, sm, md, lg, xl, xxl
+  grids?: ResponsiveGridMatrix[];
+  aspectRatios?: Record<string, string>;
+  contentWidthRecommendations?: Record<string, number>;
+  diagnostics?: string[];
+}
+
+export interface LayoutRecipe {
+  breakpoint: string;
+  display: 'flex' | 'grid';
+  columns?: number;
+  columnSpans: Record<string, number>;
+  rows?: number;
+  flow: 'row' | 'column';
+  gap: number;
+  alignItems: 'flex-start' | 'center' | 'stretch';
+  justifyContent: 'flex-start' | 'center' | 'space-between';
+  autoPlacementNotes?: string[];
+}
+
+export interface LayoutDiagnostic {
+  componentId: string;
+  issue: string;
+  resolution: string;
+}
+
+export interface LayoutPlan {
+  recipes: LayoutRecipe[];
+  diagnostics: LayoutDiagnostic[];
+  motionGuidance: Record<string, { easing: string; duration: number }>;
 }
 
 /**

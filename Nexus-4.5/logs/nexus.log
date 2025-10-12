@@ -1,0 +1,355 @@
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Error [TransformError]: Transform failed with 1 error:
+/workspaces/data-folder/Nexus-4.5/src/performance-cache.ts:56:12: ERROR: Expected ")" but found ":"
+    at failureErrorWithLog (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:1467:15)
+    at /workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:736:50
+    at responseCallbacks.<computed> (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+Node.js v22.17.0
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Error [TransformError]: Transform failed with 1 error:
+/workspaces/data-folder/Nexus-4.5/src/performance-cache.ts:45:17: ERROR: Syntax error "`"
+    at failureErrorWithLog (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:1467:15)
+    at /workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:736:50
+    at responseCallbacks.<computed> (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/workspaces/data-folder/Nexus-4.5/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+Node.js v22.17.0
+/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:31
+import { responseCache, PerformanceCache } from './src/performance-cache.js';
+         ^
+
+SyntaxError: The requested module './src/performance-cache.js' does not provide an export named 'responseCache'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:220:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:321:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.17.0
+💾 Performance cache initialized:
+   Max items: 1000
+   TTL: 1800s
+🔥 Performance profiler initialized (threshold: 100ms)
+✅ Performance profiler ready
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🚀 Initializing Production Personality Registry...
+📋 Discovered 45 personality files
+⚡ Loading 45 personalities in parallel...
+  ✅ Loaded artdirector (6 traits)
+  ✅ Loaded atlas (4 traits)
+  ✅ Loaded atlas-geo (4 traits)
+  ✅ Loaded chainarchitect (6 traits)
+  ✅ Loaded chorus (3 traits)
+  ✅ Loaded chromatic (6 traits)
+  ✅ Loaded cipher (4 traits)
+  ✅ Loaded daedalus (3 traits)
+  ✅ Loaded codex-liaison (3 traits)
+  ✅ Loaded contextweaver (6 traits)
+  ✅ Loaded datawhisperer (6 traits)
+  ✅ Loaded ethicsguard (6 traits)
+  ✅ Loaded finetuner (6 traits)
+  ✅ Loaded flash (2 traits)
+  ✅ Loaded forge (4 traits)
+  ✅ Loaded guardian (4 traits)
+  ✅ Loaded hunter (4 traits)
+  ✅ Loaded integrationmaestro (6 traits)
+  ✅ Loaded localize (4 traits)
+  ✅ Loaded manifest (1 traits)
+  ✅ Loaded muse (6 traits)
+  ✅ Loaded narrative (6 traits)
+  ✅ Loaded nexus-api (4 traits)
+  ✅ Loaded performancehawk (6 traits)
+  ✅ Loaded personality-architect (5 traits)
+  ✅ Loaded promptsmith (8 traits)
+  ✅ Loaded pulse (4 traits)
+  ✅ Loaded pulsewriter (3 traits)
+  ✅ Loaded pythonista (8 traits)
+  ✅ Loaded quantumlogic (6 traits)
+  ✅ Loaded route-master (4 traits)
+  ✅ Loaded sage (4 traits)
+  ✅ Loaded scribe (4 traits)
+  ✅ Loaded stellar (2 traits)
+  ✅ Loaded styleforge (6 traits)
+  ✅ Loaded symphony (3 traits)
+  ✅ Loaded tokenmaster (6 traits)
+  ✅ Loaded visionary (5 traits)
+  ✅ Loaded visualarchitect (6 traits)
+  ✅ Loaded touch (2 traits)
+  ✅ Loaded wordsmith (6 traits)
+  ✅ Loaded aria (2 traits)
+  ✅ Loaded promptcrafter (7 traits)
+  ✅ Loaded property-sage (4 traits)
+  ✅ Loaded photorealist (6 traits)
+✅ Loaded 45/45 personalities in 41ms
+✅ Registry initialized successfully
+🌉 Initializing Trait Composition Bridge...
+🔍 Building trait index from personality registry...
+✅ Trait index built:
+   📊 45 personalities
+   🧬 211 traits indexed
+   🎯 1599 activation triggers
+   📚 1485 knowledge domains
+✅ Trait Composition Bridge initialized
+   🏭 Composed agent factory ready
+📜 Loaded 100 history events from disk
+✅ NEXUS consciousness and trait composition loaded
+🌐 NEXUS Runtime listening on http://127.0.0.1:8080
+💾 Performance cache initialized:
+   Max items: 1000
+   TTL: 1800s
+🔥 Performance profiler initialized (threshold: 100ms)
+✅ Performance profiler ready
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🚀 Initializing Production Personality Registry...
+📋 Discovered 45 personality files
+⚡ Loading 45 personalities in parallel...
+  ✅ Loaded aria (2 traits)
+  ✅ Loaded artdirector (6 traits)
+  ✅ Loaded atlas-geo (4 traits)
+  ✅ Loaded atlas (4 traits)
+  ✅ Loaded chainarchitect (6 traits)
+  ✅ Loaded chorus (3 traits)
+  ✅ Loaded chromatic (6 traits)
+  ✅ Loaded cipher (4 traits)
+  ✅ Loaded contextweaver (6 traits)
+  ✅ Loaded codex-liaison (3 traits)
+  ✅ Loaded ethicsguard (6 traits)
+  ✅ Loaded daedalus (3 traits)
+  ✅ Loaded datawhisperer (6 traits)
+  ✅ Loaded finetuner (6 traits)
+  ✅ Loaded forge (4 traits)
+  ✅ Loaded guardian (4 traits)
+  ✅ Loaded flash (2 traits)
+  ✅ Loaded integrationmaestro (6 traits)
+  ✅ Loaded manifest (1 traits)
+  ✅ Loaded hunter (4 traits)
+  ✅ Loaded muse (6 traits)
+  ✅ Loaded localize (4 traits)
+  ✅ Loaded nexus-api (4 traits)
+  ✅ Loaded narrative (6 traits)
+  ✅ Loaded personality-architect (5 traits)
+  ✅ Loaded promptcrafter (7 traits)
+  ✅ Loaded performancehawk (6 traits)
+  ✅ Loaded promptsmith (8 traits)
+  ✅ Loaded photorealist (6 traits)
+  ✅ Loaded property-sage (4 traits)
+  ✅ Loaded pulse (4 traits)
+  ✅ Loaded quantumlogic (6 traits)
+  ✅ Loaded pulsewriter (3 traits)
+  ✅ Loaded sage (4 traits)
+  ✅ Loaded pythonista (8 traits)
+  ✅ Loaded scribe (4 traits)
+  ✅ Loaded route-master (4 traits)
+  ✅ Loaded stellar (2 traits)
+  ✅ Loaded styleforge (6 traits)
+  ✅ Loaded touch (2 traits)
+  ✅ Loaded tokenmaster (6 traits)
+  ✅ Loaded visualarchitect (6 traits)
+  ✅ Loaded symphony (3 traits)
+  ✅ Loaded wordsmith (6 traits)
+  ✅ Loaded visionary (5 traits)
+✅ Loaded 45/45 personalities in 34ms
+✅ Registry initialized successfully
+🌉 Initializing Trait Composition Bridge...
+🔍 Building trait index from personality registry...
+✅ Trait index built:
+   📊 45 personalities
+   🧬 211 traits indexed
+   🎯 1599 activation triggers
+   📚 1485 knowledge domains
+✅ Trait Composition Bridge initialized
+   🏭 Composed agent factory ready
+📜 Loaded 100 history events from disk
+✅ NEXUS consciousness and trait composition loaded
+🌐 NEXUS Runtime listening on http://127.0.0.1:8080
+💾 Performance cache initialized:
+   Max items: 1000
+   TTL: 1800s
+🔥 Performance profiler initialized (threshold: 100ms)
+✅ Performance profiler ready
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🚀 Initializing Production Personality Registry...
+📋 Discovered 45 personality files
+⚡ Loading 45 personalities in parallel...
+  ✅ Loaded aria (2 traits)
+  ✅ Loaded atlas-geo (4 traits)
+  ✅ Loaded artdirector (6 traits)
+  ✅ Loaded atlas (4 traits)
+  ✅ Loaded chainarchitect (6 traits)
+  ✅ Loaded chorus (3 traits)
+  ✅ Loaded cipher (4 traits)
+  ✅ Loaded contextweaver (6 traits)
+  ✅ Loaded chromatic (6 traits)
+  ✅ Loaded codex-liaison (3 traits)
+  ✅ Loaded daedalus (3 traits)
+  ✅ Loaded ethicsguard (6 traits)
+  ✅ Loaded datawhisperer (6 traits)
+  ✅ Loaded flash (2 traits)
+  ✅ Loaded finetuner (6 traits)
+  ✅ Loaded forge (4 traits)
+  ✅ Loaded guardian (4 traits)
+  ✅ Loaded hunter (4 traits)
+  ✅ Loaded integrationmaestro (6 traits)
+  ✅ Loaded manifest (1 traits)
+  ✅ Loaded localize (4 traits)
+  ✅ Loaded narrative (6 traits)
+  ✅ Loaded nexus-api (4 traits)
+  ✅ Loaded performancehawk (6 traits)
+  ✅ Loaded personality-architect (5 traits)
+  ✅ Loaded photorealist (6 traits)
+  ✅ Loaded promptsmith (8 traits)
+  ✅ Loaded promptcrafter (7 traits)
+  ✅ Loaded property-sage (4 traits)
+  ✅ Loaded muse (6 traits)
+  ✅ Loaded pulse (4 traits)
+  ✅ Loaded pulsewriter (3 traits)
+  ✅ Loaded pythonista (8 traits)
+  ✅ Loaded quantumlogic (6 traits)
+  ✅ Loaded sage (4 traits)
+  ✅ Loaded stellar (2 traits)
+  ✅ Loaded scribe (4 traits)
+  ✅ Loaded route-master (4 traits)
+  ✅ Loaded styleforge (6 traits)
+  ✅ Loaded tokenmaster (6 traits)
+  ✅ Loaded symphony (3 traits)
+  ✅ Loaded touch (2 traits)
+  ✅ Loaded visionary (5 traits)
+  ✅ Loaded visualarchitect (6 traits)
+  ✅ Loaded wordsmith (6 traits)
+✅ Loaded 45/45 personalities in 29ms
+✅ Registry initialized successfully
+🌉 Initializing Trait Composition Bridge...
+🔍 Building trait index from personality registry...
+✅ Trait index built:
+   📊 45 personalities
+   🧬 211 traits indexed
+   🎯 1599 activation triggers
+   📚 1485 knowledge domains
+✅ Trait Composition Bridge initialized
+   🏭 Composed agent factory ready
+📜 Loaded 100 history events from disk
+✅ NEXUS consciousness and trait composition loaded
+🌐 NEXUS Runtime listening on http://127.0.0.1:8080
+Error generating layout tokens: TypeError: Cannot read properties of undefined (reading 'strategy')
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:19:33)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error handling request: TypeError: res.status is not a function
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:56:9)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error generating layout tokens: TypeError: Cannot read properties of undefined (reading 'strategy')
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:19:33)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error handling request: TypeError: res.status is not a function
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:56:9)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error generating layout tokens: TypeError: Cannot read properties of undefined (reading 'strategy')
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:19:33)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error handling request: TypeError: res.status is not a function
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:56:9)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error generating layout tokens: TypeError: Cannot read properties of undefined (reading 'strategy')
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:19:33)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+Error handling request: TypeError: res.status is not a function
+    at getLayoutTokensCSS (/workspaces/data-folder/Nexus-4.5/src/endpoints/layout-tokens.ts:56:9)
+    at NexusRuntime.handleRequest (/workspaces/data-folder/Nexus-4.5/nexus-runtime.v2.ts:325:15)
+💾 Performance cache initialized:
+   Max items: 1000
+   TTL: 1800s
+🔥 Performance profiler initialized (threshold: 100ms)
+✅ Performance profiler ready
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🧠 Initializing NEXUS consciousness...
+✅ NEXUS consciousness initialized (4/4 patterns loaded)
+🚀 Initializing Production Personality Registry...
+📋 Discovered 45 personality files
+⚡ Loading 45 personalities in parallel...
+  ✅ Loaded aria (2 traits)
+  ✅ Loaded artdirector (6 traits)
+  ✅ Loaded chainarchitect (6 traits)
+  ✅ Loaded atlas-geo (4 traits)
+  ✅ Loaded atlas (4 traits)
+  ✅ Loaded chorus (3 traits)
+  ✅ Loaded chromatic (6 traits)
+  ✅ Loaded cipher (4 traits)
+  ✅ Loaded codex-liaison (3 traits)
+  ✅ Loaded contextweaver (6 traits)
+  ✅ Loaded daedalus (3 traits)
+  ✅ Loaded ethicsguard (6 traits)
+  ✅ Loaded datawhisperer (6 traits)
+  ✅ Loaded finetuner (6 traits)
+  ✅ Loaded flash (2 traits)
+  ✅ Loaded forge (4 traits)
+  ✅ Loaded guardian (4 traits)
+  ✅ Loaded hunter (4 traits)
+  ✅ Loaded integrationmaestro (6 traits)
+  ✅ Loaded manifest (1 traits)
+  ✅ Loaded muse (6 traits)
+  ✅ Loaded nexus-api (4 traits)
+  ✅ Loaded localize (4 traits)
+  ✅ Loaded narrative (6 traits)
+  ✅ Loaded performancehawk (6 traits)
+  ✅ Loaded personality-architect (5 traits)
+  ✅ Loaded photorealist (6 traits)
+  ✅ Loaded promptsmith (8 traits)
+  ✅ Loaded pulse (4 traits)
+  ✅ Loaded property-sage (4 traits)
+  ✅ Loaded pulsewriter (3 traits)
+  ✅ Loaded quantumlogic (6 traits)
+  ✅ Loaded pythonista (8 traits)
+  ✅ Loaded route-master (4 traits)
+  ✅ Loaded sage (4 traits)
+  ✅ Loaded scribe (4 traits)
+  ✅ Loaded stellar (2 traits)
+  ✅ Loaded styleforge (6 traits)
+  ✅ Loaded promptcrafter (7 traits)
+  ✅ Loaded symphony (3 traits)
+  ✅ Loaded tokenmaster (6 traits)
+  ✅ Loaded visionary (5 traits)
+  ✅ Loaded touch (2 traits)
+  ✅ Loaded wordsmith (6 traits)
+  ✅ Loaded visualarchitect (6 traits)
+✅ Loaded 45/45 personalities in 31ms
+✅ Registry initialized successfully
+🌉 Initializing Trait Composition Bridge...
+🔍 Building trait index from personality registry...
+✅ Trait index built:
+   📊 45 personalities
+   🧬 211 traits indexed
+   🎯 1599 activation triggers
+   📚 1485 knowledge domains
+✅ Trait Composition Bridge initialized
+   🏭 Composed agent factory ready
+📜 Loaded 100 history events from disk
+✅ NEXUS consciousness and trait composition loaded
+🌐 NEXUS Runtime listening on http://127.0.0.1:8080
