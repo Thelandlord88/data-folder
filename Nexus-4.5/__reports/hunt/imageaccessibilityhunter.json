@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "module": "wcag_images",
+  "status": "pass",
+  "issues": 0,
+  "affected_elements": 0,
+  "counts": {
+    "missing_alt": 0,
+    "empty_alt_decorative": 0,
+    "suspicious_alt": 0
+  },
+  "findings": [],
+  "actions": [
+    "Add alt text to all images missing alt attributes",
+    "Use empty alt='' for purely decorative images",
+    "Ensure alt text describes image content and function",
+    "Avoid using filenames or placeholder text as alt"
+  ],
+  "policy_invariants": [
+    "counts.missing_alt == 0",
+    "counts.suspicious_alt == 0"
+  ],
+  "eta_minutes": 30,
+  "unlocks": [
+    "wcag_semantic_html",
+    "wcag_aria"
+  ]
+}

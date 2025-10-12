@@ -1,0 +1,304 @@
+[1;36m
+== Environment ==[0m
+[2;37m•[0m STRICT=0
+[2;37m•[0m MODULES=runtime_ssr,build_dependencies,security,accessibility,performance,code_quality
+[2;37m•[0m ts=2025-10-12T21:38:50+00:00
+[2;37m•[0m node=v22.17.0
+[2;37m•[0m rg=missing (using grep)
+[1;36m
+== Hunter: runtime_ssr ==[0m
+[1;32m✓[0m log: __reports/hunt/logs/runtime_ssr.log  json: __reports/hunt/runtime_ssr.json
+[1;36m
+== Hunter: build_dependencies ==[0m
+[1;33m⚠[0m build_dependencies exited non-zero; capturing partial results
+[1;33m⚠[0m build_dependencies did not write __reports/hunt/build_dependencies.json; writing minimal pass JSON
+[1;32m✓[0m log: __reports/hunt/logs/build_dependencies.log  json: __reports/hunt/build_dependencies.json
+[1;36m
+== Hunter: security ==[0m
+[1;33m⚠[0m security exited non-zero; capturing partial results
+[1;33m⚠[0m security did not write __reports/hunt/security.json; writing minimal pass JSON
+[1;32m✓[0m log: __reports/hunt/logs/security.log  json: __reports/hunt/security.json
+[1;36m
+== Hunter: accessibility ==[0m
+[1;33m⚠[0m accessibility exited non-zero; capturing partial results
+[1;33m⚠[0m accessibility did not write __reports/hunt/accessibility.json; writing minimal pass JSON
+[1;32m✓[0m log: __reports/hunt/logs/accessibility.log  json: __reports/hunt/accessibility.json
+[1;36m
+== Hunter: performance ==[0m
+[1;33m⚠[0m performance exited non-zero; capturing partial results
+[1;33m⚠[0m performance did not write __reports/hunt/performance.json; writing minimal pass JSON
+[1;32m✓[0m log: __reports/hunt/logs/performance.log  json: __reports/hunt/performance.json
+[1;36m
+== Hunter: code_quality ==[0m
+[1;33m⚠[0m code_quality exited non-zero; capturing partial results
+[1;33m⚠[0m code_quality did not write __reports/hunt/code_quality.json; writing minimal pass JSON
+[1;32m✓[0m log: __reports/hunt/logs/code_quality.log  json: __reports/hunt/code_quality.json
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/accessibility.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/accessibility.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/build_dependencies.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/build_dependencies.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/code_quality.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/code_quality.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/performance.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/performance.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/runtime_ssr.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/runtime_ssr.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/security.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '__reports/hunt/security.json'
+Require stack:
+- /workspaces/data-folder/Nexus-4.5/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at [eval]:1:7
+    at runScriptInThisContext (node:internal/vm:209:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/workspaces/data-folder/Nexus-4.5/[eval]' ]
+}
+
+Node.js v22.17.0
+[1;32m✓[0m HUNT: PASS (critical=0, warn=0, pass=6)
+[1;36m
+== Thinker Agenda ==[0m
+[thinker] wrote __ai/thinker/master-insights.json with 1 items
+[1;32m✓[0m __ai/thinker/master-insights.json

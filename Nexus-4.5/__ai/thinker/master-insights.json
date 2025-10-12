@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "t": "2025-10-12T21:38:53.558Z",
+  "agenda": [
+    {
+      "module": "runtime_ssr",
+      "status": "critical",
+      "score": 7.96,
+      "actions": [
+        "Remove JSON import assertions in src/** and switch to static data imports or build-time generation",
+        "Remove dynamic JSON import() under src/** or adopt an adapter and output:'server' intentionally",
+        "If SSR intended, install adapter and document policy; otherwise ensure output:'static' and no adapter"
+      ],
+      "proof": [
+        "counts.dynamicJsonImports == 0",
+        "counts.import_assertions == 0",
+        "truthPin == 'ok'"
+      ],
+      "why": "severity:2 recurrence:1 unlocks:3"
+    }
+  ],
+  "hotFiles": [],
+  "notes": [
+    "Prefer class-eliminating fixes; pair each with a proof-invariant and a sibling sweep."
+  ]
+}

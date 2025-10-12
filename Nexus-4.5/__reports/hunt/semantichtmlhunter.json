@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "module": "wcag_semantic_html",
+  "status": "warn",
+  "issues": 1,
+  "affected_elements": 1,
+  "counts": {
+    "missing_landmarks": 1,
+    "bad_heading_order": 0,
+    "generic_containers": 0,
+    "missing_document_language": 0
+  },
+  "findings": [
+    {
+      "issue": "Missing <nav> landmark",
+      "fix": "Add <nav> element for proper document structure",
+      "severity": "warning"
+    }
+  ],
+  "actions": [
+    "Add missing HTML5 landmark elements (main, nav, header, footer)",
+    "Ensure proper heading hierarchy (h1 \u2192 h2 \u2192 h3)",
+    "Add lang attribute to html element",
+    "Use semantic elements instead of generic divs"
+  ],
+  "policy_invariants": [
+    "counts.missing_document_language == 0",
+    "counts.bad_heading_order == 0"
+  ],
+  "eta_minutes": 25,
+  "unlocks": [
+    "wcag_keyboard",
+    "wcag_aria"
+  ]
+}

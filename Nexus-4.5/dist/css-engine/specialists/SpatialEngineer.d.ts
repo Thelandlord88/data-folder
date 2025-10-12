@@ -38,6 +38,12 @@ export declare const SPACING_NAMES: readonly ["0", "1", "2", "3", "4", "5", "6",
 export declare class SpatialEngineer implements Specialist<DesignDNA, SpatialFacts> {
     readonly id = "spatial-engineer";
     readonly timeoutMs = 80;
+    private gridMathematician;
+    constructor();
+    private getPreferredColumns;
+    private getLayoutRatio;
+    private estimateContainerWidths;
+    private selectRepresentativeMatrix;
     /**
      * Process design DNA and generate spatial facts
      *

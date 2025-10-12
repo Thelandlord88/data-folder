@@ -1,0 +1,40 @@
+{
+  "meeting": {
+    "title": "Hunter-Pack Reverse Engineering Session",
+    "date": "2025-10-12",
+    "attendees": ["architect", "pragmatist", "visionary", "guardian"],
+    "topic": "Analyze hunter-pack brilliance and plan WCAG hunter system for NEXUS"
+  },
+  "context": {
+    "hunter_pack": "Original code intelligence system (shell scripts for Astro/Tailwind)",
+    "goal": "Reverse engineer patterns and create Python-based WCAG hunters",
+    "target": "WCAG 2.1 A/AA/AAA compliance checking for NEXUS-generated sites"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What makes the hunter-pack architecture brilliant and worth copying?",
+      "focus": "Pattern recognition, modular design, actionable feedback"
+    },
+    {
+      "id": 2,
+      "question": "Should we build WCAG hunters in Python or TypeScript?",
+      "focus": "HTML parsing, WCAG algorithms, integration with NEXUS"
+    },
+    {
+      "id": 3,
+      "question": "Which hunters should we build first for maximum impact?",
+      "focus": "Color contrast, alt text, heading hierarchy, keyboard nav"
+    },
+    {
+      "id": 4,
+      "question": "How should personality AI integrate with hunters?",
+      "focus": "Analysis of findings, prioritization, fix recommendations"
+    },
+    {
+      "id": 5,
+      "question": "Should hunters auto-fix issues or just report them?",
+      "focus": "Safety vs automation, learning vs doing"
+    }
+  ]
+}
