@@ -1,0 +1,98 @@
+{
+  "file": "--help",
+  "timestamp": "2025-10-13T05:08:02+00:00",
+  "total_opportunities": 1480,
+  "opportunities": {
+    "buttons": {
+      "count": 222,
+      "patterns": ["button_smooth_hover"],
+      "priority": "high"
+    },
+    "links": {
+      "count": 74,
+      "patterns": ["link_underline_slide"],
+      "priority": "medium"
+    },
+    "form_inputs": {
+      "count": 222,
+      "patterns": ["input_focus_glow", "form_validation_shake"],
+      "priority": "high"
+    },
+    "cards": {
+      "count": 148,
+      "patterns": ["card_elevation"],
+      "priority": "medium"
+    },
+    "navigation": {
+      "count": 74,
+      "nav_areas": 74,
+      "patterns": ["nav_item_highlight", "dropdown_smooth_open"],
+      "priority": "medium"
+    },
+    "forms": {
+      "count": 74,
+      "patterns": ["input_focus_glow", "form_validation_shake"],
+      "priority": "high"
+    },
+    "images": {
+      "count": 74,
+      "patterns": ["image_lazy_fade"],
+      "priority": "low"
+    },
+    "modals": {
+      "count": 74,
+      "patterns": ["modal_scale_fade"],
+      "priority": "high"
+    },
+    "sections": {
+      "count": 74,
+      "patterns": ["scroll_reveal"],
+      "priority": "medium"
+    },
+    "statistics": {
+      "count": 74,
+      "patterns": ["stat_count_up"],
+      "priority": "high"
+    },
+    "dropdowns": {
+      "count": 74,
+      "patterns": ["dropdown_smooth_open"],
+      "priority": "medium"
+    },
+    "badges": {
+      "count": 74,
+      "patterns": ["badge_pulse"],
+      "priority": "low"
+    },
+    "tooltips": {
+      "count": 74,
+      "patterns": ["tooltip_fade"],
+      "priority": "low"
+    },
+    "progress_bars": {
+      "count": 74,
+      "patterns": ["progress_bar_animate"],
+      "priority": "medium"
+    },
+    "testimonials": {
+      "count": 74,
+      "patterns": ["testimonial_fade_slide"],
+      "priority": "medium"
+    },
+    "prices": {
+      "count": 74,
+      "patterns": ["price_highlight"],
+      "priority": "medium"
+    }
+  },
+  "recommendations": {
+    "high_priority": [
+      "Apply button hover effects",
+      "Add form input focus glow",
+      "Implement counter animations",
+      "Add modal scale fade"
+    ],
+    "estimated_impact": "Very High",
+    "processing_time_estimate": "3-5 seconds"
+  }
+}

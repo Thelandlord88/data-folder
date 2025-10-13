@@ -1,12 +1,10 @@
 {
   "schemaVersion": 1,
   "module": "wcag_master",
-  "status": "warn",
-  "total_issues": 1,
+  "status": "pass",
+  "total_issues": 0,
   "hunters_run": 3,
-  "critical_hunters": [
-    "SemanticHtmlHunter"
-  ],
+  "critical_hunters": [],
   "hunter_reports": {
     "ColorContrastHunter": {
       "schemaVersion": 1,
@@ -17,9 +15,18 @@
       "counts": {
         "low_contrast_elements": 0,
         "insufficient_aa": 0,
-        "insufficient_aaa": 0
+        "insufficient_aaa": 1
       },
-      "findings": [],
+      "findings": [
+        {
+          "element": "<div class=\"coverage-badge\" data-astro-cid-iiiab5oa=\"\" style=\"background: #dbeafe; border-color: #8c",
+          "fg_color": "#8cffff",
+          "bg_color": "#dbeafe",
+          "contrast_ratio": 4.5,
+          "required_aaa": 7.0,
+          "issue": "Insufficient contrast for AAA compliance"
+        }
+      ],
       "actions": [
         "Ensure color contrast of at least 4.5:1 for normal text (AA)",
         "Aim for 7:1 contrast for enhanced readability (AAA)",
@@ -67,22 +74,16 @@
     "SemanticHtmlHunter": {
       "schemaVersion": 1,
       "module": "wcag_semantic_html",
-      "status": "warn",
-      "issues": 1,
-      "affected_elements": 1,
+      "status": "pass",
+      "issues": 0,
+      "affected_elements": 0,
       "counts": {
-        "missing_landmarks": 1,
+        "missing_landmarks": 0,
         "bad_heading_order": 0,
         "generic_containers": 0,
         "missing_document_language": 0
       },
-      "findings": [
-        {
-          "issue": "Missing <nav> landmark",
-          "fix": "Add <nav> element for proper document structure",
-          "severity": "warning"
-        }
-      ],
+      "findings": [],
       "actions": [
         "Add missing HTML5 landmark elements (main, nav, header, footer)",
         "Ensure proper heading hierarchy (h1 \u2192 h2 \u2192 h3)",
@@ -101,14 +102,9 @@
     }
   },
   "summary": {
-    "wcag_a_compliance": "mostly-compliant",
-    "wcag_aa_compliance": "mostly-compliant",
+    "wcag_a_compliance": "fully-compliant",
+    "wcag_aa_compliance": "fully-compliant",
     "estimated_fix_time_minutes": 100
   },
-  "next_actions": [
-    "Add missing HTML5 landmark elements (main, nav, header, footer)",
-    "Ensure proper heading hierarchy (h1 \u2192 h2 \u2192 h3)",
-    "Add lang attribute to html element",
-    "Use semantic elements instead of generic divs"
-  ]
+  "next_actions": []
 }

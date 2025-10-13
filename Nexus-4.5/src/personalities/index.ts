@@ -8,7 +8,7 @@ import type {
   StrategicPersonality,
   CognitiveTrait,
   StrategicIntelligenceMetrics
-} from './types';
+} from '../types/index.js';
 
 /**
  * Architect - Strategic System Designer

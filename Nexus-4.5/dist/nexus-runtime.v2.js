@@ -246,17 +246,19 @@ class NexusRuntime {
                 return;
             }
             // GET /layout-tokens.css - Layout CSS tokens (SPRINT 4 FEATURE!)
-            if (req.method === 'GET' && req.url?.startsWith('/layout-tokens.css')) {
-                const { getLayoutTokensCSS } = await import('./src/endpoints/layout-tokens.js');
-                await getLayoutTokensCSS(req, res);
-                return;
-            }
+            // TEMPORARILY DISABLED - needs Express types refactoring
+            // if (req.method === 'GET' && req.url?.startsWith('/layout-tokens.css')) {
+            //   const { getLayoutTokensCSS } = await import('./src/endpoints/layout-tokens.js');
+            //   await getLayoutTokensCSS(req, res);
+            //   return;
+            // }
             // POST /api/layout/matrix - Generate layout matrix (SPRINT 4 FEATURE!)
-            if (req.method === 'POST' && req.url === '/api/layout/matrix') {
-                const { generateLayoutMatrix } = await import('./src/endpoints/layout-tokens.js');
-                await generateLayoutMatrix(req, res);
-                return;
-            }
+            // TEMPORARILY DISABLED - needs Express types refactoring
+            // if (req.method === 'POST' && req.url === '/api/layout/matrix') {
+            //   const { generateLayoutMatrix } = await import('./src/endpoints/layout-tokens.js');
+            //   await generateLayoutMatrix(req, res);
+            //   return;
+            // }
             // GET /preview - HTML preview page with AI-readable metadata (SPRINT 4 FEATURE!)
             if (req.method === 'GET' && req.url?.startsWith('/preview')) {
                 const { getPreviewPage } = await import('./src/endpoints/preview.js');
@@ -273,6 +275,18 @@ class NexusRuntime {
             if (req.method === 'GET' && req.url?.startsWith('/demo/bond-cleaning')) {
                 const { getBondCleaningDemo } = await import('./src/endpoints/bond-cleaning-demo.js');
                 await getBondCleaningDemo(req, res);
+                return;
+            }
+            // POST /wcag-check - Full WCAG analysis with personality insights (NEW!)
+            if (req.method === 'POST' && req.url === '/wcag-check') {
+                const { handleWcagCheck } = await import('./src/endpoints/wcag-check.js');
+                await handleWcagCheck(req, res);
+                return;
+            }
+            // POST /wcag-report - Quick WCAG compliance report (NEW!)
+            if (req.method === 'POST' && req.url === '/wcag-report') {
+                const { handleWcagReport } = await import('./src/endpoints/wcag-check.js');
+                await handleWcagReport(req, res);
                 return;
             }
             // 404

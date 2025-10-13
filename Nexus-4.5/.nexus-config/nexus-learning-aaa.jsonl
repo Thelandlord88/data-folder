@@ -1,0 +1,36 @@
+{
+  "file_path": "docs/spring-cleaning-carina-heights.html",
+  "wcag_level": "AAA",
+  "initial_score": 127,
+  "final_score": 132,
+  "initial_percent": 84,
+  "final_percent": 88,
+  "improvement": 4,
+  "success": false,
+  "timestamp": "2025-10-13T03:01:53+00:00",
+  "patterns_applied": [
+    "contrast-upgrade-7to1",
+    "aaa-metadata",
+    "semantic-enhancement",
+    "focus-indicators-aaa",
+    "animation-controls"
+  ]
+}
+{
+  "file_path": "docs/deep-blue-fishing.html",
+  "wcag_level": "AAA",
+  "initial_score": 143,
+  "final_score": 143,
+  "initial_percent": 95,
+  "final_percent": 95,
+  "improvement": 0,
+  "success": true,
+  "timestamp": "2025-10-13T03:09:15+00:00",
+  "patterns_applied": [
+    "contrast-upgrade-7to1",
+    "aaa-metadata",
+    "semantic-enhancement",
+    "focus-indicators-aaa",
+    "animation-controls"
+  ]
+}

@@ -11,9 +11,10 @@ import { layoutPipeline } from '../../css-engine/pipelines/LayoutDeliveryPipelin
  */
 export async function getLayoutTokensCSS(req, res) {
     try {
-        // Extract options from query params
-        const strategy = req.query.strategy || 'hybrid';
-        const baseUnit = parseInt(req.query.baseUnit) || 8;
+        // Parse query from URL
+        const url = new URL(req.url || '', `http://${req.headers.host}`);
+        const strategy = url.searchParams.get('strategy') || 'hybrid';
+        const baseUnit = parseInt(url.searchParams.get('baseUnit') || '8');
         // Create minimal DesignDNA
         const dna = {
             constraints: {

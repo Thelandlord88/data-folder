@@ -1,0 +1,271 @@
+{
+  "file": "docs/deep-blue-fishing.html",
+  "timestamp": "2025-10-13T03:46:51.005302",
+  "page_context": {
+    "design_style": "material",
+    "layout_density": 0.18048214515921104,
+    "color_palette": [
+      "#4a4a4a",
+      "#f8f9fa",
+      "#1e5f8c",
+      "#c23b22",
+      "#0a3d62",
+      "#b8860b",
+      "#fdfefe",
+      "#e8f4f8",
+      "#1a1a1a",
+      "#2d6a4f"
+    ],
+    "existing_patterns": [
+      "transitions",
+      "transforms",
+      "animations",
+      "shadows",
+      "hover_states"
+    ],
+    "page_intent": "information",
+    "visual_complexity": "moderate"
+  },
+  "selections": {
+    "buttons": {
+      "count": 2,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "button_smooth_hover",
+            "name": "Smooth Button Hover",
+            "category": "micro-interaction",
+            "description": "Gentle scale and shadow transition on button hover",
+            "target": "button, .btn, a.button, input[type='submit']",
+            "impact": "high",
+            "complexity": "low",
+            "aaa_safe": true,
+            "requires_motion_check": true,
+            "css": {
+              "base": "transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);",
+              "hover": "transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);",
+              "active": "transform: translateY(0); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);",
+              "focus": "outline: 3px solid currentColor; outline-offset: 2px;"
+            },
+            "effectiveness": 0.92,
+            "usage_count": 0
+          },
+          "score": 90.2,
+          "breakdown": {
+            "element_match": 0.3,
+            "layout_fit": 0.2,
+            "intent_alignment": 0.16000000000000003,
+            "technical": 0.15,
+            "effectiveness": 0.09200000000000001
+          },
+          "confidence": "low"
+        }
+      ]
+    },
+    "form_inputs": {
+      "count": 5,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "input_focus_glow",
+            "name": "Input Focus Glow",
+            "category": "form-ux",
+            "description": "Smooth border and glow transition on input focus",
+            "target": "input[type='text'], input[type='email'], input[type='tel'], input[type='password'], textarea, select",
+            "impact": "high",
+            "complexity": "low",
+            "aaa_safe": true,
+            "requires_motion_check": false,
+            "css": {
+              "base": "transition: all 0.2s ease; border: 2px solid #ccc;",
+              "focus": "border-color: #0066cc; box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1); outline: none;"
+            },
+            "effectiveness": 0.95,
+            "usage_count": 0
+          },
+          "score": 62.0,
+          "breakdown": {
+            "element_match": 0.09,
+            "layout_fit": 0.125,
+            "intent_alignment": 0.16000000000000003,
+            "technical": 0.15,
+            "effectiveness": 0.095
+          },
+          "confidence": "low"
+        }
+      ]
+    },
+    "cards": {
+      "count": 25,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "card_elevation",
+            "name": "Card Elevation Effect",
+            "category": "visual-feedback",
+            "description": "Material Design inspired card elevation on hover",
+            "target": ".card, article, .service-card, .product-card",
+            "impact": "medium",
+            "complexity": "low",
+            "aaa_safe": true,
+            "requires_motion_check": true,
+            "css": {
+              "base": "transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);",
+              "hover": "transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);"
+            },
+            "effectiveness": 0.88,
+            "usage_count": 0
+          },
+          "score": 73.8,
+          "breakdown": {
+            "element_match": 0.09,
+            "layout_fit": 0.25,
+            "intent_alignment": 0.16000000000000003,
+            "technical": 0.15,
+            "effectiveness": 0.08800000000000001
+          },
+          "confidence": "low"
+        }
+      ]
+    },
+    "navigation": {
+      "count": 3,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "nav_item_highlight",
+            "name": "Navigation Item Highlight",
+            "category": "navigation",
+            "description": "Smooth background transition for nav items",
+            "target": "nav a, .nav-link",
+            "impact": "medium",
+            "complexity": "low",
+            "aaa_safe": true,
+            "requires_motion_check": true,
+            "css": {
+              "base": "transition: background-color 0.2s ease, color 0.2s ease;",
+              "hover": "background-color: rgba(255, 255, 255, 0.1);"
+            },
+            "effectiveness": 0.82,
+            "usage_count": 0
+          },
+          "score": 60.699999999999996,
+          "breakdown": {
+            "element_match": 0.09,
+            "layout_fit": 0.125,
+            "intent_alignment": 0.16000000000000003,
+            "technical": 0.15,
+            "effectiveness": 0.082
+          },
+          "confidence": "low"
+        }
+      ]
+    },
+    "sections": {
+      "count": 4,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "scroll_reveal",
+            "name": "Scroll Reveal Fade-in",
+            "category": "content-enhancement",
+            "description": "Elements fade in as they scroll into view",
+            "target": "section, article, .card",
+            "impact": "high",
+            "complexity": "high",
+            "aaa_safe": true,
+            "requires_motion_check": true,
+            "requires_js": true,
+            "css": {
+              "base": "opacity: 0; transform: translateY(20px); transition: all 0.6s ease;",
+              "visible": "opacity: 1; transform: translateY(0);"
+            },
+            "effectiveness": 0.89,
+            "usage_count": 0
+          },
+          "score": 68.9,
+          "breakdown": {
+            "element_match": 0.3,
+            "layout_fit": 0.125,
+            "intent_alignment": 0.1,
+            "technical": 0.075,
+            "effectiveness": 0.08900000000000001
+          },
+          "confidence": "low"
+        }
+      ]
+    },
+    "testimonials": {
+      "count": 13,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "testimonial_fade_slide",
+            "name": "Testimonial Fade Slide",
+            "category": "content-enhancement",
+            "description": "Testimonials slide in with fade",
+            "target": ".testimonial, .review, .quote",
+            "impact": "medium",
+            "complexity": "low",
+            "aaa_safe": true,
+            "requires_motion_check": true,
+            "css": {
+              "base": "opacity: 0; transform: translateX(-20px); transition: all 0.5s ease;",
+              "visible": "opacity: 1; transform: translateX(0);"
+            },
+            "effectiveness": 0.79,
+            "usage_count": 0
+          },
+          "score": 60.400000000000006,
+          "breakdown": {
+            "element_match": 0.09,
+            "layout_fit": 0.125,
+            "intent_alignment": 0.16000000000000003,
+            "technical": 0.15,
+            "effectiveness": 0.07900000000000001
+          },
+          "confidence": "low"
+        }
+      ]
+    },
+    "prices": {
+      "count": 6,
+      "selected_patterns": [
+        {
+          "pattern": {
+            "id": "price_highlight",
+            "name": "Price Highlight Effect",
+            "category": "visual-feedback",
+            "description": "Price elements glow on hover",
+            "target": ".price, .cost, .amount",
+            "impact": "medium",
+            "complexity": "low",
+            "aaa_safe": true,
+            "requires_motion_check": true,
+            "css": {
+              "base": "transition: all 0.3s ease;",
+              "hover": "text-shadow: 0 0 10px rgba(184, 134, 11, 0.5); transform: scale(1.05);"
+            },
+            "effectiveness": 0.81,
+            "usage_count": 0
+          },
+          "score": 68.10000000000001,
+          "breakdown": {
+            "element_match": 0.09,
+            "layout_fit": 0.2,
+            "intent_alignment": 0.16000000000000003,
+            "technical": 0.15,
+            "effectiveness": 0.08100000000000002
+          },
+          "confidence": "low"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_opportunities": 88,
+    "patterns_selected": 7,
+    "total_applications": 58,
+    "confidence_threshold": 60.0
+  }
+}

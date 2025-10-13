@@ -11,7 +11,7 @@
  */
 
 import type { PersonalityData, CognitiveTrait } from './types/personality.types.js';
-import { PersonalityVentriloquist } from './PersonalityVentriloquist';
+import { PersonalityVentriloquist } from './PersonalityVentriloquist.js';
 
 /**
 

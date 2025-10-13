@@ -5,7 +5,7 @@
  * Sprint 4 Enhancement: CSS token delivery
  */
 
-import type { Request, Response } from 'express';
+import type { IncomingMessage, ServerResponse } from 'http';
 import { layoutPipeline } from '../../css-engine/pipelines/LayoutDeliveryPipeline.optimized.js';
 import type { DesignDNA } from '../../css-engine/contracts.js';
 
@@ -13,11 +13,12 @@ import type { DesignDNA } from '../../css-engine/contracts.js';
  * GET /layout-tokens.css
  * Serves CSS variables for the layout system
  */
-export async function getLayoutTokensCSS(req: Request, res: Response): Promise<void> {
+export async function getLayoutTokensCSS(req: IncomingMessage, res: ServerResponse): Promise<void> {
   try {
-    // Extract options from query params
-    const strategy = (req.query.strategy as string) || 'hybrid';
-    const baseUnit = parseInt(req.query.baseUnit as string) || 8;
+    // Parse query from URL
+    const url = new URL(req.url || '', `http://${req.headers.host}`);
+    const strategy = url.searchParams.get('strategy') || 'hybrid';
+    const baseUnit = parseInt(url.searchParams.get('baseUnit') || '8');
     
     // Create minimal DesignDNA
     const dna: DesignDNA = {

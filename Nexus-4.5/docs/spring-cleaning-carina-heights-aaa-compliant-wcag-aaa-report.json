@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "2.0-AAA",
+  "timestamp": "2025-10-13T03:01:53+00:00",
+  "file": "docs/spring-cleaning-carina-heights-aaa-compliant.html",
+  "wcagLevel": "AAA",
+  "scores": {
+    "total": 132,
+    "max": 150,
+    "percent": 88,
+    "perceivable": 36,
+    "operable": 29,
+    "understandable": 35,
+    "robust": 32
+  },
+  "compliance": {
+    "level": "AA COMPLIANT (AAA needs work)",
+    "meets_aaa": false,
+    "meets_aa": true
+  },
+  "issues": {
+    "total": 6,
+    "critical": 1,
+    "major": 2,
+    "minor": 3
+  },
+  "recommendations": [
+    "Achieve 95%+ for AAA compliance",
+    "Fix all CRITICAL issues immediately",
+    "Upgrade contrast ratios to 7:1 (AAA)",
+    "Language properly declared"
+  ]
+}

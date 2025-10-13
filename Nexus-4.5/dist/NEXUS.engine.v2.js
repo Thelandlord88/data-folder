@@ -9,7 +9,7 @@
  * This is the production-ready TypeScript engine that maintains all working features
  * while adding full type safety and maintainability.
  */
-import { PersonalityVentriloquist } from './PersonalityVentriloquist';
+import { PersonalityVentriloquist } from './PersonalityVentriloquist.js';
 /**
  * TraitIndexer - Indexes and searches cognitive traits across all personalities
  *

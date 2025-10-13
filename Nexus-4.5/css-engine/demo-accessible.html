@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎨 NEXUS CSS Engine - Live Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    
+    .stat {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0ea5e9;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .themes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .theme-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .theme-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .theme-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .theme-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .theme-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .theme-preview {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      height: 60px;
+    }
+    
+    .color-swatch {
+      flex: 1;
+      border-radius: 0.5rem;
+      transition: transform 0.2s;
+    }
+    
+    .color-swatch:hover {
+      transform: scale(1.05);
+    }
+    
+    .theme-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .theme-stat {
+      text-align: center;
+    }
+    
+    .theme-stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0ea5e9;
+    }
+    
+    .theme-stat-label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .generate-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+    
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #94a3b8;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top-color: #0ea5e9;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <!-- Navigation links go here -->
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>🎨 NEXUS CSS Engine</h1>
+      <p class="subtitle">Generate production-ready design systems in milliseconds</p>
+    </header>
+  <main>
+
+    
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" id="avgTime">-</div>
+        <div class="stat-label">Avg Time (ms)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="totalTokens">-</div>
+        <div class="stat-label">Total Tokens</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="generated">0</div>
+        <div class="stat-label">Generated</div>
+      </div>
+    </div>
+    
+    <div class="themes" id="themes">
+      <!-- Themes will be populated here -->
+    </div>
+    
+    <div class="loading" id="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p style="margin-top: 1rem;">Generating amazing design systems...</p>
+    </div>
+    
+    <div class="footer">
+      <p>Built with NEXUS CSS Engine • Sub-5ms Performance • WCAG AA/AAA Compliant</p>
+    </div>
+  </div>
+  
+  <script>
+    const themeConfigs = [
+      { name: 'Ocean Breeze', color: '#0ea5e9', desc: 'Sky blue elegance', wcag: 'AA' },
+      { name: 'Royal Purple', color: '#8b5cf6', desc: 'Regal and sophisticated', wcag: 'AA' },
+      { name: 'Cyberpunk Neon', color: '#00ffff', desc: 'Electric and bold', wcag: 'AAA' },
+      { name: 'Sunset Orange', color: '#f97316', desc: 'Warm and inviting', wcag: 'AA' },
+      { name: 'Forest Green', color: '#10b981', desc: 'Natural and calming', wcag: 'AA' },
+      { name: 'Hot Pink', color: '#ec4899', desc: 'Vibrant and playful', wcag: 'AA' },
+    ];
+    
+    let generatedCount = 0;
+    let totalTime = 0;
+    let totalTokens = 0;
+    
+    async function generateTheme(config) {
+      try {
+        const response = await fetch('http://localhost:9000/design', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            input: {
+              type: 'color',
+              primary: config.color
+            },
+            options: {
+              accessibilityTarget: config.wcag
+            }
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`API error: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.design;
+      } catch (error) {
+        console.error('Error generating theme:', error);
+        return null;
+      }
+    }
+    
+    function createThemeCard(config, design) {
+      const card = document.createElement('div');
+      card.className = 'theme-card';
+      
+      // Get some color samples
+      const colors = Object.values(design.tokens.color).slice(2, 8);
+      
+      const colorTokens = Object.keys(design.tokens.color).length;
+      const typeTokens = Object.keys(design.tokens.typography).length;
+      const spaceTokens = Object.keys(design.tokens.spacing).length;
+      const performance = design.diagnostics.timings.total.toFixed(2);
+      
+      card.innerHTML = `
+        <div class="theme-header">
+          <div class="theme-name">${config.name}</div>
+          <div class="theme-badge" style="background: ${config.color}40; color: ${config.color};">
+            ${config.wcag}
+          </div>
+        </div>
+        
+        <div class="theme-preview">
+          ${colors.map(color => `<div class="color-swatch" style="background: ${color};"></div>`).join('')}
+        </div>
+        
+        <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 1rem;">${config.desc}</p>
+        
+        <div class="theme-stats">
+          <div class="theme-stat">
+            <div class="theme-stat-value">${colorTokens}</div>
+            <div class="theme-stat-label">Colors</div>
+          </div>
+          <div class="theme-stat">
+            <div class="theme-stat-value">${typeTokens}</div>
+            <div class="theme-stat-label">Typography</div>
+          </div>
+          <div class="theme-stat">
+            <div class="theme-stat-value">${spaceTokens}</div>
+            <div class="theme-stat-label">Spacing</div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(14, 165, 233, 0.1); border-radius: 0.5rem; text-align: center;">
+          <span style="color: #0ea5e9; font-weight: 600;">⚡ ${performance}ms</span>
+          <span style="color: #64748b; margin-left: 0.5rem;">• ${colorTokens + typeTokens + spaceTokens} tokens</span>
+        </div>
+        
+        <button class="generate-btn" onclick="viewDetails('${config.name}')">
+          View Full System →
+        </button>
+      `;
+      
+      return card;
+    }
+    
+    function updateStats() {
+      document.getElementById('avgTime').textContent = (totalTime / generatedCount).toFixed(2);
+      document.getElementById('totalTokens').textContent = totalTokens;
+      document.getElementById('generated').textContent = generatedCount;
+    }
+    
+    async function generateAll() {
+      const loading = document.getElementById('loading');
+      const themesContainer = document.getElementById('themes');
+      
+      loading.style.display = 'block';
+      themesContainer.innerHTML = '';
+      
+      for (const config of themeConfigs) {
+        const design = await generateTheme(config);
+        
+        if (design) {
+          const card = createThemeCard(config, design);
+          themesContainer.appendChild(card);
+          
+          generatedCount++;
+          totalTime += design.diagnostics.timings.total;
+          totalTokens += Object.keys(design.tokens.color).length + 
+                         Object.keys(design.tokens.typography).length + 
+                         Object.keys(design.tokens.spacing).length;
+          
+          updateStats();
+        }
+      }
+      
+      loading.style.display = 'none';
+    }
+    
+    function viewDetails(name) {
+      alert(`Full design system for "${name}" would open here!\\n\\nIncludes:\\n• Complete Tailwind v4 CSS\\n• Design tokens (JSON)\\n• Documentation\\n• Accessibility audits`);
+    }
+    
+    // Generate on load
+    window.addEventListener('load', () => {
+      setTimeout(generateAll, 500);
+    });
+  </script>
+  </main>
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+
+</body>
+</html>

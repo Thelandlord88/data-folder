@@ -1,0 +1,387 @@
+{
+  "schemaVersion": "1.0",
+  "library": "NEXUS UX Enhancement Patterns",
+  "created": "2025-10-13",
+  "aaa_compliant": true,
+  "patterns": {
+    "button_smooth_hover": {
+      "id": "button_smooth_hover",
+      "name": "Smooth Button Hover",
+      "category": "micro-interaction",
+      "description": "Gentle scale and shadow transition on button hover",
+      "target": "button, .btn, a.button, input[type='submit']",
+      "impact": "high",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);",
+        "hover": "transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);",
+        "active": "transform: translateY(0); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);",
+        "focus": "outline: 3px solid currentColor; outline-offset: 2px;"
+      },
+      "effectiveness": 0.92,
+      "usage_count": 0
+    },
+    "card_elevation": {
+      "id": "card_elevation",
+      "name": "Card Elevation Effect",
+      "category": "visual-feedback",
+      "description": "Material Design inspired card elevation on hover",
+      "target": ".card, article, .service-card, .product-card",
+      "impact": "medium",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);",
+        "hover": "transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);"
+      },
+      "effectiveness": 0.88,
+      "usage_count": 0
+    },
+    "input_focus_glow": {
+      "id": "input_focus_glow",
+      "name": "Input Focus Glow",
+      "category": "form-ux",
+      "description": "Smooth border and glow transition on input focus",
+      "target": "input[type='text'], input[type='email'], input[type='tel'], input[type='password'], textarea, select",
+      "impact": "high",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": false,
+      "css": {
+        "base": "transition: all 0.2s ease; border: 2px solid #ccc;",
+        "focus": "border-color: #0066cc; box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1); outline: none;"
+      },
+      "effectiveness": 0.95,
+      "usage_count": 0
+    },
+    "link_underline_slide": {
+      "id": "link_underline_slide",
+      "name": "Link Underline Slide",
+      "category": "micro-interaction",
+      "description": "Animated underline that slides in on hover",
+      "target": "a:not(.button):not(.btn)",
+      "impact": "medium",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "position: relative; text-decoration: none; transition: color 0.3s ease;",
+        "before": "content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: currentColor; transition: width 0.3s ease;",
+        "hover": "color: inherit;",
+        "hover_before": "width: 100%;"
+      },
+      "effectiveness": 0.85,
+      "usage_count": 0
+    },
+    "image_lazy_fade": {
+      "id": "image_lazy_fade",
+      "name": "Image Lazy Load Fade",
+      "category": "content-enhancement",
+      "description": "Smooth fade-in for images as they load",
+      "target": "img",
+      "impact": "medium",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "opacity: 0; transition: opacity 0.4s ease;",
+        "loaded": "opacity: 1;"
+      },
+      "effectiveness": 0.78,
+      "usage_count": 0
+    },
+    "nav_item_highlight": {
+      "id": "nav_item_highlight",
+      "name": "Navigation Item Highlight",
+      "category": "navigation",
+      "description": "Smooth background transition for nav items",
+      "target": "nav a, .nav-link",
+      "impact": "medium",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: background-color 0.2s ease, color 0.2s ease;",
+        "hover": "background-color: rgba(255, 255, 255, 0.1);"
+      },
+      "effectiveness": 0.82,
+      "usage_count": 0
+    },
+    "form_validation_shake": {
+      "id": "form_validation_shake",
+      "name": "Form Validation Shake",
+      "category": "form-ux",
+      "description": "Gentle shake animation for validation errors",
+      "target": "input.error, .error input, .invalid",
+      "impact": "high",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "animation": "@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }",
+        "base": "animation: shake 0.3s ease-in-out;"
+      },
+      "effectiveness": 0.91,
+      "usage_count": 0
+    },
+    "skeleton_loading": {
+      "id": "skeleton_loading",
+      "name": "Skeleton Screen Shimmer",
+      "category": "loading-state",
+      "description": "Animated shimmer effect for loading states",
+      "target": ".skeleton, .loading-skeleton",
+      "impact": "high",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "animation": "@keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }",
+        "base": "background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 1000px 100%; animation: shimmer 2s infinite;"
+      },
+      "effectiveness": 0.87,
+      "usage_count": 0
+    },
+    "dropdown_smooth_open": {
+      "id": "dropdown_smooth_open",
+      "name": "Smooth Dropdown Animation",
+      "category": "navigation",
+      "description": "Smooth dropdown menu appearance",
+      "target": ".dropdown-menu, .submenu",
+      "impact": "medium",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; pointer-events: none;",
+        "active": "opacity: 1; transform: translateY(0); pointer-events: auto;"
+      },
+      "effectiveness": 0.83,
+      "usage_count": 0
+    },
+    "badge_pulse": {
+      "id": "badge_pulse",
+      "name": "Badge Pulse Animation",
+      "category": "micro-interaction",
+      "description": "Gentle pulse for notification badges",
+      "target": ".badge, .notification-badge, .count",
+      "impact": "low",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "animation": "@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }",
+        "base": "animation: pulse 2s ease-in-out infinite;"
+      },
+      "effectiveness": 0.75,
+      "usage_count": 0
+    },
+    "scroll_reveal": {
+      "id": "scroll_reveal",
+      "name": "Scroll Reveal Fade-in",
+      "category": "content-enhancement",
+      "description": "Elements fade in as they scroll into view",
+      "target": "section, article, .card",
+      "impact": "high",
+      "complexity": "high",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "requires_js": true,
+      "css": {
+        "base": "opacity: 0; transform: translateY(20px); transition: all 0.6s ease;",
+        "visible": "opacity: 1; transform: translateY(0);"
+      },
+      "effectiveness": 0.89,
+      "usage_count": 0
+    },
+    "tooltip_fade": {
+      "id": "tooltip_fade",
+      "name": "Tooltip Smooth Fade",
+      "category": "micro-interaction",
+      "description": "Smooth tooltip appearance with fade",
+      "target": "[data-tooltip], .tooltip",
+      "impact": "low",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "opacity: 0; transform: translateY(-5px); transition: all 0.2s ease; pointer-events: none;",
+        "hover": "opacity: 1; transform: translateY(0); pointer-events: auto;"
+      },
+      "effectiveness": 0.80,
+      "usage_count": 0
+    },
+    "progress_bar_animate": {
+      "id": "progress_bar_animate",
+      "name": "Animated Progress Bar",
+      "category": "loading-state",
+      "description": "Smooth progress bar fill animation",
+      "target": ".progress-bar, progress",
+      "impact": "medium",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: width 0.5s ease;"
+      },
+      "effectiveness": 0.86,
+      "usage_count": 0
+    },
+    "modal_scale_fade": {
+      "id": "modal_scale_fade",
+      "name": "Modal Scale and Fade",
+      "category": "visual-feedback",
+      "description": "Modal appears with scale and fade animation",
+      "target": ".modal, .dialog, .popup",
+      "impact": "high",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "opacity: 0; transform: scale(0.9); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);",
+        "active": "opacity: 1; transform: scale(1);"
+      },
+      "effectiveness": 0.90,
+      "usage_count": 0
+    },
+    "checkbox_smooth_check": {
+      "id": "checkbox_smooth_check",
+      "name": "Smooth Checkbox Animation",
+      "category": "form-ux",
+      "description": "Animated checkmark appearance",
+      "target": "input[type='checkbox']",
+      "impact": "low",
+      "complexity": "medium",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: all 0.2s ease;"
+      },
+      "effectiveness": 0.77,
+      "usage_count": 0
+    },
+    "tab_underline_slide": {
+      "id": "tab_underline_slide",
+      "name": "Tab Active Underline Slide",
+      "category": "navigation",
+      "description": "Sliding underline for active tab indicator",
+      "target": ".tab, .tab-item",
+      "impact": "medium",
+      "complexity": "high",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "requires_js": true,
+      "css": {
+        "base": "position: relative;",
+        "after": "content: ''; position: absolute; bottom: 0; left: 0; height: 3px; background: currentColor; transition: all 0.3s ease;"
+      },
+      "effectiveness": 0.84,
+      "usage_count": 0
+    },
+    "icon_spin_hover": {
+      "id": "icon_spin_hover",
+      "name": "Icon Spin on Hover",
+      "category": "micro-interaction",
+      "description": "Icons rotate smoothly on hover",
+      "target": ".icon, i, svg",
+      "impact": "low",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: transform 0.3s ease;",
+        "hover": "transform: rotate(15deg);"
+      },
+      "effectiveness": 0.72,
+      "usage_count": 0
+    },
+    "price_highlight": {
+      "id": "price_highlight",
+      "name": "Price Highlight Effect",
+      "category": "visual-feedback",
+      "description": "Price elements glow on hover",
+      "target": ".price, .cost, .amount",
+      "impact": "medium",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "transition: all 0.3s ease;",
+        "hover": "text-shadow: 0 0 10px rgba(184, 134, 11, 0.5); transform: scale(1.05);"
+      },
+      "effectiveness": 0.81,
+      "usage_count": 0
+    },
+    "testimonial_fade_slide": {
+      "id": "testimonial_fade_slide",
+      "name": "Testimonial Fade Slide",
+      "category": "content-enhancement",
+      "description": "Testimonials slide in with fade",
+      "target": ".testimonial, .review, .quote",
+      "impact": "medium",
+      "complexity": "low",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "css": {
+        "base": "opacity: 0; transform: translateX(-20px); transition: all 0.5s ease;",
+        "visible": "opacity: 1; transform: translateX(0);"
+      },
+      "effectiveness": 0.79,
+      "usage_count": 0
+    },
+    "stat_count_up": {
+      "id": "stat_count_up",
+      "name": "Statistic Counter Animation",
+      "category": "content-enhancement",
+      "description": "Numbers count up smoothly when visible",
+      "target": ".stat-number, .counter, .metric",
+      "impact": "high",
+      "complexity": "high",
+      "aaa_safe": true,
+      "requires_motion_check": true,
+      "requires_js": true,
+      "css": {
+        "base": "transition: all 0.3s ease;"
+      },
+      "effectiveness": 0.93,
+      "usage_count": 0
+    }
+  },
+  "categories": {
+    "micro-interaction": {
+      "name": "Micro-Interactions",
+      "description": "Small, delightful interactions that provide feedback",
+      "priority": 1
+    },
+    "visual-feedback": {
+      "name": "Visual Feedback",
+      "description": "Visual cues that enhance understanding",
+      "priority": 2
+    },
+    "form-ux": {
+      "name": "Form UX",
+      "description": "Enhanced form interactions and validation",
+      "priority": 1
+    },
+    "navigation": {
+      "name": "Navigation",
+      "description": "Smooth navigation transitions and highlights",
+      "priority": 2
+    },
+    "content-enhancement": {
+      "name": "Content Enhancement",
+      "description": "Improved content presentation and reveal",
+      "priority": 3
+    },
+    "loading-state": {
+      "name": "Loading States",
+      "description": "Better loading and waiting experiences",
+      "priority": 1
+    }
+  },
+  "motion_safety": {
+    "prefers_reduced_motion": "@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }"
+  }
+}

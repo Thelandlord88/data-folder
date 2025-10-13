@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎨 NEXUS CSS Engine - Standalone Playground</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.25rem;
+      color: #94a3b8;
+    }
+    
+    .controls {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .control-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+    }
+    
+    input[type="color"] {
+      width: 100%;
+      height: 60px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: transparent;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      color: #e2e8f0;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 1rem;
+    }
+    
+    .presets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .preset-btn {
+      padding: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 600;
+    }
+    
+    .preset-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .generate-btn {
+      width: 100%;
+      padding: 1.25rem;
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+    }
+    
+    .generate-btn:active {
+      transform: translateY(0);
+    }
+    
+    .results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .result-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+    
+    .result-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #0ea5e9;
+    }
+    
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .color-swatch {
+      aspect-ratio: 1;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .code-block {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 0.5rem;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0ea5e9;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .results {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <!-- Navigation links go here -->
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>🎨 NEXUS CSS Engine</h1>
+      <p class="subtitle">Standalone Playground - No Server Required!</p>
+    </header>
+  <main>
+
+    
+    <div class="controls">
+      <div class="control-group">
+        <label>Primary Color</label>
+        <input type="color" id="colorPicker" value="#8b5cf6">
+      </div>
+      
+      <div class="control-group">
+        <label>Or Enter Hex Code</label>
+        <input type="text" id="hexInput" placeholder="#8b5cf6" value="#8b5cf6">
+      </div>
+      
+      <div class="control-group">
+        <label>Quick Presets</label>
+        <div class="presets">
+          <button class="preset-btn" onclick="setColor('#0ea5e9')">🌊 Sky</button>
+          <button class="preset-btn" onclick="setColor('#8b5cf6')">👑 Purple</button>
+          <button class="preset-btn" onclick="setColor('#00ffff')">⚡ Cyan</button>
+          <button class="preset-btn" onclick="setColor('#ec4899')">💖 Pink</button>
+          <button class="preset-btn" onclick="setColor('#f97316')">🍊 Orange</button>
+          <button class="preset-btn" onclick="setColor('#10b981')">🌲 Green</button>
+        </div>
+      </div>
+      
+      <button class="generate-btn" onclick="generateSystem()">
+        ✨ Generate Design System
+      </button>
+    </div>
+    
+    <div id="results" class="results hidden">
+      <div class="result-card">
+        <div class="result-title">🎨 Color Palette</div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value" id="colorCount">-</div>
+            <div class="stat-label">Colors</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="typeCount">-</div>
+            <div class="stat-label">Typography</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="perfTime">-</div>
+            <div class="stat-label">Time (ms)</div>
+          </div>
+        </div>
+        <div id="colorGrid" class="color-grid"></div>
+      </div>
+      
+      <div class="result-card">
+        <div class="result-title">💾 Generated CSS</div>
+        <div class="code-block" id="cssOutput"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
+    // Simple CSS Engine implementation
+    // This runs entirely client-side!
+    
+    // Detect if we're in GitHub Codespaces
+    const isCodespaces = /\.github\.dev$/.test(location.hostname);
+    
+    // Use appropriate base URL
+    const API_BASE = isCodespaces 
+      ? window.location.origin  // Use the same origin in Codespaces
+      : 'http://localhost:9000';
+    
+    console.log('Running in Codespaces:', isCodespaces);
+    console.log('API Base:', API_BASE);
+    
+    function setColor(hex) {
+      document.getElementById('colorPicker').value = hex;
+      document.getElementById('hexInput').value = hex;
+    }
+    
+    window.setColor = setColor;
+    
+    // Sync color picker and hex input
+    document.getElementById('colorPicker').addEventListener('input', (e) => {
+      document.getElementById('hexInput').value = e.target.value;
+    });
+    
+    document.getElementById('hexInput').addEventListener('input', (e) => {
+      const hex = e.target.value;
+      if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+        document.getElementById('colorPicker').value = hex;
+      }
+    });
+    
+    async function generateSystem() {
+      const hex = document.getElementById('hexInput').value;
+      
+      if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+        alert('Please enter a valid hex color (e.g., #8b5cf6)');
+        return;
+      }
+      
+      const startTime = performance.now();
+      
+      // Generate color ramp
+      const colors = generateColorRamp(hex);
+      
+      // Generate typography scale
+      const typography = generateTypographyScale(16, 1.333);
+      
+      // Generate spacing
+      const spacing = generateSpacingScale(8);
+      
+      const elapsed = performance.now() - startTime;
+      
+      // Display results
+      displayResults(colors, typography, spacing, elapsed);
+    }
+    
+    window.generateSystem = generateSystem;
+    
+    function hexToRgb(hex) {
+      const r = parseInt(hex.slice(1, 3), 16) / 255;
+      const g = parseInt(hex.slice(3, 5), 16) / 255;
+      const b = parseInt(hex.slice(5, 7), 16) / 255;
+      return { r, g, b };
+    }
+    
+    function rgbToHex(r, g, b) {
+      const toHex = (n) => Math.round(Math.max(0, Math.min(255, n * 255))).toString(16).padStart(2, '0');
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    }
+    
+    function generateColorRamp(hex) {
+      const shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
+      const colors = {};
+      const rgb = hexToRgb(hex);
+      
+      shades.forEach((shade, i) => {
+        const lightness = 1 - (i / (shades.length - 1)) * 0.9;
+        const r = rgb.r * lightness;
+        const g = rgb.g * lightness;
+        const b = rgb.b * lightness;
+        colors[shade] = rgbToHex(r, g, b);
+      });
+      
+      return colors;
+    }
+    
+    function generateTypographyScale(base, ratio) {
+      const names = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'];
+      const scale = {};
+      
+      names.forEach((name, i) => {
+        const power = i - 2; // base is at index 2
+        scale[name] = Math.round((base * Math.pow(ratio, power)) * 100) / 100;
+      });
+      
+      return scale;
+    }
+    
+    function generateSpacingScale(base) {
+      const values = [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6];
+      const names = ['0', '1', '2', '3', '4', '5', '6', '8', '10', '12', '16', '20', '24'];
+      const scale = {};
+      
+      names.forEach((name, i) => {
+        scale[name] = (values[i] * base / 16).toFixed(3);
+      });
+      
+      return scale;
+    }
+    
+    function displayResults(colors, typography, spacing, elapsed) {
+      // Show results
+      document.getElementById('results').classList.remove('hidden');
+      
+      // Update stats
+      document.getElementById('colorCount').textContent = Object.keys(colors).length;
+      document.getElementById('typeCount').textContent = Object.keys(typography).length;
+      document.getElementById('perfTime').textContent = elapsed.toFixed(2);
+      
+      // Display color grid
+      const colorGrid = document.getElementById('colorGrid');
+      colorGrid.innerHTML = '';
+      Object.entries(colors).forEach(([shade, color]) => {
+        const swatch = document.createElement('div');
+        swatch.className = 'color-swatch';
+        swatch.style.background = color;
+        swatch.textContent = shade;
+        colorGrid.appendChild(swatch);
+      });
+      
+      // Generate CSS
+      let css = '@theme {\n';
+      css += '  /* Colors */\n';
+      Object.entries(colors).forEach(([shade, color]) => {
+        css += `  --color-primary-${shade}: ${color};\n`;
+      });
+      css += '\n  /* Typography */\n';
+      Object.entries(typography).forEach(([size, value]) => {
+        css += `  --font-size-${size}: ${value}px;\n`;
+      });
+      css += '\n  /* Spacing */\n';
+      Object.entries(spacing).forEach(([key, value]) => {
+        css += `  --spacing-${key}: ${value}rem;\n`;
+      });
+      css += '}\n';
+      
+      document.getElementById('cssOutput').textContent = css;
+      
+      // Scroll to results
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+  </main>
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+
+</body>
+</html>

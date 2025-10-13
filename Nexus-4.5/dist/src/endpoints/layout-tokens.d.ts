@@ -4,12 +4,12 @@
  *
  * Sprint 4 Enhancement: CSS token delivery
  */
-import type { Request, Response } from 'express';
+import type { IncomingMessage, ServerResponse } from 'http';
 /**
  * GET /layout-tokens.css
  * Serves CSS variables for the layout system
  */
-export declare function getLayoutTokensCSS(req: Request, res: Response): Promise<void>;
+export declare function getLayoutTokensCSS(req: IncomingMessage, res: ServerResponse): Promise<void>;
 /**
  * POST /api/layout/matrix
  * Generate and return layout matrix JSON

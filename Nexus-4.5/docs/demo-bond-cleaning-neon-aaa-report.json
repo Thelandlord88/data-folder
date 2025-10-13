@@ -1,0 +1,367 @@
+{
+  "wcag_report": {
+    "schemaVersion": 1,
+    "module": "wcag_master",
+    "status": "pass",
+    "total_issues": 0,
+    "hunters_run": 3,
+    "critical_hunters": [],
+    "hunter_reports": {
+      "ColorContrastHunter": {
+        "schemaVersion": 1,
+        "module": "wcag_color_contrast",
+        "status": "pass",
+        "issues": 0,
+        "affected_elements": 0,
+        "counts": {
+          "low_contrast_elements": 0,
+          "insufficient_aa": 0,
+          "insufficient_aaa": 5
+        },
+        "findings": [
+          {
+            "element": "<input placeholder=\"Neon Tenant\" style=\"margin-top: var(--space-1); padding: var(--space-2); border-",
+            "fg_color": "var",
+            "bg_color": "rgba",
+            "contrast_ratio": 4.5,
+            "required_aaa": 7,
+            "issue": "Insufficient contrast for AAA compliance"
+          },
+          {
+            "element": "<input placeholder=\"tenant@aurora.au\" style=\"margin-top: var(--space-1); padding: var(--space-2); bo",
+            "fg_color": "var",
+            "bg_color": "rgba",
+            "contrast_ratio": 4.5,
+            "required_aaa": 7,
+            "issue": "Insufficient contrast for AAA compliance"
+          },
+          {
+            "element": "<input style=\"margin-top: var(--space-1); padding: var(--space-2); border-radius: 12px; border: 1px ",
+            "fg_color": "var",
+            "bg_color": "rgba",
+            "contrast_ratio": 4.5,
+            "required_aaa": 7,
+            "issue": "Insufficient contrast for AAA compliance"
+          },
+          {
+            "element": "<textarea placeholder=\"Balcony size, carpet state, special requests.\" rows=\"4\" style=\"margin-top: va",
+            "fg_color": "var",
+            "bg_color": "rgba",
+            "contrast_ratio": 4.5,
+            "required_aaa": 7,
+            "issue": "Insufficient contrast for AAA compliance"
+          },
+          {
+            "element": "<button style=\"margin-top: var(--space-2); padding: var(--space-2); border-radius: 14px; border: non",
+            "fg_color": "var",
+            "bg_color": "linear",
+            "contrast_ratio": 4.5,
+            "required_aaa": 7,
+            "issue": "Insufficient contrast for AAA compliance"
+          }
+        ],
+        "actions": [
+          "Ensure color contrast of at least 4.5:1 for normal text (AA)",
+          "Aim for 7:1 contrast for enhanced readability (AAA)",
+          "Use automated tools to verify contrast ratios",
+          "Test with users with visual impairments"
+        ],
+        "policy_invariants": [
+          "counts.insufficient_aa == 0",
+          "counts.low_contrast_elements == 0"
+        ],
+        "eta_minutes": 45,
+        "unlocks": [
+          "wcag_images",
+          "wcag_typography"
+        ]
+      },
+      "ImageAccessibilityHunter": {
+        "schemaVersion": 1,
+        "module": "wcag_images",
+        "status": "pass",
+        "issues": 0,
+        "affected_elements": 0,
+        "counts": {
+          "missing_alt": 0,
+          "empty_alt_decorative": 0,
+          "suspicious_alt": 0
+        },
+        "findings": [],
+        "actions": [
+          "Add alt text to all images missing alt attributes",
+          "Use empty alt='' for purely decorative images",
+          "Ensure alt text describes image content and function",
+          "Avoid using filenames or placeholder text as alt"
+        ],
+        "policy_invariants": [
+          "counts.missing_alt == 0",
+          "counts.suspicious_alt == 0"
+        ],
+        "eta_minutes": 30,
+        "unlocks": [
+          "wcag_semantic_html",
+          "wcag_aria"
+        ]
+      },
+      "SemanticHtmlHunter": {
+        "schemaVersion": 1,
+        "module": "wcag_semantic_html",
+        "status": "pass",
+        "issues": 0,
+        "affected_elements": 0,
+        "counts": {
+          "missing_landmarks": 0,
+          "bad_heading_order": 0,
+          "generic_containers": 0,
+          "missing_document_language": 0
+        },
+        "findings": [],
+        "actions": [
+          "Add missing HTML5 landmark elements (main, nav, header, footer)",
+          "Ensure proper heading hierarchy (h1 → h2 → h3)",
+          "Add lang attribute to html element",
+          "Use semantic elements instead of generic divs"
+        ],
+        "policy_invariants": [
+          "counts.missing_document_language == 0",
+          "counts.bad_heading_order == 0"
+        ],
+        "eta_minutes": 25,
+        "unlocks": [
+          "wcag_keyboard",
+          "wcag_aria"
+        ]
+      }
+    },
+    "summary": {
+      "wcag_a_compliance": "fully-compliant",
+      "wcag_aa_compliance": "fully-compliant",
+      "estimated_fix_time_minutes": 100
+    },
+    "next_actions": []
+  },
+  "personality_analysis": {
+    "guardian": "🛡️  Found 0 accessibility issues. Site is accessible - excellent work!",
+    "pragmatist": "🔧 WCAG compliance impacts SEO and legal requirements. No compliance issues detected.",
+    "architect": "🏗️  Architecture supports accessibility well.",
+    "visionary": "🚀 Accessibility enhances design for everyone. Excellent foundation for inclusive design!"
+  },
+  "intelligence_data": {
+    "source": "wcag_hunters",
+    "confidence": 1,
+    "timestamp": "2025-10-12T23:58:11.101Z",
+    "data": {
+      "schemaVersion": 1,
+      "module": "wcag_master",
+      "status": "pass",
+      "total_issues": 0,
+      "hunters_run": 3,
+      "critical_hunters": [],
+      "hunter_reports": {
+        "ColorContrastHunter": {
+          "schemaVersion": 1,
+          "module": "wcag_color_contrast",
+          "status": "pass",
+          "issues": 0,
+          "affected_elements": 0,
+          "counts": {
+            "low_contrast_elements": 0,
+            "insufficient_aa": 0,
+            "insufficient_aaa": 5
+          },
+          "findings": [
+            {
+              "element": "<input placeholder=\"Neon Tenant\" style=\"margin-top: var(--space-1); padding: var(--space-2); border-",
+              "fg_color": "var",
+              "bg_color": "rgba",
+              "contrast_ratio": 4.5,
+              "required_aaa": 7,
+              "issue": "Insufficient contrast for AAA compliance"
+            },
+            {
+              "element": "<input placeholder=\"tenant@aurora.au\" style=\"margin-top: var(--space-1); padding: var(--space-2); bo",
+              "fg_color": "var",
+              "bg_color": "rgba",
+              "contrast_ratio": 4.5,
+              "required_aaa": 7,
+              "issue": "Insufficient contrast for AAA compliance"
+            },
+            {
+              "element": "<input style=\"margin-top: var(--space-1); padding: var(--space-2); border-radius: 12px; border: 1px ",
+              "fg_color": "var",
+              "bg_color": "rgba",
+              "contrast_ratio": 4.5,
+              "required_aaa": 7,
+              "issue": "Insufficient contrast for AAA compliance"
+            },
+            {
+              "element": "<textarea placeholder=\"Balcony size, carpet state, special requests.\" rows=\"4\" style=\"margin-top: va",
+              "fg_color": "var",
+              "bg_color": "rgba",
+              "contrast_ratio": 4.5,
+              "required_aaa": 7,
+              "issue": "Insufficient contrast for AAA compliance"
+            },
+            {
+              "element": "<button style=\"margin-top: var(--space-2); padding: var(--space-2); border-radius: 14px; border: non",
+              "fg_color": "var",
+              "bg_color": "linear",
+              "contrast_ratio": 4.5,
+              "required_aaa": 7,
+              "issue": "Insufficient contrast for AAA compliance"
+            }
+          ],
+          "actions": [
+            "Ensure color contrast of at least 4.5:1 for normal text (AA)",
+            "Aim for 7:1 contrast for enhanced readability (AAA)",
+            "Use automated tools to verify contrast ratios",
+            "Test with users with visual impairments"
+          ],
+          "policy_invariants": [
+            "counts.insufficient_aa == 0",
+            "counts.low_contrast_elements == 0"
+          ],
+          "eta_minutes": 45,
+          "unlocks": [
+            "wcag_images",
+            "wcag_typography"
+          ]
+        },
+        "ImageAccessibilityHunter": {
+          "schemaVersion": 1,
+          "module": "wcag_images",
+          "status": "pass",
+          "issues": 0,
+          "affected_elements": 0,
+          "counts": {
+            "missing_alt": 0,
+            "empty_alt_decorative": 0,
+            "suspicious_alt": 0
+          },
+          "findings": [],
+          "actions": [
+            "Add alt text to all images missing alt attributes",
+            "Use empty alt='' for purely decorative images",
+            "Ensure alt text describes image content and function",
+            "Avoid using filenames or placeholder text as alt"
+          ],
+          "policy_invariants": [
+            "counts.missing_alt == 0",
+            "counts.suspicious_alt == 0"
+          ],
+          "eta_minutes": 30,
+          "unlocks": [
+            "wcag_semantic_html",
+            "wcag_aria"
+          ]
+        },
+        "SemanticHtmlHunter": {
+          "schemaVersion": 1,
+          "module": "wcag_semantic_html",
+          "status": "pass",
+          "issues": 0,
+          "affected_elements": 0,
+          "counts": {
+            "missing_landmarks": 0,
+            "bad_heading_order": 0,
+            "generic_containers": 0,
+            "missing_document_language": 0
+          },
+          "findings": [],
+          "actions": [
+            "Add missing HTML5 landmark elements (main, nav, header, footer)",
+            "Ensure proper heading hierarchy (h1 → h2 → h3)",
+            "Add lang attribute to html element",
+            "Use semantic elements instead of generic divs"
+          ],
+          "policy_invariants": [
+            "counts.missing_document_language == 0",
+            "counts.bad_heading_order == 0"
+          ],
+          "eta_minutes": 25,
+          "unlocks": [
+            "wcag_keyboard",
+            "wcag_aria"
+          ]
+        }
+      },
+      "summary": {
+        "wcag_a_compliance": "fully-compliant",
+        "wcag_aa_compliance": "fully-compliant",
+        "estimated_fix_time_minutes": 100
+      },
+      "next_actions": []
+    },
+    "threatLevel": "low",
+    "wcagLevel": "AA",
+    "complianceScore": 100,
+    "module": "wcag_master",
+    "findings": [
+      {
+        "element": "<input placeholder=\"Neon Tenant\" style=\"margin-top: var(--space-1); padding: var(--space-2); border-",
+        "fg_color": "var",
+        "bg_color": "rgba",
+        "contrast_ratio": 4.5,
+        "required_aaa": 7,
+        "issue": "Insufficient contrast for AAA compliance"
+      },
+      {
+        "element": "<input placeholder=\"tenant@aurora.au\" style=\"margin-top: var(--space-1); padding: var(--space-2); bo",
+        "fg_color": "var",
+        "bg_color": "rgba",
+        "contrast_ratio": 4.5,
+        "required_aaa": 7,
+        "issue": "Insufficient contrast for AAA compliance"
+      },
+      {
+        "element": "<input style=\"margin-top: var(--space-1); padding: var(--space-2); border-radius: 12px; border: 1px ",
+        "fg_color": "var",
+        "bg_color": "rgba",
+        "contrast_ratio": 4.5,
+        "required_aaa": 7,
+        "issue": "Insufficient contrast for AAA compliance"
+      },
+      {
+        "element": "<textarea placeholder=\"Balcony size, carpet state, special requests.\" rows=\"4\" style=\"margin-top: va",
+        "fg_color": "var",
+        "bg_color": "rgba",
+        "contrast_ratio": 4.5,
+        "required_aaa": 7,
+        "issue": "Insufficient contrast for AAA compliance"
+      },
+      {
+        "element": "<button style=\"margin-top: var(--space-2); padding: var(--space-2); border-radius: 14px; border: non",
+        "fg_color": "var",
+        "bg_color": "linear",
+        "contrast_ratio": 4.5,
+        "required_aaa": 7,
+        "issue": "Insufficient contrast for AAA compliance"
+      }
+    ]
+  },
+  "strategic_implications": {
+    "businessImpact": [
+      "Compliant with accessibility standards"
+    ],
+    "riskFactors": [],
+    "opportunities": [],
+    "recommendations": [],
+    "timeHorizon": "immediate",
+    "accessibilityImpact": [
+      "Fully accessible to all users"
+    ],
+    "legalRisks": [],
+    "seoOpportunities": [
+      "Semantic HTML improves search ranking",
+      "Semantic structure improves SEO",
+      "Alt text provides content for search engines"
+    ],
+    "userExperienceImpact": []
+  },
+  "compliance_summary": {
+    "level_a": "fully-compliant",
+    "level_aa": "fully-compliant",
+    "estimated_fix_time_minutes": 100
+  }
+}

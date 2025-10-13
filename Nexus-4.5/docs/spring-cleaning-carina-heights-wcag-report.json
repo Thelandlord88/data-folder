@@ -1,0 +1,311 @@
+{
+  "wcag_report": {
+    "schemaVersion": 1,
+    "module": "wcag_master",
+    "status": "warn",
+    "total_issues": 1,
+    "hunters_run": 3,
+    "critical_hunters": [
+      "SemanticHtmlHunter"
+    ],
+    "hunter_reports": {
+      "ColorContrastHunter": {
+        "schemaVersion": 1,
+        "module": "wcag_color_contrast",
+        "status": "pass",
+        "issues": 0,
+        "affected_elements": 0,
+        "counts": {
+          "low_contrast_elements": 0,
+          "insufficient_aa": 0,
+          "insufficient_aaa": 1
+        },
+        "findings": [
+          {
+            "element": "<div class=\"coverage-badge\" data-astro-cid-iiiab5oa=\"\" style=\"background: #dbeafe; border-color: #3b",
+            "fg_color": "#3b82f6",
+            "bg_color": "#dbeafe",
+            "contrast_ratio": 4.5,
+            "required_aaa": 7,
+            "issue": "Insufficient contrast for AAA compliance"
+          }
+        ],
+        "actions": [
+          "Ensure color contrast of at least 4.5:1 for normal text (AA)",
+          "Aim for 7:1 contrast for enhanced readability (AAA)",
+          "Use automated tools to verify contrast ratios",
+          "Test with users with visual impairments"
+        ],
+        "policy_invariants": [
+          "counts.insufficient_aa == 0",
+          "counts.low_contrast_elements == 0"
+        ],
+        "eta_minutes": 45,
+        "unlocks": [
+          "wcag_images",
+          "wcag_typography"
+        ]
+      },
+      "ImageAccessibilityHunter": {
+        "schemaVersion": 1,
+        "module": "wcag_images",
+        "status": "pass",
+        "issues": 0,
+        "affected_elements": 0,
+        "counts": {
+          "missing_alt": 0,
+          "empty_alt_decorative": 0,
+          "suspicious_alt": 0
+        },
+        "findings": [],
+        "actions": [
+          "Add alt text to all images missing alt attributes",
+          "Use empty alt='' for purely decorative images",
+          "Ensure alt text describes image content and function",
+          "Avoid using filenames or placeholder text as alt"
+        ],
+        "policy_invariants": [
+          "counts.missing_alt == 0",
+          "counts.suspicious_alt == 0"
+        ],
+        "eta_minutes": 30,
+        "unlocks": [
+          "wcag_semantic_html",
+          "wcag_aria"
+        ]
+      },
+      "SemanticHtmlHunter": {
+        "schemaVersion": 1,
+        "module": "wcag_semantic_html",
+        "status": "warn",
+        "issues": 1,
+        "affected_elements": 1,
+        "counts": {
+          "missing_landmarks": 0,
+          "bad_heading_order": 1,
+          "generic_containers": 0,
+          "missing_document_language": 0
+        },
+        "findings": [
+          {
+            "issue": "Heading hierarchy skips level: h1 to h3",
+            "fix": "Use proper heading hierarchy (h1 → h2 → h3)",
+            "severity": "warning"
+          }
+        ],
+        "actions": [
+          "Add missing HTML5 landmark elements (main, nav, header, footer)",
+          "Ensure proper heading hierarchy (h1 → h2 → h3)",
+          "Add lang attribute to html element",
+          "Use semantic elements instead of generic divs"
+        ],
+        "policy_invariants": [
+          "counts.missing_document_language == 0",
+          "counts.bad_heading_order == 0"
+        ],
+        "eta_minutes": 25,
+        "unlocks": [
+          "wcag_keyboard",
+          "wcag_aria"
+        ]
+      }
+    },
+    "summary": {
+      "wcag_a_compliance": "mostly-compliant",
+      "wcag_aa_compliance": "mostly-compliant",
+      "estimated_fix_time_minutes": 100
+    },
+    "next_actions": [
+      "Add missing HTML5 landmark elements (main, nav, header, footer)",
+      "Ensure proper heading hierarchy (h1 → h2 → h3)",
+      "Add lang attribute to html element",
+      "Use semantic elements instead of generic divs"
+    ]
+  },
+  "personality_analysis": {
+    "guardian": "🛡️  Found 1 accessibility issues. Critical items must be addressed to ensure all users can access content.",
+    "pragmatist": "🔧 WCAG compliance impacts SEO and legal requirements. Estimated fix time: 100 minutes. Focus on Level AA for industry standard.",
+    "architect": "🏗️  1 areas need architectural attention. Consider baking WCAG checks into CSS Engine generation.",
+    "visionary": "🚀 Accessibility enhances design for everyone. Future: AI-powered alt text generation and real-time WCAG validation."
+  },
+  "intelligence_data": {
+    "source": "wcag_hunters",
+    "confidence": 0.8,
+    "timestamp": "2025-10-13T00:27:55.634Z",
+    "data": {
+      "schemaVersion": 1,
+      "module": "wcag_master",
+      "status": "warn",
+      "total_issues": 1,
+      "hunters_run": 3,
+      "critical_hunters": [
+        "SemanticHtmlHunter"
+      ],
+      "hunter_reports": {
+        "ColorContrastHunter": {
+          "schemaVersion": 1,
+          "module": "wcag_color_contrast",
+          "status": "pass",
+          "issues": 0,
+          "affected_elements": 0,
+          "counts": {
+            "low_contrast_elements": 0,
+            "insufficient_aa": 0,
+            "insufficient_aaa": 1
+          },
+          "findings": [
+            {
+              "element": "<div class=\"coverage-badge\" data-astro-cid-iiiab5oa=\"\" style=\"background: #dbeafe; border-color: #3b",
+              "fg_color": "#3b82f6",
+              "bg_color": "#dbeafe",
+              "contrast_ratio": 4.5,
+              "required_aaa": 7,
+              "issue": "Insufficient contrast for AAA compliance"
+            }
+          ],
+          "actions": [
+            "Ensure color contrast of at least 4.5:1 for normal text (AA)",
+            "Aim for 7:1 contrast for enhanced readability (AAA)",
+            "Use automated tools to verify contrast ratios",
+            "Test with users with visual impairments"
+          ],
+          "policy_invariants": [
+            "counts.insufficient_aa == 0",
+            "counts.low_contrast_elements == 0"
+          ],
+          "eta_minutes": 45,
+          "unlocks": [
+            "wcag_images",
+            "wcag_typography"
+          ]
+        },
+        "ImageAccessibilityHunter": {
+          "schemaVersion": 1,
+          "module": "wcag_images",
+          "status": "pass",
+          "issues": 0,
+          "affected_elements": 0,
+          "counts": {
+            "missing_alt": 0,
+            "empty_alt_decorative": 0,
+            "suspicious_alt": 0
+          },
+          "findings": [],
+          "actions": [
+            "Add alt text to all images missing alt attributes",
+            "Use empty alt='' for purely decorative images",
+            "Ensure alt text describes image content and function",
+            "Avoid using filenames or placeholder text as alt"
+          ],
+          "policy_invariants": [
+            "counts.missing_alt == 0",
+            "counts.suspicious_alt == 0"
+          ],
+          "eta_minutes": 30,
+          "unlocks": [
+            "wcag_semantic_html",
+            "wcag_aria"
+          ]
+        },
+        "SemanticHtmlHunter": {
+          "schemaVersion": 1,
+          "module": "wcag_semantic_html",
+          "status": "warn",
+          "issues": 1,
+          "affected_elements": 1,
+          "counts": {
+            "missing_landmarks": 0,
+            "bad_heading_order": 1,
+            "generic_containers": 0,
+            "missing_document_language": 0
+          },
+          "findings": [
+            {
+              "issue": "Heading hierarchy skips level: h1 to h3",
+              "fix": "Use proper heading hierarchy (h1 → h2 → h3)",
+              "severity": "warning"
+            }
+          ],
+          "actions": [
+            "Add missing HTML5 landmark elements (main, nav, header, footer)",
+            "Ensure proper heading hierarchy (h1 → h2 → h3)",
+            "Add lang attribute to html element",
+            "Use semantic elements instead of generic divs"
+          ],
+          "policy_invariants": [
+            "counts.missing_document_language == 0",
+            "counts.bad_heading_order == 0"
+          ],
+          "eta_minutes": 25,
+          "unlocks": [
+            "wcag_keyboard",
+            "wcag_aria"
+          ]
+        }
+      },
+      "summary": {
+        "wcag_a_compliance": "mostly-compliant",
+        "wcag_aa_compliance": "mostly-compliant",
+        "estimated_fix_time_minutes": 100
+      },
+      "next_actions": [
+        "Add missing HTML5 landmark elements (main, nav, header, footer)",
+        "Ensure proper heading hierarchy (h1 → h2 → h3)",
+        "Add lang attribute to html element",
+        "Use semantic elements instead of generic divs"
+      ]
+    },
+    "threatLevel": "medium",
+    "wcagLevel": "AA",
+    "complianceScore": 90,
+    "module": "wcag_master",
+    "findings": [
+      {
+        "element": "<div class=\"coverage-badge\" data-astro-cid-iiiab5oa=\"\" style=\"background: #dbeafe; border-color: #3b",
+        "fg_color": "#3b82f6",
+        "bg_color": "#dbeafe",
+        "contrast_ratio": 4.5,
+        "required_aaa": 7,
+        "issue": "Insufficient contrast for AAA compliance"
+      },
+      {
+        "issue": "Heading hierarchy skips level: h1 to h3",
+        "fix": "Use proper heading hierarchy (h1 → h2 → h3)",
+        "severity": "warning"
+      }
+    ]
+  },
+  "strategic_implications": {
+    "businessImpact": [
+      "Estimated fix time: 100 minutes",
+      "User base excludes people with disabilities"
+    ],
+    "riskFactors": [],
+    "opportunities": [],
+    "recommendations": [
+      "Add missing HTML5 landmark elements (main, nav, header, footer)",
+      "Ensure proper heading hierarchy (h1 → h2 → h3)",
+      "Add lang attribute to html element",
+      "Use semantic elements instead of generic divs"
+    ],
+    "timeHorizon": "immediate",
+    "accessibilityImpact": [
+      "Vision-impaired users may face barriers",
+      "Screen reader compatibility issues detected"
+    ],
+    "legalRisks": [
+      "Non-compliance with WCAG may expose to legal action",
+      "ADA/Section 508 requirements not fully met"
+    ],
+    "seoOpportunities": [],
+    "userExperienceImpact": [
+      "Some users cannot access content",
+      "Navigation may be difficult without mouse"
+    ]
+  },
+  "compliance_summary": {
+    "level_a": "mostly-compliant",
+    "level_aa": "mostly-compliant",
+    "estimated_fix_time_minutes": 100
+  }
+}

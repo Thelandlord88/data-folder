@@ -101,7 +101,7 @@ echo ""
 # Start Nexus with auto-restart
 RESTART_COUNT=0
 MAX_RESTARTS=5
-fiho "🚀 NEXUS-4.5 Startup Manager"
+echo "🚀 NEXUS-4.5 Startup Manager"
 echo "================================"
 echo ""
 echo "📁 Working Directory: $SCRIPT_DIR"

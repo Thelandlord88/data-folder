@@ -27,11 +27,12 @@ export class WcagHunterService {
    * Run WCAG hunters on HTML content
    */
   async checkHtml(html: string): Promise<WcagMasterReport> {
+    const { writeFileSync, unlinkSync, readFileSync } = await import('fs');
+    
     return new Promise((resolve, reject) => {
       // Create temporary file with HTML
       const tmpFile = `/tmp/wcag-check-${Date.now()}.html`;
-      const fs = require('fs');
-      fs.writeFileSync(tmpFile, html);
+      writeFileSync(tmpFile, html);
 
       // Spawn Python hunter
       const hunter = spawn(this.pythonPath, [this.hunterPath, tmpFile]);
@@ -49,7 +50,7 @@ export class WcagHunterService {
 
       hunter.on('close', (code: number) => {
         // Clean up temp file
-        try { fs.unlinkSync(tmpFile); } catch (e) {}
+        try { unlinkSync(tmpFile); } catch (e) {}
 
         if (code !== 0) {
           reject(new Error(`Hunter failed: ${stderr}`));
@@ -59,7 +60,7 @@ export class WcagHunterService {
         try {
           // Read master report
           const reportPath = '__reports/hunt/wcag_master.json';
-          const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+          const report = JSON.parse(readFileSync(reportPath, 'utf8'));
           resolve(report as WcagMasterReport);
         } catch (err) {
           reject(new Error(`Failed to read report: ${err}`));

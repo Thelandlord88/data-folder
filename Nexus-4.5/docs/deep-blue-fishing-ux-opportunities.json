@@ -1,0 +1,70 @@
+{
+  "file": "docs/deep-blue-fishing.html",
+  "timestamp": "2025-10-13T03:46:51.005302",
+  "total_opportunities": 88,
+  "opportunities": {
+    "buttons": {
+      "count": 2,
+      "patterns": [
+        "button_smooth_hover"
+      ],
+      "priority": "high"
+    },
+    "links": {
+      "count": 20,
+      "patterns": [
+        "link_underline_slide"
+      ],
+      "priority": "medium"
+    },
+    "form_inputs": {
+      "count": 5,
+      "patterns": [
+        "input_focus_glow"
+      ],
+      "priority": "high"
+    },
+    "cards": {
+      "count": 25,
+      "patterns": [
+        "card_elevation"
+      ],
+      "priority": "medium"
+    },
+    "navigation": {
+      "count": 3,
+      "patterns": [
+        "nav_item_highlight"
+      ],
+      "priority": "medium"
+    },
+    "sections": {
+      "count": 4,
+      "patterns": [
+        "scroll_reveal"
+      ],
+      "priority": "medium"
+    },
+    "statistics": {
+      "count": 10,
+      "patterns": [
+        "stat_count_up"
+      ],
+      "priority": "high"
+    },
+    "testimonials": {
+      "count": 13,
+      "patterns": [
+        "testimonial_fade_slide"
+      ],
+      "priority": "medium"
+    },
+    "prices": {
+      "count": 6,
+      "patterns": [
+        "price_highlight"
+      ],
+      "priority": "medium"
+    }
+  }
+}

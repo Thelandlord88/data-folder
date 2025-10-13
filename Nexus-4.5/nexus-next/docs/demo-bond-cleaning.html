@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CrystalBond delivers premium bond cleaning across Brisbane with a 98% inspection pass rate and a bond-back guarantee." />
+  <title>CrystalBond | Premium Bond Cleaning</title>
+  <style>
+    :root {
+      /* ColorScientist tokens */
+      --color-primary-900: #042030;
+      --color-primary-700: #0b3f56;
+      --color-primary-500: #0ea5e9;
+      --color-primary-300: #5ac8ff;
+      --color-primary-100: #d7efff;
+      --color-accent-500: #ffb703;
+      --color-neutral-900: #0f172a;
+      --color-neutral-600: #334155;
+      --color-neutral-200: #e2e8f0;
+      --color-neutral-50: #f8fafc;
+
+      /* TypographyArchitect tokens */
+      --font-base: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --type-base: clamp(1rem, 0.2vw + 0.95rem, 1.125rem);
+      --type-lg: clamp(1.25rem, 0.6vw + 1rem, 1.75rem);
+      --type-xl: clamp(1.75rem, 1.2vw + 1.25rem, 2.5rem);
+      --type-2xl: clamp(2.5rem, 2vw + 1.8rem, 3.5rem);
+      --line-height: 1.55;
+
+      /* SpatialEngineer tokens */
+      --space-0: 0px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+      --grid-max-width: 1200px;
+      --grid-columns: 12;
+      --grid-gutter: 24px;
+
+      /* MotionPhysicist preview */
+      --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-base);
+      font-size: var(--type-base);
+      line-height: var(--line-height);
+      color: var(--color-neutral-900);
+      background: linear-gradient(180deg, var(--color-primary-100) 0%, #ffffff 40%);
+    }
+
+    a,
+    button,
+    input,
+    textarea {
+      transition: outline 120ms ease;
+    }
+
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: 3px solid var(--color-accent-500);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--space-4);
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-accent-500);
+      color: var(--color-neutral-900);
+      font-weight: 600;
+      border-radius: 8px;
+      z-index: 999;
+      text-decoration: none;
+      transition: top 160ms var(--ease-spring);
+    }
+
+    .skip-link:focus {
+      top: var(--space-4);
+    }
+
+    header {
+      background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.25), transparent 60%),
+                  linear-gradient(135deg, rgba(4, 32, 48, 0.9), rgba(11, 63, 86, 0.85));
+      color: white;
+      padding: var(--space-20) var(--space-4) var(--space-16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 10%, rgba(90, 200, 255, 0.35), transparent 55%);
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: var(--grid-max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: var(--type-lg);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .logo span {
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 183, 3, 0.2);
+      border: 2px solid rgba(255, 183, 3, 0.5);
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent-500);
+      font-size: 1.25rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-12);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: var(--type-2xl);
+      margin: 0 0 var(--space-6);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.88);
+      margin-bottom: var(--space-8);
+      max-width: 40ch;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: var(--space-3) var(--space-6);
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 220ms var(--ease-spring), box-shadow 220ms var(--ease-spring);
+    }
+
+    .btn-primary {
+      background: var(--color-accent-500);
+      color: var(--color-neutral-900);
+      box-shadow: 0 12px 24px rgba(255, 183, 3, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px rgba(255, 183, 3, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 26px rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      padding: var(--space-24) var(--space-4);
+    }
+
+    section h2 {
+      font-size: var(--type-xl);
+      text-align: center;
+      margin: 0 0 var(--space-10);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      max-width: var(--grid-max-width);
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: var(--space-8);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--color-neutral-200);
+      transition: transform 240ms var(--ease-spring), box-shadow 240ms var(--ease-spring);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: var(--type-lg);
+    }
+
+    .metrics {
+      background: linear-gradient(180deg, rgba(14, 165, 233, 0.08), rgba(14, 165, 233, 0.02));
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-6);
+      max-width: var(--grid-max-width);
+      margin: 0 auto;
+    }
+
+    .metric {
+      background: white;
+      padding: var(--space-6);
+      border-radius: 20px;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      text-align: center;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary-500);
+      margin-bottom: var(--space-2);
+    }
+
+    .testimonials {
+      background: var(--color-neutral-50);
+    }
+
+    .testimonial-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      max-width: var(--grid-max-width);
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: white;
+      padding: var(--space-6);
+      border-radius: 18px;
+      border: 1px solid var(--color-neutral-200);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: var(--space-4);
+      color: var(--color-neutral-600);
+      font-size: 0.95rem;
+    }
+
+    .pricing {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(14, 165, 233, 0.03));
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-8);
+      max-width: var(--grid-max-width);
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 24px;
+      padding: var(--space-8);
+      border: 1px solid rgba(14, 165, 233, 0.18);
+      box-shadow: 0 24px 48px rgba(14, 165, 233, 0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .pricing-card.highlight::before {
+      content: "Popular";
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      background: var(--color-primary-500);
+      color: white;
+      padding: var(--space-1) var(--space-3);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .pricing-card ul li::before {
+      content: "✔";
+      color: var(--color-primary-500);
+      margin-right: var(--space-2);
+    }
+
+    footer {
+      background: var(--color-neutral-900);
+      color: white;
+      padding: var(--space-12) var(--space-4);
+    }
+
+    footer .footer-grid {
+      max-width: var(--grid-max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-8);
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: var(--space-16) var(--space-4) var(--space-12);
+      }
+
+      section {
+        padding: var(--space-16) var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><span>CB</span>CrystalBond</div>
+        <a class="btn-secondary" href="#contact">Get Estimate</a>
+      </nav>
+      <div class="hero">
+        <div>
+          <h1>Bond Cleaning Perfected with Mathematical Precision</h1>
+          <p>CrystalBond is the only bond cleaning partner powered by the NEXUS CSS Engine. Every layout, color ramp, and interaction is generated from pure math, ensuring spotless handovers and delighted property managers.</p>
+          <div class="cta-buttons">
+            <a class="btn-primary" href="#pricing">View Packages</a>
+            <a class="btn-secondary" href="#process">See The Process</a>
+          </div>
+        </div>
+        <div>
+          <picture>
+            <source srcset="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" media="(min-width: 1024px)" type="image/jpeg" />
+            <source srcset="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=820&q=80" media="(min-width: 640px)" type="image/jpeg" />
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=640&q=80" alt="Professional cleaner ensuring a spotless rental kitchen" loading="lazy" style="width: 100%; border-radius: 28px; box-shadow: 0 30px 80px rgba(7, 37, 52, 0.45); border: 2px solid rgba(255, 255, 255, 0.2);" />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+  <section id="process">
+    <h2>CSS Engine-Powered Experience</h2>
+    <div class="grid-3">
+      <article class="card">
+        <h3>ColorScientist Palettes</h3>
+        <p>OKLCH harmonies ensure our brand communicates trust and freshness. Accessible contrast is baked into every component, guaranteeing clarity on any device.</p>
+      </article>
+      <article class="card">
+        <h3>TypographyArchitect Rhythm</h3>
+        <p>Golden-ratio scales and fluid clamps create calming hierarchy. Every headline, paragraph, and caption stays in perfect proportion across breakpoints.</p>
+      </article>
+      <article class="card">
+        <h3>GridMathematician Layouts</h3>
+        <p>12-column adaptive grids distribute content for optimal readability. Gutters align to the 8px system, while aspect ratios keep before/after galleries balanced.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="metrics">
+    <div class="container">
+      <h2>Spotless Performance Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric"><span>98%</span>Average inspection pass rate</div>
+        <div class="metric"><span>3.2h</span>Mean turnaround time</div>
+        <div class="metric"><span>4.9★</span>Tenant satisfaction score</div>
+        <div class="metric"><span>120+</span>Property managers partnered</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Loved by Tenants & Owners</h2>
+    <div class="testimonial-list">
+      <article class="testimonial">
+        “CrystalBond delivered a flawless exit clean. The layout of their service report was as spotless as the apartment—clearly generated by genius automation.”
+        <strong>Emma R. · Tenant</strong>
+      </article>
+      <article class="testimonial">
+        “Property inspections are smoother because CrystalBond’s reports align perfectly with our compliance grids. It saves our team hours every week.”
+        <strong>James K. · Lease Manager</strong>
+      </article>
+      <article class="testimonial">
+        “The bond was released instantly. Their detail page used color-coded OKLCH badges, making it obvious what was cleaned and when.”
+        <strong>Sophia W. · Landlord</strong>
+      </article>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <h2>Packages Generated by the Engine</h2>
+    <div class="pricing-grid">
+      <article class="pricing-card">
+        <h3>Studio Precision</h3>
+        <p><strong>$189</strong> · 24-hour turnaround</p>
+        <ul>
+          <li>Kitchen & bathroom deep clean</li>
+          <li>Appliance detailing</li>
+          <li>Window interior polish</li>
+          <li>Inspection-ready photo report</li>
+        </ul>
+        <a class="btn-secondary" href="#contact">Book Studio</a>
+      </article>
+      <article class="pricing-card highlight">
+        <h3>Two-Bed Mastery</h3>
+        <p><strong>$289</strong> · 48-hour turnaround</p>
+        <ul>
+          <li>All studio features</li>
+          <li>Balcony & outdoor refresh</li>
+          <li>Carpet steam treatment</li>
+          <li>Gold-standard compliance grid</li>
+        </ul>
+        <a class="btn-primary" href="#contact">Book Signature</a>
+      </article>
+      <article class="pricing-card">
+        <h3>Penthouse Apex</h3>
+        <p><strong>$449</strong> · 72-hour turnaround</p>
+        <ul>
+          <li>All Mastery features</li>
+          <li>Garage & storage detailing</li>
+          <li>High glass & skirting precision</li>
+          <li>Personal liaison & live updates</li>
+        </ul>
+        <a class="btn-secondary" href="#contact">Book Penthouse</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Request Your Engine-Tuned Clean</h2>
+      <div class="grid-3" style="align-items: center;">
+        <div class="card" style="grid-column: span 2;">
+          <h3>We respond within 15 minutes</h3>
+          <p>Drop your details and our LayoutAlgorithmist will craft a bespoke cleaning itinerary, complete with animated timeline and OKR tracking.</p>
+          <form method="post" action="#" style="display: grid; gap: var(--space-4); margin-top: var(--space-6);">
+            <div style="display: grid; gap: var(--space-2);">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Alex Tenant" style="padding: var(--space-3); border-radius: 12px; border: 1px solid var(--color-neutral-200);" />
+            </div>
+            <div style="display: grid; gap: var(--space-2); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+              <div style="display: grid; gap: var(--space-2);">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="alex@email.com" style="padding: var(--space-3); border-radius: 12px; border: 1px solid var(--color-neutral-200);" />
+              </div>
+              <div style="display: grid; gap: var(--space-2);">
+                <label for="move-out">Move-out date</label>
+                <input id="move-out" name="move-out" type="date" style="padding: var(--space-3); border-radius: 12px; border: 1px solid var(--color-neutral-200);" />
+              </div>
+            </div>
+            <div style="display: grid; gap: var(--space-2);">
+              <label for="notes">Specific requests</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="List any carpet stains, balcony size, or extras." style="padding: var(--space-3); border-radius: 12px; border: 1px solid var(--color-neutral-200);"></textarea>
+            </div>
+            <button class="btn-primary" type="submit" style="border: none; cursor: pointer;">Generate My Cleaning Plan</button>
+          </form>
+        </div>
+        <aside class="card" style="background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.2);">
+          <h3>Why Tenants Choose Us</h3>
+          <p style="margin-bottom: var(--space-4);">We keep bond releases stress-free by focusing on what matters:</p>
+          <ul style="margin: 0; padding-left: var(--space-4); display: grid; gap: var(--space-3);">
+            <li>Friendly, insured cleaners</li>
+            <li>Real-estate ready checklists</li>
+            <li>Eco-friendly cleaning products</li>
+            <li>Free return visit if required</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom: var(--space-4);"><span>CB</span>CrystalBond</div>
+        <p>Bond cleaning orchestrated by NEXUS CSS Engine. Precision layouts, audit-ready documentation, and spotless handovers.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2);">
+          <li><span>Exit cleaning</span></li>
+          <li><span>Carpet revival</span></li>
+          <li><span>Inspection reports</span></li>
+          <li><span>Pet treatment</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2);">
+          <li><a href="tel:+61755501337">(07) 5550 1337</a></li>
+          <li><a href="mailto:hello@crystalbond.au">hello@crystalbond.au</a></li>
+          <li>123 Renewal Ave, Brisbane QLD</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Operating Hours</h4>
+        <p>Mon–Sat · 6am – 10pm<br/>Emergency cleans available Sunday</p>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: var(--space-8); font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);">© 2025 CrystalBond. Powered by NEXUS Super Brain.</p>
+  </footer>
+</body>
+</html>
