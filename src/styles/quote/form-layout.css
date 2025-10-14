@@ -1,0 +1,204 @@
+/**
+ * Quote Form Layout Styles
+ *
+ * Framework Application:
+ * - Upstream Thinking: isolates form-only selectors to eliminate scattering in component primitives
+ * - Resourceful Innovation: reuses existing tokens/components; no new design language introduced
+ *
+ * Scope: layout + structural styles unique to the multi-step quote form workflow.
+ * Import order: design-tokens.css → components.css → form-layout.css
+ */
+
+/* ---------------------------------------------------------------------------
+ * PROGRESS & STEPPER
+ * --------------------------------------------------------------------------- */
+[data-quote] #q-progress {
+  height: 0.5rem;
+  background: linear-gradient(90deg, var(--q-sky-400), var(--q-sky-600));
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--q-radius-full);
+  transition: width var(--q-transition-slow) ease-out;
+}
+
+[data-quote] #q-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 22%, transparent 45%);
+  transform: translateX(-100%);
+  animation: progress-sheen 2.2s linear infinite;
+}
+
+@keyframes progress-sheen {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+[data-quote] .q-stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--q-space-xs);
+  font-size: var(--q-text-xs);
+  color: var(--q-silver-500);
+  transition: var(--q-transition-colors);
+}
+
+[data-quote] .q-stepper-item[aria-current="step"] {
+  color: var(--q-sky-600);
+  font-weight: var(--q-weight-semibold);
+}
+
+[data-quote] .q-step-num {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--q-radius-full);
+  background: var(--q-silver-200);
+  color: var(--q-silver-600);
+  font-weight: var(--q-weight-semibold);
+  font-size: var(--q-text-sm);
+}
+
+[data-quote] .q-stepper-item[aria-current="step"] .q-step-num {
+  background: var(--q-sky-600);
+  color: white;
+}
+
+/* ---------------------------------------------------------------------------
+ * STEP CONTAINERS & TRANSITIONS
+ * --------------------------------------------------------------------------- */
+[data-quote] .q-step {
+  display: none;
+}
+
+[data-quote] .q-step.active {
+  display: block;
+  animation: qfade 0.25s ease;
+}
+
+@keyframes qfade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * STEP-SPECIFIC ACCENTS
+ * --------------------------------------------------------------------------- */
+[data-quote] #q-step-1 .q-card {
+  border-top: var(--q-border-highlight) solid var(--q-sky-600);
+}
+
+[data-quote] #q-step-2 .q-card {
+  border-top: var(--q-border-highlight) solid var(--q-silver-400);
+}
+
+[data-quote] #q-step-3 .q-card {
+  border-top: var(--q-border-highlight) solid var(--q-green);
+}
+
+[data-quote] #q-step-4 .q-card {
+  border-top: var(--q-border-highlight) solid var(--q-sky-600);
+}
+
+/* ---------------------------------------------------------------------------
+ * REVIEW SUMMARY GRID
+ * --------------------------------------------------------------------------- */
+[data-quote] .q-review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--q-space-sm);
+}
+
+[data-quote] .q-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--q-space-md);
+  align-items: start;
+  padding: var(--q-space-sm) 0;
+}
+
+[data-quote] .q-row-col {
+  grid-template-columns: 160px 1fr;
+}
+
+[data-quote] .q-term {
+  color: var(--q-silver-600);
+  font-weight: var(--q-weight-semibold);
+  text-align: right;
+  padding-right: var(--q-space-xs);
+  position: relative;
+}
+
+[data-quote] .q-term::after {
+  content: ':';
+  position: absolute;
+  right: -0.2rem;
+  color: var(--q-silver-500);
+}
+
+[data-quote] .q-val {
+  color: var(--q-navy);
+  word-break: break-word;
+}
+
+/* ---------------------------------------------------------------------------
+ * MOBILE STICKY BAR
+ * --------------------------------------------------------------------------- */
+[data-quote] #q-mobilebar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------------------------------------------------------
+ * RESPONSIVE ADJUSTMENTS
+ * --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  [data-quote] {
+    padding-bottom: 6rem; /* Space for sticky mobile bar */
+  }
+
+  [data-quote] .q-review {
+    gap: var(--q-space-sm);
+  }
+
+  [data-quote] .q-row {
+    gap: var(--q-space-md);
+    padding: var(--q-space-sm) 0;
+  }
+
+  [data-quote] #q-mobilebar .q-btn {
+    font-size: 16px; /* Prevent iOS zoom */
+    padding: 0.95rem 1.1rem;
+    min-height: 52px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * PRINT ADJUSTMENTS
+ * --------------------------------------------------------------------------- */
+@media print {
+  [data-quote] #q-mobilebar {
+    display: none;
+  }
+
+  [data-quote] .q-actions {
+    display: none;
+  }
+
+  [data-quote] .q-card {
+    box-shadow: none;
+    border: 1px solid var(--q-silver-300);
+  }
+}
