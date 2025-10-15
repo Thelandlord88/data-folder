@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Form - COMPACT TEST</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- External Styles -->
+  <link rel="stylesheet" href="/src/styles/quote/design-tokens.css">
+  <link rel="stylesheet" href="/src/styles/quote/components.css">
+  <link rel="stylesheet" href="/src/styles/quote/form-layout.css">
+  <link rel="stylesheet" href="/src/styles/quote/legacy-overrides.css">
+
+  <!-- INLINE COMPACT OVERRIDES - BYPASSES ALL CACHING -->
+  <style>
+    /* ULTRA COMPACT SPACING - YOU SHOULD SEE THIS IMMEDIATELY */
+    [data-quote] .q-card {
+      padding: 0.75rem 0.85rem !important;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.84) 60%, rgba(246, 248, 252, 0.9)) !important;
+      border: 2px solid rgba(14, 165, 233, 0.3) !important;
+    }
+
+    [data-quote] .q-group {
+      margin-bottom: 0.5rem !important;
+    }
+
+    [data-quote] .q-label {
+      margin-bottom: 0.25rem !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+    }
+
+    [data-quote] .q-help {
+      margin-top: 0.2rem !important;
+      font-size: 0.8125rem !important;
+    }
+
+    [data-quote] .q-input,
+    [data-quote] .q-select {
+      padding: 0.45rem 0.6rem !important;
+      min-height: 2.25rem !important;
+      font-size: 0.9375rem !important;
+    }
+
+    [data-quote] .q-fieldset {
+      gap: 0.45rem !important;
+      margin-top: 0.3rem !important;
+    }
+
+    [data-quote] .q-chip-group {
+      gap: 0.35rem !important;
+    }
+
+    [data-quote] .q-chip {
+      padding: 0.3rem 0.55rem !important;
+      font-size: 0.8125rem !important;
+    }
+
+    [data-quote] .q-addon-tile {
+      padding: 0.6rem 0.75rem !important;
+    }
+
+    [data-quote] .q-actions {
+      gap: 0.6rem !important;
+      margin-top: 0.85rem !important;
+    }
+
+    [data-quote] .q-h3 {
+      margin-bottom: 0.45rem !important;
+      font-size: 1.05rem !important;
+    }
+
+    [data-quote] .q-callout {
+      padding: 0.65rem 0.8rem !important;
+      margin-bottom: 0.65rem !important;
+    }
+
+    /* Tighter review rows */
+    [data-quote] .q-review {
+      gap: 0.3rem !important;
+    }
+
+    [data-quote] .q-row {
+      padding: 0.35rem 0 !important;
+      gap: 0.75rem !important;
+    }
+
+    /* Visual indicator this file is loaded */
+    body::before {
+      content: "🎯 COMPACT TEST VERSION - YOU'RE VIEWING THE RIGHT FILE";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #10b981, #059669);
+      color: white;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.875rem;
+      z-index: 999999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    body {
+      padding-top: 2.5rem;
+    }
+  </style>
+
+</head>
+<body class="bg-gray-50">
+
+<script>
+// Embedded JavaScript - runs immediately
+(function(){
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+  function init(){
+    const root = document.querySelector('[data-quote]');
+    if(!root || root.dataset.init==='1') return;
+    root.dataset.init='1';
+
+    const form = $('#q-form', root);
+    const formArea = form.closest('.md\\:col-span-7');
+    const success = $('#q-success', root);
+    const summary = $('#q-summary', root);
+    const mobilebar = $('#q-mobilebar', root);
+    const errorBanner = $('#q-error', root);
+    const errorMsg = $('#q-error-msg', root);
+    const progress = $('#q-progress', root);
+    const submitBtn = $('#q-submit', root);
+    const includedBtn = $('#q-included-btn', root);
+    const includedDetails = $('#q-included', root);
+    const additionalBtn = $('#q-additional-btn', root);
+    const additionalDetails = $('#q-additional', root);
+
+    const state = {
+      step: 1, propertyType: '', bedrooms:'3', bathrooms:'2',
+      addons:[], fullName:'', phone:'', email:'', address:'', date:'', notes:'',
+      exitDate:'', pmContact:'',
+    };
+
+    function updateUI(){
+      $$('.q-step', root).forEach((s, i)=>{
+        s.classList.toggle('active', i+1===state.step);
+      });
+      $$('.q-stepper-item', root).forEach((li, i)=>{
+        if(i+1===state.step) li.setAttribute('aria-current','step');
+        else li.removeAttribute('aria-current');
+      });
+      const w = (state.step/4)*100;
+      progress.style.width = w+'%';
+      progress.setAttribute('aria-valuenow', state.step);
+
+      if(state.step<4 && formArea) formArea.hidden=false;
+      if(state.step===4 && formArea) formArea.hidden=false;
+
+      mobilebar.querySelector('.q-prev').disabled = state.step===1;
+      const nxt = mobilebar.querySelector('.q-next');
+      if(state.step===4){
+        nxt.innerHTML='<i class="fas fa-check mr-2"></i>Submit';
+      } else {
+        nxt.innerHTML='Next <i class="fas fa-arrow-right ml-2"></i>';
+      }
+
+      if(state.step===4){
+        buildSummary();
+      }
+    }
+
+    function buildSummary(){
+      const rows = [
+        {label:'Property Type', val:state.propertyType||'—'},
+        {label:'Bedrooms', val:state.bedrooms||'—'},
+        {label:'Bathrooms', val:state.bathrooms||'—'},
+        {label:'Add-ons', val:state.addons.length? state.addons.join(', '):'None'},
+        {label:'Full Name', val:state.fullName||'—'},
+        {label:'Phone', val:state.phone||'—'},
+        {label:'Email', val:state.email||'—'},
+        {label:'Property Address', val:state.address||'—'},
+        {label:'Preferred Date', val:state.date||'—'},
+        {label:'Additional Notes', val:state.notes||'—'},
+      ];
+      if(state.propertyType==='Rental (Exit clean)'){
+        rows.push({label:'Move-out Date', val:state.exitDate||'—'});
+        rows.push({label:'PM Contact', val:state.pmContact||'—'});
+      }
+      const html = rows.map(r=>`
+        <div class="q-row">
+          <dt class="q-term">${r.label}</dt>
+          <dd class="q-val">${r.val}</dd>
+        </div>
+      `).join('');
+      summary.innerHTML = `<dl class="q-review">${html}</dl>`;
+    }
+
+    function next(){
+      if(state.step===1){
+        if(!state.propertyType){
+          $('#pt-err', root).hidden=false;
+          $('#property-type', root).focus();
+          return;
+        } else {
+          $('#pt-err', root).hidden=true;
+        }
+      }
+      if(state.step===3){
+        const valid = form.reportValidity();
+        if(!valid) return;
+      }
+      if(state.step===4){
+        submit();
+        return;
+      }
+      state.step = Math.min(4, state.step+1);
+      updateUI();
+    }
+
+    function prev(){
+      state.step = Math.max(1, state.step-1);
+      updateUI();
+    }
+
+    function submit(){
+      console.log('Quote submitted:', state);
+      form.hidden=true;
+      mobilebar.hidden=true;
+      success.hidden=false;
+      if(formArea) formArea.hidden=true;
+    }
+
+    function reset(){
+      Object.assign(state, {
+        step:1, propertyType:'', bedrooms:'3', bathrooms:'2',
+        addons:[], fullName:'', phone:'', email:'', address:'', date:'', notes:'',
+        exitDate:'', pmContact:''
+      });
+      form.reset();
+      form.hidden=false;
+      mobilebar.hidden=false;
+      success.hidden=true;
+      if(errorBanner) errorBanner.hidden=true;
+      if(formArea) formArea.hidden=false;
+      updateUI();
+    }
+
+    $$('.q-next', root).forEach(b=>b.addEventListener('click', next));
+    $$('.q-prev', root).forEach(b=>b.addEventListener('click', prev));
+    $$('#q-new', root).forEach(b=>b.addEventListener('click', reset));
+
+    $('#property-type', root)?.addEventListener('change', e=>{
+      state.propertyType = e.target.value;
+      const rental = state.propertyType==='Rental (Exit clean)';
+      $('#rental-extras', root).hidden = !rental;
+    });
+    $('#bedrooms', root)?.addEventListener('change', e=>state.bedrooms=e.target.value);
+    $('#bathrooms', root)?.addEventListener('change', e=>state.bathrooms=e.target.value);
+
+    $$('input[name="addon"]', root).forEach(inp=>{
+      inp.addEventListener('change', ()=>{
+        state.addons = $$('input[name="addon"]:checked', root).map(i=>i.value);
+      });
+    });
+
+    $$('input[name="quick"]', root).forEach(inp=>{
+      inp.addEventListener('change', ()=>{
+        const checked = $$('input[name="quick"]:checked', root).map(i=>i.value);
+        console.log('Quick toggles:', checked);
+      });
+    });
+
+    $('#full-name', root)?.addEventListener('input', e=>state.fullName=e.target.value);
+    $('#phone', root)?.addEventListener('input', e=>state.phone=e.target.value);
+    $('#email', root)?.addEventListener('input', e=>state.email=e.target.value);
+    $('#address', root)?.addEventListener('input', e=>state.address=e.target.value);
+    $('#preferred-date', root)?.addEventListener('input', e=>state.date=e.target.value);
+    $('#notes', root)?.addEventListener('input', e=>state.notes=e.target.value);
+    $('#exit-date', root)?.addEventListener('input', e=>state.exitDate=e.target.value);
+    $('#pm-contact', root)?.addEventListener('input', e=>state.pmContact=e.target.value);
+
+    includedBtn?.addEventListener('click', ()=>{
+      const open = !includedDetails.hidden;
+      includedDetails.hidden = open;
+      includedBtn.setAttribute('aria-expanded', !open);
+      includedBtn.querySelector('.q-accordion-icn').style.transform = open?'rotate(0deg)':'rotate(180deg)';
+    });
+
+    additionalBtn?.addEventListener('click', ()=>{
+      const open = !additionalDetails.hidden;
+      additionalDetails.hidden = open;
+      additionalBtn.setAttribute('aria-expanded', !open);
+      additionalBtn.querySelector('.q-accordion-icn').style.transform = open?'rotate(0deg)':'rotate(180deg)';
+    });
+
+    updateUI();
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<div class="mx-auto px-4 py-8 max-w-7xl" data-quote data-init="1">
+
+  <div class="grid md:grid-cols-12 gap-4 md:gap-8">
+
+    <!-- Left Column: Summary & Quick Actions -->
+    <aside class="md:col-span-5 space-y-4">
+
+      <!-- Guarantee Badge -->
+      <div class="q-badge text-center">
+        <div class="q-badge-inner">
+          <i class="fas fa-shield-check q-badge-icn" aria-hidden="true"></i>
+          <div class="q-badge-txt">
+            Pass Your Bond Inspection First Time — <span class="q-spot">Guaranteed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's Included Accordion -->
+      <section class="q-shell">
+        <button 
+          id="q-included-btn" 
+          class="q-accordion-btn" 
+          aria-expanded="false"
+          aria-controls="q-included">
+          <span class="q-accordion-title">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            What's Included
+          </span>
+          <i class="fas fa-chevron-down q-accordion-icn" aria-hidden="true"></i>
+        </button>
+        <div id="q-included" class="q-accordion-body" hidden>
+          <ul class="q-list">
+            <li><i class="fas fa-check"></i> All rooms vacuumed & mopped</li>
+            <li><i class="fas fa-check"></i> Kitchen deep clean</li>
+            <li><i class="fas fa-check"></i> Bathroom sanitization</li>
+            <li><i class="fas fa-check"></i> Window cleaning (interior)</li>
+            <li><i class="fas fa-check"></i> Light fittings & switches</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Optional Extras Accordion -->
+      <section class="q-shell">
+        <button 
+          id="q-additional-btn" 
+          class="q-accordion-btn" 
+          aria-expanded="false"
+          aria-controls="q-additional">
+          <span class="q-accordion-title">
+            <i class="fas fa-plus-circle" aria-hidden="true"></i>
+            Optional Extras
+          </span>
+          <i class="fas fa-chevron-down q-accordion-icn" aria-hidden="true"></i>
+        </button>
+        <div id="q-additional" class="q-accordion-body" hidden>
+          <ul class="q-list">
+            <li><i class="fas fa-plus"></i> Carpet steam cleaning</li>
+            <li><i class="fas fa-plus"></i> Oven deep clean</li>
+            <li><i class="fas fa-plus"></i> Balcony/patio cleaning</li>
+            <li><i class="fas fa-plus"></i> Garage sweep</li>
+          </ul>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- Right Column: Multi-Step Form -->
+    <section class="md:col-span-7">
+
+      <!-- Error Banner (hidden by default) -->
+      <div id="q-error" class="q-alert q-alert-error" hidden>
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        <span id="q-error-msg">Please correct the errors below.</span>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="q-progress-wrap">
+        <div 
+          id="q-progress" 
+          class="q-progress-bar" 
+          role="progressbar" 
+          aria-valuenow="1" 
+          aria-valuemin="1" 
+          aria-valuemax="4"
+          style="width: 25%;"></div>
+      </div>
+
+      <!-- Stepper -->
+      <nav aria-label="Form progress">
+        <ol class="q-stepper">
+          <li data-step-label="1" class="q-stepper-item" aria-current="step">
+            <span class="q-step-num">1</span><span>Property</span>
+          </li>
+          <li data-step-label="2" class="q-stepper-item">
+            <span class="q-step-num">2</span><span>Add-ons</span>
+          </li>
+          <li data-step-label="3" class="q-stepper-item">
+            <span class="q-step-num">3</span><span>Your info</span>
+          </li>
+          <li data-step-label="4" class="q-stepper-item">
+            <span class="q-step-num">4</span><span>Review</span>
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Multi-Step Form Container -->
+      <form id="q-form" novalidate>
+
+        <!-- STEP 1: PROPERTY DETAILS -->
+        <div id="q-step-1" class="q-step active">
+          <div class="q-card">
+            <h3 class="q-h3">About Your <span class="q-accent">Property</span></h3>
+
+            <div class="q-callout">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i>
+              <p>3 quick choices to tailor your quote.</p>
+            </div>
+
+            <!-- Property Type -->
+            <div class="q-group">
+              <label for="property-type" class="q-label">
+                Property type <span class="q-required" aria-label="required">*</span>
+              </label>
+              <span class="q-select-wrap">
+                <select 
+                  id="property-type" 
+                  name="property-type" 
+                  required 
+                  aria-describedby="pt-err"
+                  class="q-input q-select">
+                  <option value="">Select…</option>
+                  <option value="Rental (Exit clean)">Rental (Exit clean)</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="House">House</option>
+                  <option value="Townhouse">Townhouse</option>
+                </select>
+                <span class="q-select-icn" aria-hidden="true">
+                  <i class="fas fa-chevron-down"></i>
+                </span>
+              </span>
+              <p id="pt-err" class="q-err" hidden>Please select a property type.</p>
+            </div>
+
+            <!-- Bedrooms & Bathrooms -->
+            <div class="q-fieldset">
+              <div class="q-group">
+                <label for="bedrooms" class="q-label">
+                  Bedrooms
+                </label>
+                <span class="q-select-wrap">
+                  <select id="bedrooms" name="bedrooms" class="q-input q-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5+">5+</option>
+                  </select>
+                  <span class="q-select-icn" aria-hidden="true">
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </span>
+              </div>
+              <div class="q-group">
+                <label for="bathrooms" class="q-label">
+                  Bathrooms
+                </label>
+                <span class="q-select-wrap">
+                  <select id="bathrooms" name="bathrooms" class="q-input q-select">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4+">4+</option>
+                  </select>
+                  <span class="q-select-icn" aria-hidden="true">
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Quick Toggles -->
+            <fieldset>
+              <legend class="q-label">Quick toggles (helps us recommend extras)</legend>
+              <div class="q-chip-group">
+                <label class="q-chip">
+                  <input type="checkbox" name="quick" value="pets">
+                  <i class="fas fa-paw" aria-hidden="true"></i>
+                  <span>Pets at property</span>
+                </label>
+                <label class="q-chip">
+                  <input type="checkbox" name="quick" value="carpets">
+                  <i class="fas fa-th" aria-hidden="true"></i>
+                  <span>Has carpeted rooms</span>
+                </label>
+                <label class="q-chip">
+                  <input type="checkbox" name="quick" value="balcony">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                  <span>Balcony/Patio</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Rental-specific fields (hidden by default) -->
+            <div id="rental-extras" hidden>
+              <div class="q-group">
+                <label for="exit-date" class="q-label">Move-out date</label>
+                <input 
+                  type="date" 
+                  id="exit-date" 
+                  name="exit-date" 
+                  class="q-input">
+              </div>
+              <div class="q-group">
+                <label for="pm-contact" class="q-label">Property manager contact</label>
+                <input 
+                  type="text" 
+                  id="pm-contact" 
+                  name="pm-contact" 
+                  placeholder="Agency name or manager"
+                  class="q-input">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 2: ADD-ONS -->
+        <div id="q-step-2" class="q-step">
+          <div class="q-card">
+            <h3 class="q-h3">Optional <span class="q-accent">Extras</span></h3>
+            <p class="q-help">Select any additional services (optional)</p>
+
+            <div class="q-addon-grid">
+              <label class="q-addon-tile">
+                <input type="checkbox" name="addon" value="Carpet Steam Clean">
+                <div>
+                  <i class="fas fa-spray-can" aria-hidden="true"></i>
+                  <strong>Carpet Steam Clean</strong>
+                  <p>Deep extraction for all carpeted areas.</p>
+                </div>
+              </label>
+              <label class="q-addon-tile">
+                <input type="checkbox" name="addon" value="Oven Deep Clean">
+                <div>
+                  <i class="fas fa-fire" aria-hidden="true"></i>
+                  <strong>Oven Deep Clean</strong>
+                  <p>Remove built-up grease & grime.</p>
+                </div>
+              </label>
+              <label class="q-addon-tile">
+                <input type="checkbox" name="addon" value="Window Exteriors">
+                <div>
+                  <i class="fas fa-window-maximize" aria-hidden="true"></i>
+                  <strong>Window Exteriors</strong>
+                  <p>Clean outside glass & frames.</p>
+                </div>
+              </label>
+              <label class="q-addon-tile">
+                <input type="checkbox" name="addon" value="Balcony/Patio">
+                <div>
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                  <strong>Balcony/Patio</strong>
+                  <p>Sweep, mop & detail outdoor spaces.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: YOUR INFO -->
+        <div id="q-step-3" class="q-step">
+          <div class="q-card">
+            <h3 class="q-h3">Your <span class="q-accent">Details</span></h3>
+
+            <div class="q-group">
+              <label for="full-name" class="q-label">
+                Full name <span class="q-required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="full-name" 
+                name="full-name" 
+                required 
+                class="q-input">
+            </div>
+
+            <div class="q-group">
+              <label for="phone" class="q-label">
+                Phone <span class="q-required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+                placeholder="04XX XXX XXX"
+                class="q-input">
+            </div>
+
+            <div class="q-group">
+              <label for="email" class="q-label">
+                Email <span class="q-required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                placeholder="you@example.com"
+                class="q-input">
+            </div>
+
+            <div class="q-group">
+              <label for="address" class="q-label">
+                Property address <span class="q-required" aria-label="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="address" 
+                name="address" 
+                required 
+                placeholder="123 Main St, Suburb, State"
+                class="q-input">
+            </div>
+
+            <div class="q-group">
+              <label for="preferred-date" class="q-label">
+                Preferred date
+              </label>
+              <input 
+                type="date" 
+                id="preferred-date" 
+                name="preferred-date" 
+                class="q-input">
+            </div>
+
+            <div class="q-group">
+              <label for="notes" class="q-label">
+                Additional notes
+              </label>
+              <textarea 
+                id="notes" 
+                name="notes" 
+                rows="3" 
+                placeholder="Any special instructions..."
+                class="q-input"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: REVIEW -->
+        <div id="q-step-4" class="q-step">
+          <div class="q-card">
+            <h3 class="q-h3">Review & <span class="q-accent">Submit</span></h3>
+            <div id="q-summary">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- SUCCESS VIEW (hidden by default) -->
+      <div id="q-success" class="q-success" hidden>
+        <div class="q-success-inner">
+          <i class="fas fa-check-circle q-success-icn" aria-hidden="true"></i>
+          <h2 class="q-success-title">Quote Request Received!</h2>
+          <p class="q-success-text">
+            We'll send you a detailed quote within 2 business hours.
+          </p>
+          <div class="q-actions">
+            <a href="tel:+61405779420" class="q-btn q-btn-secondary"><i class="fas fa-phone mr-2"></i>Call now</a>
+            <button id="q-new" class="q-btn q-btn-primary">New quote</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Action Buttons -->
+      <div class="q-actions hidden md:flex">
+        <button type="button" class="q-btn q-prev q-btn-secondary flex-1">
+          <i class="fas fa-arrow-left mr-2"></i>Back
+        </button>
+        <button type="button" class="q-btn q-next q-btn-primary flex-1">
+          Next <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </div>
+
+    </section>
+
+  </div>
+
+</div>
+
+<!-- Mobile Sticky Bar -->
+<div id="q-mobilebar" class="q-mobilebar md:hidden">
+  <div class="q-mobilebar-inner">
+    <button type="button" class="q-btn q-prev q-btn-secondary flex-1">
+      <i class="fas fa-arrow-left mr-2"></i>Back
+    </button>
+    <button type="button" class="q-btn q-next q-btn-primary flex-1">
+      Next <i class="fas fa-arrow-right ml-2"></i>
+    </button>
+  </div>
+</div>
+
+</body>
+</html>

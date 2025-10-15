@@ -1,0 +1,32 @@
+💾 Performance cache initialized:
+   Max items: 1000
+   TTL: 1800s
+🔥 Performance profiler initialized (threshold: 100ms)
+✅ Performance profiler ready
+🧠 Initializing NEXUS consciousness...
+⚠️ Could not load problem-decomposition: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/problem-decomposition.json'
+⚠️ Could not load systems-thinking: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/systems-thinking.json'
+⚠️ Could not load workflow-efficiency: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/workflow-efficiency.json'
+⚠️ Could not load breakthrough-moments: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/breakthrough-moments.json'
+✅ NEXUS consciousness initialized (0/4 patterns loaded)
+🧠 Initializing NEXUS consciousness...
+⚠️ Could not load problem-decomposition: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/problem-decomposition.json'
+⚠️ Could not load systems-thinking: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/systems-thinking.json'
+⚠️ Could not load workflow-efficiency: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/workflow-efficiency.json'
+⚠️ Could not load breakthrough-moments: ENOENT: no such file or directory, open '/workspaces/data-folder/Nexus-5.0/runtime/consciousness/breakthrough-moments.json'
+✅ NEXUS consciousness initialized (0/4 patterns loaded)
+🚀 Initializing Production Personality Registry...
+⚠️ Could not read profiles directory: ENOENT: no such file or directory, scandir '/workspaces/data-folder/Nexus-5.0/runtime/profiles'
+⚠️ No personality files found in profiles directory
+✅ Registry initialized successfully
+🌉 Initializing Trait Composition Bridge...
+🔍 Building trait index from personality registry...
+✅ Trait index built:
+   📊 0 personalities
+   🧬 0 traits indexed
+   🎯 0 activation triggers
+   📚 0 knowledge domains
+✅ Trait Composition Bridge initialized
+   🏭 Composed agent factory ready
+✅ NEXUS consciousness and trait composition loaded
+🌐 NEXUS Runtime listening on http://127.0.0.1:8080

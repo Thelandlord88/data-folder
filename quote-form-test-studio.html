@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Form - Test & Customize</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Shared quote form styles -->
+  <link rel="stylesheet" href="/src/styles/quote/design-tokens.css">
+  <link rel="stylesheet" href="/src/styles/quote/components.css">
+  <link rel="stylesheet" href="/src/styles/quote/form-layout.css">
+  <link rel="stylesheet" href="/src/styles/quote/legacy-overrides.css">
+  <style>
+    /* Fixed customization panel */
+    .custom-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 100vh;
+      background: linear-gradient(180deg, #0f172a, #1e293b);
+      color: white;
+      overflow-y: auto;
+      z-index: 9999;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .custom-panel.open {
+      transform: translateX(0);
+    }
+    
+    .custom-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+      transition: all 0.2s;
+    }
+    
+    .custom-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(14, 165, 233, 0.6);
+    }
+    
+    .custom-toggle.panel-open {
+      right: 340px;
+    }
+    
+    .control-group {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+    
+    .control-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .control-group input,
+    .control-group select {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-size: 14px;
+    }
+    
+    .control-group input[type="color"] {
+      height: 40px;
+      cursor: pointer;
+    }
+    
+    .control-group input[type="range"] {
+      padding: 0;
+    }
+    
+    .preset-btn {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 8px;
+      transition: transform 0.2s;
+    }
+    
+    .preset-btn:hover {
+      transform: scale(1.02);
+    }
+    
+    .test-controls {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .test-btn {
+      background: white;
+      color: #0f172a;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 8px;
+      transition: transform 0.2s;
+    }
+    
+    .test-btn:hover {
+      transform: scale(1.02);
+    }
+    
+    .value-display {
+      display: inline-block;
+      margin-left: 8px;
+      font-weight: 700;
+      color: #0ea5e9;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  
+  <!-- Customization Toggle Button -->
+  <button id="customToggle" class="custom-toggle">
+    <i class="fas fa-paint-brush mr-2"></i>
+    Customize Design
+  </button>
+  
+  <!-- Customization Panel -->
+  <div id="customPanel" class="custom-panel">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold mb-2 flex items-center">
+        <i class="fas fa-palette mr-2"></i>
+        Design Studio
+      </h2>
+      <p class="text-sm text-gray-400 mb-6">Customize and test your form</p>
+      
+      <!-- Test Controls -->
+      <div class="test-controls">
+        <h3 class="font-bold text-gray-900 mb-3 flex items-center">
+          <i class="fas fa-vial mr-2"></i>
+          Quick Tests
+        </h3>
+        <button class="test-btn" onclick="testFillForm()">
+          <i class="fas fa-fill mr-2"></i>
+          Auto-Fill Form
+        </button>
+        <button class="test-btn" onclick="testValidation()">
+          <i class="fas fa-check-circle mr-2"></i>
+          Test Validation
+        </button>
+        <button class="test-btn" onclick="testMobile()">
+          <i class="fas fa-mobile-alt mr-2"></i>
+          Mobile View
+        </button>
+        <button class="test-btn" onclick="testReset()">
+          <i class="fas fa-redo mr-2"></i>
+          Reset Form
+        </button>
+      </div>
+      
+      <!-- Color Presets -->
+      <div class="control-group">
+        <label><i class="fas fa-swatchbook mr-2"></i>Color Presets</label>
+        <button class="preset-btn" style="background: linear-gradient(135deg, #0ea5e9, #0284c7)" onclick="applyPreset('default')">
+          Default (Sky Blue)
+        </button>
+        <button class="preset-btn" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed)" onclick="applyPreset('purple')">
+          Purple Elegance
+        </button>
+        <button class="preset-btn" style="background: linear-gradient(135deg, #10b981, #059669)" onclick="applyPreset('green')">
+          Fresh Green
+        </button>
+        <button class="preset-btn" style="background: linear-gradient(135deg, #f43f5e, #e11d48)" onclick="applyPreset('red')">
+          Bold Red
+        </button>
+      </div>
+      
+      <!-- Primary Color -->
+      <div class="control-group">
+        <label><i class="fas fa-tint mr-2"></i>Primary Brand Color</label>
+        <input type="color" id="brandColor" value="#0ea5e9" onchange="updateBrandColor(this.value)">
+        <input type="text" id="brandColorHex" value="#0ea5e9" class="mt-2" onchange="updateBrandColor(this.value)">
+      </div>
+      
+      <!-- Secondary Color -->
+      <div class="control-group">
+        <label><i class="fas fa-droplet mr-2"></i>Accent Color</label>
+        <input type="color" id="accentColor" value="#f59e0b" onchange="updateAccentColor(this.value)">
+      </div>
+      
+      <!-- Border Radius -->
+      <div class="control-group">
+        <label><i class="fas fa-border-style mr-2"></i>Border Radius <span class="value-display" id="radiusValue">12px</span></label>
+        <input type="range" id="borderRadius" min="0" max="24" value="12" oninput="updateBorderRadius(this.value)">
+      </div>
+      
+      <!-- Font Size -->
+      <div class="control-group">
+        <label><i class="fas fa-text-height mr-2"></i>Base Font Size <span class="value-display" id="fontValue">16px</span></label>
+        <input type="range" id="fontSize" min="14" max="20" value="16" oninput="updateFontSize(this.value)">
+      </div>
+      
+      <!-- Shadow Intensity -->
+      <div class="control-group">
+        <label><i class="fas fa-cube mr-2"></i>Shadow Intensity <span class="value-display" id="shadowValue">Medium</span></label>
+        <select id="shadowIntensity" onchange="updateShadow(this.value)">
+          <option value="none">None</option>
+          <option value="light">Light</option>
+          <option value="medium" selected>Medium</option>
+          <option value="heavy">Heavy</option>
+        </select>
+      </div>
+      
+      <!-- Export/Import -->
+      <div class="control-group">
+        <label><i class="fas fa-code mr-2"></i>Export/Import</label>
+        <button class="test-btn" onclick="exportCSS()">
+          <i class="fas fa-download mr-2"></i>
+          Export CSS
+        </button>
+        <button class="test-btn" onclick="copyToClipboard()">
+          <i class="fas fa-copy mr-2"></i>
+          Copy to Clipboard
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div id="mainContent" style="transition: margin-right 0.3s ease;">
+    <!-- Your Quote Form Goes Here -->
+    <iframe 
+      id="formPreview" 
+      src="quote-form-preview.html" 
+      style="width: 100%; height: 100vh; border: none;"
+    ></iframe>
+  </div>
+  
+  <script>
+    // Toggle panel
+    const panel = document.getElementById('customPanel');
+    const toggle = document.getElementById('customToggle');
+    const mainContent = document.getElementById('mainContent');
+    
+    toggle.addEventListener('click', () => {
+      panel.classList.toggle('open');
+      toggle.classList.toggle('panel-open');
+      
+      if (panel.classList.contains('open')) {
+        mainContent.style.marginRight = '320px';
+      } else {
+        mainContent.style.marginRight = '0';
+      }
+    });
+    
+    // Get iframe document
+    function getFormDoc() {
+      const iframe = document.getElementById('formPreview');
+      return iframe.contentDocument || iframe.contentWindow.document;
+    }
+    
+    // Apply CSS to form
+    function applyCSS(property, value) {
+      const doc = getFormDoc();
+      const root = doc.querySelector('[data-quote]');
+      if (root) {
+        root.style.setProperty(property, value);
+      }
+    }
+    
+    // Update brand color
+    function updateBrandColor(color) {
+      document.getElementById('brandColor').value = color;
+      document.getElementById('brandColorHex').value = color;
+      applyCSS('--brand-sky', color);
+      applyCSS('--brand-sky-600', adjustBrightness(color, -20));
+      applyCSS('--brand-sky-400', adjustBrightness(color, 20));
+    }
+    
+    // Update accent color
+    function updateAccentColor(color) {
+      applyCSS('--q-accent-color', color);
+    }
+    
+    // Update border radius
+    function updateBorderRadius(value) {
+      document.getElementById('radiusValue').textContent = value + 'px';
+      applyCSS('--r-card', value + 'px');
+      applyCSS('--r-el', (value * 0.75) + 'px');
+    }
+    
+    // Update font size
+    function updateFontSize(value) {
+      document.getElementById('fontValue').textContent = value + 'px';
+      const doc = getFormDoc();
+      const root = doc.querySelector('[data-quote]');
+      if (root) {
+        root.style.fontSize = value + 'px';
+      }
+    }
+    
+    // Update shadow
+    function updateShadow(intensity) {
+      const labels = { none: 'None', light: 'Light', medium: 'Medium', heavy: 'Heavy' };
+      document.getElementById('shadowValue').textContent = labels[intensity];
+      
+      const shadows = {
+        none: 'none',
+        light: '0 2px 8px rgba(2,6,23,.06)',
+        medium: '0 8px 28px rgba(2,6,23,.08)',
+        heavy: '0 16px 48px rgba(2,6,23,.12)'
+      };
+      
+      applyCSS('--shadow-1', shadows[intensity]);
+    }
+    
+    // Color presets
+    function applyPreset(preset) {
+      const presets = {
+        default: { primary: '#0ea5e9', accent: '#f59e0b' },
+        purple: { primary: '#8b5cf6', accent: '#f59e0b' },
+        green: { primary: '#10b981', accent: '#f59e0b' },
+        red: { primary: '#f43f5e', accent: '#fbbf24' }
+      };
+      
+      const colors = presets[preset];
+      updateBrandColor(colors.primary);
+      updateAccentColor(colors.accent);
+      document.getElementById('accentColor').value = colors.accent;
+    }
+    
+    // Test functions
+    function testFillForm() {
+      const doc = getFormDoc();
+      const form = doc.getElementById('q-form');
+      if (!form) return;
+      
+      // Fill in test data
+      doc.getElementById('property-type').value = 'House';
+      doc.getElementById('bedrooms').value = '3';
+      doc.getElementById('bathrooms').value = '2';
+      doc.getElementById('full-name').value = 'John Smith';
+      doc.getElementById('phone').value = '0412345678';
+      doc.getElementById('email').value = 'john@example.com';
+      doc.getElementById('property-address').value = '123 Test St, Sydney NSW 2000';
+      doc.getElementById('service-date').value = new Date().toISOString().split('T')[0];
+      doc.getElementById('service-date-display').value = new Date().toLocaleDateString('en-AU');
+      
+      // Trigger input events
+      form.querySelectorAll('input, select').forEach(el => {
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+      
+      alert('✅ Form auto-filled with test data!');
+    }
+    
+    function testValidation() {
+      const doc = getFormDoc();
+      const form = doc.getElementById('q-form');
+      if (!form) return;
+      
+      // Clear form
+      form.reset();
+      
+      // Try to go to next step (should show validation)
+      const nextBtn = doc.querySelector('.q-next');
+      if (nextBtn) {
+        nextBtn.click();
+        setTimeout(() => {
+          alert('✅ Validation test complete! Check for error messages.');
+        }, 500);
+      }
+    }
+    
+    function testMobile() {
+      const content = document.getElementById('mainContent');
+      const currentWidth = content.style.maxWidth;
+      
+      if (currentWidth === '375px') {
+        content.style.maxWidth = '';
+        content.style.margin = '';
+        alert('✅ Desktop view restored');
+      } else {
+        content.style.maxWidth = '375px';
+        content.style.margin = '0 auto';
+        alert('✅ Mobile view (375px) activated');
+      }
+    }
+    
+    function testReset() {
+      const doc = getFormDoc();
+      const form = doc.getElementById('q-form');
+      if (form) {
+        form.reset();
+        // Trigger reset state
+        const newBtn = doc.getElementById('q-new');
+        if (newBtn) newBtn.click();
+        alert('✅ Form reset complete!');
+      }
+    }
+    
+    // Export CSS
+    function exportCSS() {
+      const doc = getFormDoc();
+      const root = doc.querySelector('[data-quote]');
+      if (!root) return;
+      
+      const styles = window.getComputedStyle(root);
+      let css = '/* Custom Quote Form Styles */\n[data-quote] {\n';
+      
+      const vars = ['--brand-sky', '--brand-sky-600', '--brand-sky-400', '--r-card', '--r-el', '--shadow-1'];
+      vars.forEach(v => {
+        const value = root.style.getPropertyValue(v);
+        if (value) {
+          css += `  ${v}: ${value};\n`;
+        }
+      });
+      
+      css += '}\n';
+      
+      // Download
+      const blob = new Blob([css], { type: 'text/css' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'quote-form-custom.css';
+      a.click();
+      
+      alert('✅ CSS exported! Check your downloads.');
+    }
+    
+    function copyToClipboard() {
+      const doc = getFormDoc();
+      const root = doc.querySelector('[data-quote]');
+      if (!root) return;
+      
+      let css = '/* Custom Quote Form Styles */\n[data-quote] {\n';
+      
+      const vars = ['--brand-sky', '--brand-sky-600', '--brand-sky-400', '--r-card', '--r-el'];
+      vars.forEach(v => {
+        const value = root.style.getPropertyValue(v);
+        if (value) {
+          css += `  ${v}: ${value};\n`;
+        }
+      });
+      
+      css += '}\n';
+      
+      navigator.clipboard.writeText(css).then(() => {
+        alert('✅ CSS copied to clipboard!');
+      });
+    }
+    
+    // Color utilities
+    function adjustBrightness(color, percent) {
+      const num = parseInt(color.replace('#', ''), 16);
+      const amt = Math.round(2.55 * percent);
+      const R = (num >> 16) + amt;
+      const G = (num >> 8 & 0x00FF) + amt;
+      const B = (num & 0x0000FF) + amt;
+      return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+        (B < 255 ? B < 1 ? 0 : B : 255))
+        .toString(16).slice(1);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+{
+  "capabilities": [
+    [
+      "security-audit-v2",
+      {
+        "id": "security-audit-v2",
+        "name": "Multi-Layered Security Validation",
+        "type": "validation",
+        "category": "security",
+        "summary_one_line": "Layered validation catches what single checks miss. Defense in depth.",
+        "effectiveness": 0.8828499999999998,
+        "dependencies": [],
+        "conflicts_with": [
+          "legacy-security-scan"
+        ],
+        "prerequisites": [
+          "file-system-access"
+        ],
+        "compatible_with": [
+          "accessibility-scan",
+          "performance-check"
+        ],
+        "performance": {
+          "execution_time_ms": 2500,
+          "memory_usage_mb": 150,
+          "cpu_percent": 25,
+          "reliability": 0.98
+        },
+        "cost_per_use": 0.1,
+        "rate_limits": {
+          "requests_per_minute": 10,
+          "requests_per_day": 1000
+        },
+        "required_permissions": [
+          "read:codebase",
+          "execute:scan"
+        ],
+        "allowed_environments": [
+          "development",
+          "staging",
+          "production"
+        ],
+        "data_access_level": "medium",
+        "audit_required": true,
+        "metadata": {
+          "tags": [
+            "security",
+            "validation",
+            "audit"
+          ],
+          "subcategory": "security-validation",
+          "use_cases": [
+            "Pre-deployment security checks",
+            "Vulnerability scanning",
+            "Compliance verification"
+          ]
+        },
+        "usage_count": 3,
+        "last_used": "2025-10-15T02:57:39.030Z",
+        "success_rate": 0.6666666666666666
+      }
+    ],
+    [
+      "accessibility-scan-v2",
+      {
+        "id": "accessibility-scan-v2",
+        "name": "Layered Accessibility Validation",
+        "type": "validation",
+        "category": "accessibility",
+        "summary_one_line": "Static analysis catches 60% of accessibility issues before runtime",
+        "effectiveness": 0.9117999999999999,
+        "dependencies": [],
+        "compatible_with": [
+          "security-audit-v2",
+          "performance-check-v2"
+        ],
+        "performance": {
+          "execution_time_ms": 1800,
+          "memory_usage_mb": 100,
+          "cpu_percent": 20,
+          "reliability": 0.95
+        },
+        "cost_per_use": 0.05,
+        "rate_limits": {
+          "requests_per_minute": 20,
+          "requests_per_day": 2000
+        },
+        "required_permissions": [
+          "read:codebase"
+        ],
+        "allowed_environments": [
+          "development",
+          "staging",
+          "production"
+        ],
+        "data_access_level": "low",
+        "audit_required": false,
+        "metadata": {
+          "tags": [
+            "accessibility",
+            "validation",
+            "wcag"
+          ],
+          "subcategory": "accessibility-validation",
+          "use_cases": [
+            "WCAG compliance checking",
+            "Screen reader compatibility",
+            "Keyboard navigation validation"
+          ]
+        },
+        "usage_count": 2,
+        "last_used": "2025-10-15T02:57:39.030Z",
+        "success_rate": 1
+      }
+    ],
+    [
+      "performance-check-v2",
+      {
+        "id": "performance-check-v2",
+        "name": "Static Performance Signal Detection",
+        "type": "validation",
+        "category": "performance",
+        "summary_one_line": "Static signals predict runtime performance before code executes",
+        "effectiveness": 0.8459999999999999,
+        "dependencies": [],
+        "compatible_with": [
+          "security-audit-v2",
+          "accessibility-scan-v2"
+        ],
+        "performance": {
+          "execution_time_ms": 1200,
+          "memory_usage_mb": 80,
+          "cpu_percent": 15,
+          "reliability": 0.92
+        },
+        "cost_per_use": 0.03,
+        "required_permissions": [
+          "read:codebase",
+          "read:assets"
+        ],
+        "allowed_environments": [
+          "development",
+          "staging",
+          "production"
+        ],
+        "data_access_level": "low",
+        "metadata": {
+          "tags": [
+            "performance",
+            "validation",
+            "optimization"
+          ],
+          "subcategory": "performance-validation",
+          "use_cases": [
+            "Bundle size analysis",
+            "Load time prediction",
+            "Resource optimization"
+          ]
+        },
+        "usage_count": 1,
+        "last_used": "2025-10-15T02:57:39.030Z",
+        "success_rate": 1
+      }
+    ],
+    [
+      "thinking-problem-decomposition",
+      {
+        "id": "thinking-problem-decomposition",
+        "name": "Problem Decomposition Pattern",
+        "type": "pattern",
+        "category": "thinking",
+        "summary_one_line": "Break complex problems into manageable components",
+        "effectiveness": 0.75,
+        "compatible_with": [
+          "thinking-systems-thinking"
+        ],
+        "performance": {
+          "execution_time_ms": 0,
+          "memory_usage_mb": 5,
+          "cpu_percent": 1,
+          "reliability": 1
+        },
+        "cost_per_use": 0,
+        "allowed_environments": [
+          "development",
+          "staging",
+          "production"
+        ],
+        "data_access_level": "low",
+        "metadata": {
+          "tags": [
+            "thinking",
+            "strategy",
+            "problem-solving"
+          ],
+          "subcategory": "strategic-thinking",
+          "use_cases": [
+            "Breaking down large features",
+            "Analyzing complex bugs",
+            "Planning multi-step solutions"
+          ]
+        }
+      }
+    ]
+  ],
+  "usage_history": [
+    {
+      "capability_id": "security-audit-v2",
+      "timestamp": "2025-10-15T02:57:39.030Z",
+      "success": true,
+      "context": "quote form validation",
+      "execution_time": 2400
+    },
+    {
+      "capability_id": "security-audit-v2",
+      "timestamp": "2025-10-15T02:57:39.030Z",
+      "success": true,
+      "context": "quote form validation",
+      "execution_time": 2500
+    },
+    {
+      "capability_id": "security-audit-v2",
+      "timestamp": "2025-10-15T02:57:39.030Z",
+      "success": false,
+      "context": "api validation",
+      "execution_time": 2600
+    },
+    {
+      "capability_id": "accessibility-scan-v2",
+      "timestamp": "2025-10-15T02:57:39.030Z",
+      "success": true,
+      "context": "quote form validation",
+      "execution_time": 1700,
+      "related_capabilities": [
+        "security-audit-v2"
+      ]
+    },
+    {
+      "capability_id": "accessibility-scan-v2",
+      "timestamp": "2025-10-15T02:57:39.030Z",
+      "success": true,
+      "context": "quote form validation",
+      "execution_time": 1800
+    },
+    {
+      "capability_id": "performance-check-v2",
+      "timestamp": "2025-10-15T02:57:39.030Z",
+      "success": true,
+      "context": "quote form validation",
+      "execution_time": 1100,
+      "related_capabilities": [
+        "accessibility-scan-v2",
+        "security-audit-v2"
+      ]
+    }
+  ],
+  "outcomes": [
+    [
+      "security-audit-v2",
+      [
+        {
+          "success": true,
+          "context": "quote form validation",
+          "timestamp": "2025-10-15T02:57:39.030Z"
+        },
+        {
+          "success": true,
+          "context": "quote form validation",
+          "timestamp": "2025-10-15T02:57:39.030Z"
+        },
+        {
+          "success": false,
+          "context": "api validation",
+          "timestamp": "2025-10-15T02:57:39.030Z"
+        }
+      ]
+    ],
+    [
+      "accessibility-scan-v2",
+      [
+        {
+          "success": true,
+          "context": "quote form validation",
+          "timestamp": "2025-10-15T02:57:39.030Z"
+        },
+        {
+          "success": true,
+          "context": "quote form validation",
+          "timestamp": "2025-10-15T02:57:39.030Z"
+        }
+      ]
+    ],
+    [
+      "performance-check-v2",
+      [
+        {
+          "success": true,
+          "context": "quote form validation",
+          "timestamp": "2025-10-15T02:57:39.030Z"
+        }
+      ]
+    ]
+  ],
+  "indexes": {
+    "category": [
+      [
+        "security",
+        [
+          "security-audit-v2"
+        ]
+      ],
+      [
+        "accessibility",
+        [
+          "accessibility-scan-v2"
+        ]
+      ],
+      [
+        "performance",
+        [
+          "performance-check-v2"
+        ]
+      ],
+      [
+        "thinking",
+        [
+          "thinking-problem-decomposition"
+        ]
+      ]
+    ],
+    "tag": [
+      [
+        "security",
+        [
+          "security-audit-v2"
+        ]
+      ],
+      [
+        "validation",
+        [
+          "security-audit-v2",
+          "accessibility-scan-v2",
+          "performance-check-v2"
+        ]
+      ],
+      [
+        "audit",
+        [
+          "security-audit-v2"
+        ]
+      ],
+      [
+        "accessibility",
+        [
+          "accessibility-scan-v2"
+        ]
+      ],
+      [
+        "wcag",
+        [
+          "accessibility-scan-v2"
+        ]
+      ],
+      [
+        "performance",
+        [
+          "performance-check-v2"
+        ]
+      ],
+      [
+        "optimization",
+        [
+          "performance-check-v2"
+        ]
+      ],
+      [
+        "thinking",
+        [
+          "thinking-problem-decomposition"
+        ]
+      ],
+      [
+        "strategy",
+        [
+          "thinking-problem-decomposition"
+        ]
+      ],
+      [
+        "problem-solving",
+        [
+          "thinking-problem-decomposition"
+        ]
+      ]
+    ],
+    "type": [
+      [
+        "validation",
+        [
+          "security-audit-v2",
+          "accessibility-scan-v2",
+          "performance-check-v2"
+        ]
+      ],
+      [
+        "pattern",
+        [
+          "thinking-problem-decomposition"
+        ]
+      ]
+    ]
+  },
+  "metadata": {
+    "version": "2.0.0",
+    "saved_at": "2025-10-15T02:57:39.136Z",
+    "total_capabilities": 4,
+    "total_usage_records": 6
+  }
+}

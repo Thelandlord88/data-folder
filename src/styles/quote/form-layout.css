@@ -10,6 +10,78 @@
  */
 
 /* ---------------------------------------------------------------------------
+ * COMPACT SPACING OVERRIDES - AGGRESSIVE
+ * Eliminate excessive white space with ultra-tight spacing
+ * --------------------------------------------------------------------------- */
+[data-quote] .q-card {
+  padding: 0.75rem 0.85rem !important;
+}
+
+[data-quote] .q-group {
+  margin-bottom: 0.5rem !important;
+}
+
+[data-quote] .q-label {
+  margin-bottom: 0.25rem !important;
+  font-size: 0.875rem !important;
+}
+
+[data-quote] .q-help {
+  margin-top: 0.2rem !important;
+  font-size: 0.8125rem !important;
+}
+
+[data-quote] .q-input,
+[data-quote] .q-select {
+  padding: 0.45rem 0.6rem !important;
+  min-height: 2.25rem !important;
+  font-size: 0.9375rem !important;
+}
+
+[data-quote] .q-fieldset {
+  gap: 0.45rem !important;
+  margin-top: 0.3rem !important;
+}
+
+[data-quote] .q-chip-group {
+  gap: 0.35rem !important;
+}
+
+[data-quote] .q-chip {
+  padding: 0.3rem 0.55rem !important;
+  font-size: 0.8125rem !important;
+}
+
+[data-quote] .q-addon-tile {
+  padding: 0.6rem 0.75rem !important;
+}
+
+[data-quote] .q-actions {
+  gap: 0.6rem !important;
+  margin-top: 0.85rem !important;
+}
+
+[data-quote] .q-h3 {
+  margin-bottom: 0.45rem !important;
+  font-size: 1.05rem !important;
+}
+
+[data-quote] .q-callout {
+  padding: 0.65rem 0.8rem !important;
+  margin-bottom: 0.65rem !important;
+}
+
+/* Tighter review rows */
+[data-quote] .q-review {
+  gap: 0.3rem !important;
+}
+
+[data-quote] .q-row {
+  padding: 0.35rem 0 !important;
+  gap: 0.75rem !important;
+}
+
+/* ---------------------------------------------------------------------------
  * PROGRESS & STEPPER
  * --------------------------------------------------------------------------- */
 [data-quote] #q-progress {

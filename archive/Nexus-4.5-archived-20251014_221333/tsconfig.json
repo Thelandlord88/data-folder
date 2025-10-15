@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "types": ["node"],
+    "allowJs": true,
+    "noEmit": false
+  },
+  "include": [
+    "*.ts",
+    "src/**/*",
+    "loaders/**/*",
+    "validation/**/*",
+    "types/**/*",
+    "nexus-runtime.v2.ts",
+    "NEXUS.engine.v2.ts",
+    "nexus-bridge.ts",
+    "nexus-bridge.types.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "src/endpoints/layout-tokens.ts"
+  ]
+}

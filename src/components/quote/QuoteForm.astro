@@ -1,0 +1,923 @@
+---
+/**
+ * QuoteForm.astro - MAIN ORCHESTRATOR
+ * 
+ * Framework Application:
+ * - Upstream Thinking: Single entry point eliminates "component chaos" failure class
+ * - Resourceful Innovation: Composes all extracted modules into working system
+ * 
+ * This is the main quote form component that imports all modular pieces.
+ */
+
+// No server-side props needed - all client-side
+---
+
+<section 
+  id="quote" 
+  data-quote 
+  class="py-8 md:py-16 bg-gradient-to-b from-sky-50 to-sky-100"
+>
+  <div class="max-w-2xl md:max-w-4xl mx-auto q-shell overflow-hidden">
+    
+    <!-- Header -->
+    <div class="px-6 md:px-8 py-6">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">
+            Pass Your Bond Inspection First Time — <span class="q-spot">Guaranteed</span>
+          </h2>
+          <p class="mt-1 text-slate-600 text-sm md:text-base">
+            REIA-aligned clean. 7-Day Reclean. Transparent scope.
+          </p>
+          
+          <!-- Trust strip -->
+          <div class="mt-3 flex flex-wrap items-center gap-1.5 text-[13px]">
+            <span class="inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50 text-sky-800 px-2 py-1">
+              <i class="fas fa-shield-check" aria-hidden="true"></i> 7-Day Reclean
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50 text-sky-800 px-2 py-1">
+              <i class="fas fa-clipboard-check" aria-hidden="true"></i> REIA-aligned scope
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50 text-sky-800 px-2 py-1">
+              <i class="fas fa-eye" aria-hidden="true"></i> Transparent pricing
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Indicator -->
+      <div class="mt-4">
+        <ol 
+          id="q-steps" 
+          data-test="stepper" 
+          class="grid grid-cols-4 items-center gap-2 text-[13px] text-slate-600"
+        >
+          <li data-step-label="1" class="q-stepper-item" aria-current="step">
+            <span class="q-step-num">1</span><span>Property</span>
+          </li>
+          <li data-step-label="2" class="q-stepper-item">
+            <span class="q-step-num">2</span><span>Add-ons</span>
+          </li>
+          <li data-step-label="3" class="q-stepper-item">
+            <span class="q-step-num">3</span><span>Your info</span>
+          </li>
+          <li data-step-label="4" class="q-stepper-item">
+            <span class="q-step-num">4</span><span>Review</span>
+          </li>
+        </ol>
+        <div class="mt-2 h-2 rounded-full bg-slate-200 overflow-hidden">
+          <div id="q-progress" class="h-2 bg-sky-600 w-0"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 md:px-8 pb-24 md:pb-6">
+      <div class="grid md:grid-cols-12 gap-6 md:gap-8">
+        
+        <!-- FORM AREA -->
+        <div class="md:col-span-7 relative">
+          
+          <!-- Error Banner -->
+          <div 
+            id="q-error" 
+            class="hidden mb-4 bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-lg" 
+            role="alert" 
+            aria-live="polite"
+          >
+            <strong class="font-bold">Submission failed.</strong>
+            <span id="q-error-msg" class="block sm:inline"></span>
+          </div>
+
+          <!-- Form -->
+          <form 
+            id="q-form" 
+            name="quote-request" 
+            method="POST" 
+            data-netlify="true" 
+            netlify-honeypot="bot-field" 
+            novalidate
+          >
+            <!-- Netlify Form Setup -->
+            <p class="hidden">
+              <label>Don't fill this out: <input name="bot-field"></label>
+            </p>
+            <input type="hidden" name="form-name" value="quote-request"/>
+
+            <!-- STEP 1: Property Details -->
+            <div id="q-step-1" class="q-step active">
+              <div class="q-card">
+                <h3 class="q-h3">About Your <span class="q-accent">Property</span></h3>
+                
+                <div class="q-callout">
+                  <i class="fas fa-bolt mr-2 text-[var(--brand-sky)]"></i>
+                  3 quick choices to tailor your quote.
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <!-- Property Type -->
+                  <div>
+                    <label for="property-type" class="q-label">
+                      <i class="fas fa-home" aria-hidden="true"></i> Property type
+                    </label>
+                    <span class="q-select-wrap">
+                      <select 
+                        id="property-type" 
+                        name="property-type" 
+                        required 
+                        aria-describedby="pt-err" 
+                        class="q-input q-select"
+                      >
+                        <option value="">Select…</option>
+                        <option>House</option>
+                        <option>Apartment</option>
+                        <option>Townhouse</option>
+                      </select>
+                      <span class="q-select-icn" aria-hidden="true">
+                        <i class="fas fa-chevron-down"></i>
+                      </span>
+                    </span>
+                    <p id="pt-err" class="q-err" hidden>Please select a property type.</p>
+                  </div>
+
+                  <!-- Bedrooms & Bathrooms -->
+                  <div class="md:col-span-2 q-group">
+                    <div class="grid grid-cols-2 gap-3 md:gap-5">
+                      <div>
+                        <label for="bedrooms" class="q-label">
+                          <i class="fas fa-bed" aria-hidden="true"></i> Bedrooms
+                        </label>
+                        <span class="q-select-wrap">
+                          <select id="bedrooms" name="bedrooms" class="q-input q-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option selected>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                          <span class="q-select-icn" aria-hidden="true">
+                            <i class="fas fa-chevron-down"></i>
+                          </span>
+                        </span>
+                      </div>
+                      <div>
+                        <label for="bathrooms" class="q-label">
+                          <i class="fas fa-bath" aria-hidden="true"></i> Bathrooms
+                        </label>
+                        <span class="q-select-wrap">
+                          <select id="bathrooms" name="bathrooms" class="q-input q-select">
+                            <option>1</option>
+                            <option selected>2</option>
+                            <option>3</option>
+                          </select>
+                          <span class="q-select-icn" aria-hidden="true">
+                            <i class="fas fa-chevron-down"></i>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Quick Toggles -->
+                  <div class="md:col-span-2">
+                    <fieldset class="space-y-2">
+                      <legend class="q-label">Quick toggles (helps us recommend extras)</legend>
+                      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                        <label class="q-chip">
+                          <input type="checkbox" id="has-pets" name="has-pets"/>
+                          <i class="fas fa-check q-on" aria-hidden="true"></i>
+                          <i class="fas fa-paw q-ico" aria-hidden="true"></i>
+                          <span>Pets at property</span>
+                        </label>
+                        <label class="q-chip">
+                          <input type="checkbox" id="has-carpet" name="has-carpet"/>
+                          <i class="fas fa-check q-on" aria-hidden="true"></i>
+                          <i class="fas fa-border-all q-ico" aria-hidden="true"></i>
+                          <span>Has carpeted rooms</span>
+                        </label>
+                        <label class="q-chip">
+                          <input type="checkbox" id="has-balcony" name="has-balcony"/>
+                          <i class="fas fa-check q-on" aria-hidden="true"></i>
+                          <i class="fas fa-seedling q-ico" aria-hidden="true"></i>
+                          <span>Balcony/Patio</span>
+                        </label>
+                        <label class="q-chip">
+                          <input type="checkbox" id="ext-reachable" name="ext-reachable"/>
+                          <i class="fas fa-check q-on" aria-hidden="true"></i>
+                          <i class="fas fa-window-restore q-ico" aria-hidden="true"></i>
+                          <span>External windows reachable</span>
+                        </label>
+                        <label class="q-chip">
+                          <input type="checkbox" id="two-storey" name="storeys" value="2+"/>
+                          <i class="fas fa-check q-on" aria-hidden="true"></i>
+                          <i class="fas fa-building q-ico" aria-hidden="true"></i>
+                          <span>2+ storeys</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-next q-btn-primary">
+                    Next <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: Add-ons -->
+            <div id="q-step-2" class="q-step hidden">
+              <div class="q-card">
+                <h3 class="q-h3">Customise Your <span class="q-accent">Clean</span></h3>
+                <div class="mb-2 flex items-center gap-2 text-slate-900 font-semibold">
+                  <span>The Standard Bond Clean</span>
+                  <span class="q-badge-inc"><i class="fas fa-check" aria-hidden="true"></i> Included</span>
+                </div>
+                <button type="button" id="q-included-btn" class="q-btn q-btn-included mb-2" aria-controls="q-included" aria-expanded="false">What's included?</button>
+                <details id="q-included" class="q-opt mb-3">
+                  <summary class="hidden">What's included in our Standard Bond Clean?</summary>
+                  <ul class="mt-3 text-sm text-slate-600 list-disc list-inside space-y-1">
+                    <li>Kitchen: cooktop, rangehood filters, splashbacks, cupboards (in/out)</li>
+                    <li>Oven interior and door glass</li>
+                    <li>Bathrooms: showers, screens, grout touch-up, silicone joins</li>
+                    <li>Internal windows, sills, and tracks</li>
+                    <li>Skirtings, switches, door frames, reachable vents and fans</li>
+                    <li>Floors vacuumed and mopped throughout</li>
+                  </ul>
+                </details>
+                <div id="addons" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="Full Wall Wash"/>
+                    <div>
+                      <div class="q-title">Full Wall Wash</div>
+                      <div class="q-note">Entire interior walls. Labour-intensive.</div>
+                    </div>
+                    <span class="q-pill hidden">Recommended</span>
+                  </label>
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="Carpet Steam Clean"/>
+                    <div>
+                      <div class="q-title">Carpet Steam Clean</div>
+                      <div class="q-note">Hot-water extraction. Invoice supplied.</div>
+                    </div>
+                    <span class="q-pill hidden">Recommended</span>
+                  </label>
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="Blinds Detailing"/>
+                    <div>
+                      <div class="q-title">Blinds Detailing</div>
+                      <div class="q-note">Slats dusted/wiped (fragile types noted).</div>
+                    </div>
+                  </label>
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="External Windows (Reachable)"/>
+                    <div>
+                      <div class="q-title">External Windows (Reachable)</div>
+                      <div class="q-note">Ground-level/accessible only.</div>
+                    </div>
+                    <span class="q-pill hidden">Recommended</span>
+                  </label>
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="Balcony/Patio Wash"/>
+                    <div>
+                      <div class="q-title">Balcony/Patio Wash</div>
+                      <div class="q-note">Sweep, mop, railings wiped.</div>
+                    </div>
+                    <span class="q-pill hidden">Recommended</span>
+                  </label>
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="Garage Sweep & Cobwebs"/>
+                    <div>
+                      <div class="q-title">Garage Sweep & Cobwebs</div>
+                      <div class="q-note">Floor, edges, spider webs.</div>
+                    </div>
+                  </label>
+                  <label class="q-addon">
+                    <input type="checkbox" name="addons" value="Flea Treatment (Licensed Partner)"/>
+                    <div>
+                      <div class="q-title">Flea Treatment (Licensed Partner)</div>
+                      <div class="q-note">Required by many pet clauses.</div>
+                    </div>
+                    <span class="q-pill hidden">Recommended</span>
+                  </label>
+                </div>
+                <div class="q-actions between">
+                  <button type="button" class="q-btn q-prev q-btn-secondary"><i class="fas fa-arrow-left mr-2"></i>Back</button>
+                  <button type="button" class="q-btn q-next q-btn-primary">Next <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: Contact Information -->
+            <div id="q-step-3" class="q-step hidden">
+              <div class="q-card">
+                <h3 class="q-h3">Your <span class="q-accent">Information</span></h3>
+                <div class="q-callout"><i class="fas fa-lock mr-2 text-[var(--brand-sky)]"></i>We want to know your home, not you. All personal details are safe.</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label for="full-name" class="q-label"><i class="fas fa-user" aria-hidden="true"></i> Name/nickname</label>
+                    <input id="full-name" name="full-name" type="text" class="q-input" required aria-describedby="nm-err"/>
+                    <p id="nm-err" class="q-err" hidden>Please enter your full name.</p>
+                  </div>
+                  <div>
+                    <label class="q-label"><i class="fas fa-phone" aria-hidden="true"></i> Mobile</label>
+                    <input id="phone" name="phone" type="tel" class="q-input" placeholder="0412 345 678" required aria-describedby="ph-err"/>
+                    <p id="ph-err" class="q-err" hidden>Enter a valid Australian phone number.</p>
+                  </div>
+                  <div class="md:col-span-2">
+                    <label for="email" class="q-label"><i class="fas fa-envelope" aria-hidden="true"></i> Email</label>
+                    <input id="email" name="email" type="email" class="q-input" required aria-describedby="em-err"/>
+                    <p id="em-err" class="q-err" hidden>Enter a valid email address.</p>
+                  </div>
+                  <div class="md:col-span-2">
+                    <label for="property-address" class="q-label"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Property address</label>
+                    <input id="property-address" name="property-address" type="text" class="q-input" required aria-describedby="ad-err" placeholder="Include unit number if applicable"/>
+                    <p id="ad-err" class="q-err" hidden>Please enter the property address.</p>
+                  </div>
+                  <div>
+                    <label class="q-label"><i class="fas fa-calendar" aria-hidden="true"></i> Preferred service date</label>
+                    <div id="cal-root" class="relative">
+                      <input id="service-date-display" type="text" readonly placeholder="dd/mm/yyyy" class="q-input pr-10" aria-describedby="dt-err"/>
+                      <input id="service-date" name="service-date" type="hidden"/>
+                      <span id="cal-trigger" class="q-cal-icn"><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <p id="dt-err" class="q-err" hidden>Please select a valid date (today or later).</p>
+                  </div>
+                  <div>
+                    <label for="special-requests" class="q-label">Special requests</label>
+                    <textarea id="special-requests" name="special-requests" rows="4" class="q-input" placeholder="Access notes, parking instructions, pet details, focus areas…"></textarea>
+                  </div>
+                </div>
+                <button type="button" id="q-additional-btn" class="q-btn q-btn-included mt-3" aria-controls="q-additional" aria-expanded="false">
+                  <span class="q-box" aria-hidden="true"><i class="fas fa-check"></i></span>
+                  <span>Additional details (optional)</span> 
+                  <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <details id="q-additional" class="q-opt mt-2">
+                  <summary class="hidden">Additional details (optional)</summary>
+                  <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label for="exit-date" class="q-label">Exit / Key hand-in date <span class="text-slate-400 text-xs">(optional)</span></label>
+                      <input id="exit-date" name="exit-date" type="text" class="q-input" placeholder="dd/mm/yyyy"/>
+                    </div>
+                    <div>
+                      <label for="pm-contact" class="q-label">Real estate <span class="text-slate-400 text-xs">(it helps us to know)</span></label>
+                      <input id="pm-contact" name="pm-contact" type="text" class="q-input" placeholder="Agency name & email (optional)"/>
+                    </div>
+                  </div>
+                </details>
+                <div class="q-actions between">
+                  <button type="button" class="q-btn q-prev q-btn-secondary"><i class="fas fa-arrow-left mr-2"></i>Back</button>
+                  <button type="button" class="q-btn q-next q-btn-primary">Next <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4: Review -->
+            <div id="q-step-4" class="q-step hidden">
+              <div class="q-card">
+                <h3 class="q-h3">Review & <span class="q-accent">Submit</span></h3>
+                <div class="q-callout"><i class="fas fa-shield-check mr-2 text-[var(--brand-sky)]"></i>You're covered by our <span class="q-spot">7‑Day Reclean</span> guarantee.</div>
+                <div class="q-review">
+                  <div class="q-row"><div class="q-term">Property</div><div class="q-val" id="rv-prop">—</div></div>
+                  <div class="q-row"><div class="q-term">Address</div><div class="q-val break-words" id="rv-addr">—</div></div>
+                  <div class="q-row"><div class="q-term">Date</div><div class="q-val" id="rv-date">—</div></div>
+                  <div id="rv-key-row" class="q-row hidden"><div class="q-term">Key hand-in</div><div class="q-val" id="rv-key">—</div></div>
+                  <div id="rv-pm-row" class="q-row hidden"><div class="q-term">Real estate</div><div class="q-val" id="rv-pm">—</div></div>
+                  <div class="q-row q-row-col">
+                    <div class="q-term">Services</div>
+                    <div class="q-val"><ul id="rv-svcs" class="q-tags"></ul></div>
+                  </div>
+                  <div class="q-row q-row-col"><div class="q-term">Notes</div><div class="q-val" id="rv-notes">—</div></div>
+                </div>
+                <div class="q-actions between">
+                  <button type="button" class="q-btn q-prev q-btn-secondary"><i class="fas fa-arrow-left mr-2"></i>Back</button>
+                  <button type="submit" id="q-submit" class="q-btn q-btn-cta">
+                    <span class="q-submit-text">Lock in my guaranteed quote</span>
+                    <span class="q-spinner hidden"><svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Submitting…</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Sticky Bar -->
+            <div 
+              id="q-mobilebar" 
+              class="md:hidden fixed inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur border-t border-slate-200 px-4 py-3 flex items-center gap-3"
+            >
+              <button type="button" class="q-btn q-prev q-btn-secondary flex-1 hidden">
+                <i class="fas fa-arrow-left mr-2"></i>Back
+              </button>
+              <button type="button" class="q-btn q-next q-btn-primary flex-1">
+                Next <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- RIGHT SUMMARY -->
+        <aside id="q-summary" class="md:col-span-5 hidden md:block">
+          <div class="sticky top-6">
+            <div class="rounded-lg border border-slate-200 border-l-4 border-l-sky-400 bg-white p-3.5 shadow-sm text-sm">
+              <h4 class="font-semibold text-slate-800">Live summary</h4>
+              <div class="mt-2 text-slate-900 font-semibold" id="sm-prop">—</div>
+              <div class="mt-1 text-slate-700 break-words" id="sm-addr">—</div>
+              <div class="mt-1 text-slate-700" id="sm-date">—</div>
+              <div class="mt-2">
+                <div class="text-slate-600 text-xs">Services</div>
+                <ul id="sm-svcs" class="mt-1 flex flex-wrap gap-2"></ul>
+              </div>
+              <p class="mt-3 text-xs text-slate-500">
+                <i class="fas fa-lock mr-1"></i>We never share your details.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- SUCCESS VIEW -->
+    <div id="q-success" class="hidden text-center py-16 px-6">
+      <div class="mx-auto w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center shadow">
+        <i class="fas fa-check text-emerald-700 text-3xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-slate-900 mt-4">Request received</h3>
+      <p class="text-slate-600 mt-1">
+        Thanks for your submission. We'll confirm scope and availability shortly.
+      </p>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <a href="tel:+61405779420" class="q-btn q-btn-secondary inline-flex items-center">
+          <i class="fas fa-phone mr-2"></i>Call now
+        </a>
+        <button id="q-new" class="q-btn q-btn-primary">New Quote</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Styles -->
+<link rel="stylesheet" href="/src/styles/quote/design-tokens.css">
+<link rel="stylesheet" href="/src/styles/quote/components.css">
+<link rel="stylesheet" href="/src/styles/quote/form-layout.css">
+
+<!-- Scripts -->
+<script is:inline>
+(function(){
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+  function init(){
+    const root = document.querySelector('[data-quote]');
+    if(!root || root.dataset.init==='1') return;
+    root.dataset.init='1';
+
+    const form = $('#q-form', root);
+    const formArea = $('.md\\:col-span-7', root);
+    const success = $('#q-success', root);
+    const summary = $('#q-summary', root);
+    const mobilebar = $('#q-mobilebar', root);
+    const errorBanner = $('#q-error', root);
+    const errorMsg = $('#q-error-msg', root);
+    const progress = $('#q-progress', root);
+    const submitBtn = $('#q-submit', root);
+    const includedBtn = $('#q-included-btn', root);
+    const includedDetails = $('#q-included', root);
+    const additionalBtn = $('#q-additional-btn', root);
+    const additionalDetails = $('#q-additional', root);
+
+    const state = {
+      step: 1, propertyType: '', bedrooms:'3', bathrooms:'2',
+      addons:[], fullName:'', phone:'', email:'', address:'', date:'', notes:'',
+      exitDate:'', pmContact:'',
+      toggles: { pets:false, carpet:false, balcony:false, reachable:false, twoStorey:false }
+    };
+
+    function setStep(n){
+      state.step = Math.max(1, Math.min(4, n));
+      const steps = $$('.q-step', form);
+      steps.forEach((el,i)=>{ const active = (i+1)===state.step; el.classList.toggle('hidden', !active); el.classList.toggle('active', active); });
+      progress.style.width = (state.step/steps.length*100)+'%';
+      
+      // Mobile bar visibility
+      if(mobilebar) {
+        mobilebar.style.display = state.step === 4 ? 'none' : 'flex';
+        const mobileBack = mobilebar.querySelector('.q-prev');
+        const mobileNext = mobilebar.querySelector('.q-next');
+        if(mobileBack) mobileBack.style.display = state.step === 1 ? 'none' : 'inline-flex';
+      }
+      
+      // Desktop Back button visibility
+      $$('.q-prev', form).forEach(btn => {
+        btn.style.display = state.step === 1 ? 'none' : 'inline-flex';
+      });
+      
+      render();
+      focusFirst();
+      
+      // Update stepper
+      const stepperItems = $$('#q-steps [data-step-label]');
+      stepperItems.forEach((li)=>{
+        if(li.getAttribute('data-step-label')===String(state.step)) li.setAttribute('aria-current','step');
+        else li.removeAttribute('aria-current');
+      });
+    }
+
+    function render(){
+      const prop = `${state.bedrooms} Bed, ${state.bathrooms} Bath ${state.propertyType || 'Property'}`;
+      $('#sm-prop').textContent = prop;
+      $('#sm-addr').textContent = state.address || '—';
+      $('#sm-date').textContent = state.date ? state.date.split('-').reverse().join('/') : '—';
+      const sm = $('#sm-svcs'); sm.innerHTML = '';
+      addSvcChip(sm, 'Standard Bond Clean', true, true);
+      state.addons.forEach(a=> addSvcChip(sm, a, false, true));
+
+      if(state.step===4){
+        $('#rv-prop').textContent = prop;
+        $('#rv-addr').textContent = state.address || '—';
+        $('#rv-date').textContent = state.date ? state.date.split('-').reverse().join('/') : '—';
+        const key = $('#rv-key'); const keyRow = $('#rv-key-row');
+        if(key && keyRow){ const v = (state.exitDate||'').trim(); key.textContent = v || '—'; keyRow.classList.toggle('hidden', !v); }
+        const pm = $('#rv-pm'); const pmRow = $('#rv-pm-row');
+        if(pm && pmRow){ const v = (state.pmContact||'').trim(); pm.textContent = v || '—'; pmRow.classList.toggle('hidden', !v); }
+        $('#rv-notes').textContent = state.notes || '—';
+        const rv = $('#rv-svcs'); rv.innerHTML='';
+        addSvcChip(rv, 'Standard Bond Clean', true, true);
+        state.addons.forEach(a=> addSvcChip(rv, a, false, true));
+      }
+
+      // Recommended badges
+      const map = [
+        { key:'carpet', label:'Carpet Steam Clean' },
+        { key:'pets',   label:'Flea Treatment (Licensed Partner)' },
+        { key:'balcony',label:'Balcony/Patio Wash' },
+        { key:'reachable', label:'External Windows (Reachable)' }
+      ];
+      $$('#addons .q-addon').forEach(card=>{
+        const titleEl = card.querySelector('.q-title');
+        if(!titleEl) return;
+        const title = titleEl.textContent.trim();
+        const pill = card.querySelector('.q-pill');
+        const should = map.some(m => state.toggles[m.key] && m.label===title);
+        pill && pill.classList.toggle('hidden', !should);
+      });
+    }
+
+    function addSvcChip(container, text, base=false, compact=false){
+      const el = document.createElement('li');
+      el.className = 'q-tag' + (compact ? ' q-tag-sm' : '') + (base ? ' q-tag-base' : '');
+      
+      // SECURITY FIX (NEXUS): Use DOM methods instead of innerHTML to prevent XSS
+      const icon = document.createElement('i');
+      icon.className = base ? 'fas fa-check text-emerald-600' : 'fas fa-plus text-sky-600';
+      
+      const span = document.createElement('span');
+      span.textContent = text; // textContent auto-escapes, preventing XSS
+      
+      el.appendChild(icon);
+      el.appendChild(span);
+      container.appendChild(el);
+    }
+
+    function focusFirst(){
+      const stepEl = $(`#q-step-${state.step}`, form);
+      if(!stepEl) return;
+      const first = stepEl.querySelector('input,select,textarea,button.q-next,button.q-prev');
+      first && first.focus({ preventScroll:true });
+    }
+
+    function toggleInvalid(input, ok){
+      const msg = input.getAttribute('aria-describedby');
+      if(msg){ const el = document.getElementById(msg); if(el) el.hidden = ok; }
+      input.classList.toggle('q-invalid', !ok);
+      input.setAttribute('aria-invalid', String(!ok));
+    }
+
+    function validate(step){
+      if(step===1){
+        const sel = $('#property-type', form);
+        const ok = sel.value.trim() !== '';
+        toggleInvalid(sel, ok);
+        return ok;
+      }
+      if(step===3){
+        const nm = $('#full-name', form);
+        const ph = $('#phone', form);
+        const em = $('#email', form);
+        const ad = $('#property-address', form);
+        const dt = $('#service-date', form);
+        const phoneRE = /^(?:\+?61[-\s]?)?(?:0?[2-578]\d{8}|4\d{2}[-\s]?\d{3}[-\s]?\d{3})$/;
+        const emailRE = /^\S+@\S+\.\S+$/;
+        const todayIso = new Date().toISOString().split('T')[0];
+        const ok = nm.value.trim() && phoneRE.test(ph.value) && emailRE.test(em.value) && ad.value.trim() &&
+                   dt.value && new Date(dt.value) >= new Date(todayIso);
+        toggleInvalid(nm, !!nm.value.trim());
+        toggleInvalid(ph, phoneRE.test(ph.value));
+        toggleInvalid(em, emailRE.test(em.value));
+        toggleInvalid(ad, !!ad.value.trim());
+        toggleInvalid($('#service-date-display'), !!(dt.value && new Date(dt.value) >= new Date(todayIso)));
+        return ok;
+      }
+      return true;
+    }
+
+    // Events
+    form.addEventListener('input', (e)=>{
+      const t = e.target;
+      switch(t.name){
+        case 'property-type': state.propertyType=t.value; break;
+        case 'bedrooms': state.bedrooms=t.value; break;
+        case 'bathrooms': state.bathrooms=t.value; break;
+        case 'full-name': state.fullName=t.value; break;
+        case 'phone': state.phone=t.value; break;
+        case 'email': state.email=t.value; break;
+        case 'property-address': state.address=t.value; break;
+        case 'special-requests': state.notes=t.value; break;
+        case 'exit-date': state.exitDate=t.value; break;
+        case 'pm-contact': state.pmContact=t.value; break;
+        case 'service-date': state.date=t.value; break;
+        case 'addons':
+          state.addons = $$('#addons input[name="addons"]:checked').map(c=>c.value);
+          break;
+      }
+      render();
+    });
+
+    form.addEventListener('change', (e)=>{
+      const id = e.target.id;
+      if(id==='has-pets') state.toggles.pets = e.target.checked;
+      if(id==='has-carpet') state.toggles.carpet = e.target.checked;
+      if(id==='has-balcony') state.toggles.balcony = e.target.checked;
+      if(id==='ext-reachable') state.toggles.reachable = e.target.checked;
+      if(id==='two-storey') state.toggles.twoStorey = e.target.checked;
+      render();
+    });
+
+    form.addEventListener('click', (e)=>{
+      const b = e.target.closest('button');
+      if(!b) return;
+      if(b.classList.contains('q-next')){
+        e.preventDefault();
+        const ok = validate(state.step);
+        if(!ok){
+          const err = form.querySelector('.q-invalid');
+          err && err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        setStep(state.step+1);
+      }
+      if(b.classList.contains('q-prev')){ 
+        e.preventDefault();
+        setStep(state.step-1); 
+      }
+    });
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(!(validate(1) && validate(3))) return;
+      
+      submitBtn.disabled = true;
+      $('.q-submit-text', submitBtn).classList.add('hidden');
+      $('.q-spinner', submitBtn).classList.remove('hidden');
+      errorBanner.classList.add('hidden');
+
+      const body = new URLSearchParams();
+      body.append('form-name','quote-request');
+      body.append('propertyType', state.propertyType);
+      body.append('bedrooms', state.bedrooms);
+      body.append('bathrooms', state.bathrooms);
+      body.append('fullName', state.fullName);
+      body.append('phone', state.phone);
+      body.append('email', state.email);
+      body.append('propertyAddress', state.address);
+      body.append('serviceDate', state.date);
+      body.append('specialRequests', state.notes);
+      if(state.exitDate) body.append('exitDate', state.exitDate);
+      if(state.pmContact) body.append('pmContact', state.pmContact);
+      state.addons.forEach(a=> body.append('addons[]', a));
+
+      try{
+        const res = await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body.toString() });
+        if(!res.ok) throw new Error('Server '+res.status);
+        formArea.classList.add('hidden');
+        summary.classList.add('hidden');
+        mobilebar.classList.add('hidden');
+        success.classList.remove('hidden');
+        localStorage.removeItem('pendingQuoteSubmission');
+      }catch(err){
+        localStorage.setItem('pendingQuoteSubmission', JSON.stringify(state));
+        errorMsg.textContent = `We saved your progress. We'll retry automatically when you're back online.`;
+        errorBanner.classList.remove('hidden');
+      }finally{
+        submitBtn.disabled = false;
+        $('.q-submit-text', submitBtn).classList.remove('hidden');
+        $('.q-spinner', submitBtn).classList.add('hidden');
+      }
+    });
+
+    $('#q-new', root)?.addEventListener('click', ()=>{
+      form.reset();
+      Object.assign(state, { step:1, propertyType:'', bedrooms:'3', bathrooms:'2', addons:[], fullName:'', phone:'', email:'', address:'', date:'', notes:'', exitDate:'', pmContact:'', toggles:{pets:false,carpet:false,balcony:false,reachable:false,twoStorey:false} });
+      success.classList.add('hidden');
+      formArea.classList.remove('hidden');
+      summary.classList.remove('hidden');
+      mobilebar.classList.remove('hidden');
+      render(); setStep(1); window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    // Offline auto-resubmit
+    const pending = localStorage.getItem('pendingQuoteSubmission');
+    if(pending && navigator.onLine){ try{ const s=JSON.parse(pending); Object.assign(state,s); form.dispatchEvent(new Event('submit')); }catch{ localStorage.removeItem('pendingQuoteSubmission'); } }
+
+    // Calendar
+    initCalendar();
+
+    // Included toggle
+    if(includedBtn && includedDetails){
+      includedBtn.addEventListener('click', ()=>{
+        const open = includedDetails.hasAttribute('open');
+        if(open) includedDetails.removeAttribute('open');
+        else includedDetails.setAttribute('open','');
+        includedBtn.setAttribute('aria-expanded', String(!open));
+      });
+    }
+
+    // Additional details toggle
+    if(additionalBtn && additionalDetails){
+      additionalBtn.addEventListener('click', ()=>{
+        const open = additionalDetails.hasAttribute('open');
+        if(open) additionalDetails.removeAttribute('open');
+        else additionalDetails.setAttribute('open','');
+        additionalBtn.setAttribute('aria-expanded', String(!open));
+      });
+    }
+
+    render(); setStep(1);
+  }
+
+  function initCalendar(){
+    const root = document.getElementById('cal-root');
+    if(!root) return;
+    const isoInput = document.getElementById('service-date');
+    const disp = document.getElementById('service-date-display');
+    const trig = document.getElementById('cal-trigger');
+
+    const today = new Date();
+    const SOD = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const same = (a,b)=> SOD(a).getTime()===SOD(b).getTime();
+    const addM = (d,n)=> new Date(d.getFullYear(), d.getMonth()+n, 1);
+
+    class Cal{
+      constructor(){ this.min=SOD(today); this.view=new Date(); this.sel=null; this.focusedIdx=-1; this.build(); }
+      build(){
+        this.pop=document.createElement('div');
+        this.pop.className='q-cal';
+        this.pop.setAttribute('role', 'dialog');
+        this.pop.setAttribute('aria-label', 'Choose a date');
+        root.appendChild(this.pop);
+        const head=document.createElement('div'); head.className='q-cal-head'; this.pop.appendChild(head);
+        this.prev=this.btn('<i class="fas fa-chevron-left"></i>', ()=>{this.view=addM(this.view,-1); this.render();});
+        this.next=this.btn('<i class="fas fa-chevron-right"></i>', ()=>{this.view=addM(this.view,1); this.render();});
+        this.prev.setAttribute('aria-label', 'Previous month');
+        this.next.setAttribute('aria-label', 'Next month');
+        this.lab=document.createElement('span'); this.lab.className='font-semibold text-slate-900';
+        head.append(this.prev,this.lab,this.next);
+
+        this.grid=document.createElement('div'); this.grid.className='grid grid-cols-7 gap-1 p-1';
+        this.grid.setAttribute('role', 'grid');
+        this.pop.appendChild(this.grid);
+        this.days=[];
+        for(let i=0;i<42;i++){
+          const b=document.createElement('button');
+          b.type='button';
+          b.className='q-cal-day';
+          b.setAttribute('role', 'gridcell');
+          b.addEventListener('click',e=>{e.stopPropagation(); this.select(b._d);});
+          this.days.push(b);
+          this.grid.appendChild(b);
+        }
+
+        // ACCESSIBILITY FIX (NEXUS): Keyboard navigation
+        this.pop.addEventListener('keydown', (e) => this.handleKey(e));
+      }
+      btn(html,cb){ const b=document.createElement('button'); b.type='button'; b.innerHTML=html; b.className='px-2 py-1 text-sky-600 hover:text-sky-800 focus:outline-none'; b.addEventListener('click',cb); return b; }
+      open(){ 
+        this.pop.classList.remove('hidden'); 
+        this.render(); 
+        document.addEventListener('mousedown', this._out=(e)=>{ 
+          if(!this.pop.contains(e.target) && e.target.id!=='cal-trigger') this.close(); 
+        }); 
+        // Focus first available day or today
+        const todayIdx = this.days.findIndex(b => b._d && same(b._d, new Date()) && !b.disabled);
+        this.focusedIdx = todayIdx >= 0 ? todayIdx : this.days.findIndex(b => !b.disabled);
+        if(this.focusedIdx >= 0) {
+          this.days[this.focusedIdx].focus();
+        }
+      }
+      close(){ 
+        this.pop.classList.add('hidden'); 
+        document.removeEventListener('mousedown', this._out);
+        this.focusedIdx = -1;
+      }
+      render(){
+        this.lab.textContent=this.view.toLocaleString('default',{month:'long',year:'numeric'});
+        const first=new Date(this.view.getFullYear(),this.view.getMonth(),1);
+        const off=(first.getDay()+6)%7; const start=new Date(first); start.setDate(first.getDate()-off);
+        for(let i=0;i<42;i++){ 
+          const b=this.days[i]; const d=new Date(start); d.setDate(start.getDate()+i); b._d=d; b.textContent=d.getDate();
+          const inM=d.getMonth()===this.view.getMonth(); const dis=d<this.min; const sel=this.sel && same(d,this.sel); const todayMark=same(d,new Date());
+          b.disabled=dis; 
+          b.className='q-cal-day'; 
+          b.setAttribute('aria-label', d.toLocaleDateString('default', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
+          b.setAttribute('aria-disabled', dis ? 'true' : 'false');
+          if(sel) b.setAttribute('aria-selected', 'true');
+          else b.removeAttribute('aria-selected');
+          if(!inM) b.classList.add('text-slate-400'); 
+          if(dis) b.classList.add('text-slate-300','cursor-not-allowed'); 
+          if(todayMark) b.classList.add('ring-2'); 
+          if(sel) b.classList.add('bg-sky'); 
+        }
+      }
+      handleKey(e){ 
+        // ACCESSIBILITY FIX (NEXUS): Full keyboard navigation
+        // Arrow keys, Home, End, PageUp, PageDown, Enter, Escape, Space
+        const key = e.key;
+        if(!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Home','End','PageUp','PageDown','Enter','Escape',' '].includes(key)) return;
+        e.preventDefault();
+        
+        if(key === 'Escape') {
+          this.close();
+          disp.focus();
+          return;
+        }
+        
+        if(this.focusedIdx < 0) this.focusedIdx = 0;
+        
+        if(key === 'Enter' || key === ' ') {
+          const btn = this.days[this.focusedIdx];
+          if(btn && !btn.disabled) this.select(btn._d);
+          return;
+        }
+        
+        let newIdx = this.focusedIdx;
+        
+        if(key === 'ArrowLeft') newIdx = Math.max(0, this.focusedIdx - 1);
+        else if(key === 'ArrowRight') newIdx = Math.min(41, this.focusedIdx + 1);
+        else if(key === 'ArrowUp') newIdx = Math.max(0, this.focusedIdx - 7);
+        else if(key === 'ArrowDown') newIdx = Math.min(41, this.focusedIdx + 7);
+        else if(key === 'Home') newIdx = 0;
+        else if(key === 'End') newIdx = 41;
+        else if(key === 'PageUp') { this.view = addM(this.view, -1); this.render(); }
+        else if(key === 'PageDown') { this.view = addM(this.view, 1); this.render(); }
+        
+        // Skip disabled dates
+        while(newIdx !== this.focusedIdx && this.days[newIdx]?.disabled) {
+          if(newIdx > this.focusedIdx) newIdx++;
+          else newIdx--;
+          if(newIdx < 0 || newIdx > 41) break;
+        }
+        
+        if(newIdx >= 0 && newIdx <= 41 && !this.days[newIdx]?.disabled) {
+          this.focusedIdx = newIdx;
+          this.days[newIdx].focus();
+        }
+      }
+      select(d){ if(d<this.min) return; this.sel=d; this.render(); const iso=d.toISOString().split('T')[0]; isoInput.value=iso; disp.value=iso.split('-').reverse().join('/'); isoInput.dispatchEvent(new Event('input',{bubbles:true})); disp.focus(); this.close(); }
+    }
+    const cal=new Cal();
+    trig.addEventListener('mousedown', e=>{ e.preventDefault(); cal.open(); });
+    trig.addEventListener('click', e=>e.preventDefault());
+    disp.addEventListener('focus', ()=> cal.open());
+  }
+
+  function scheduleInit(){
+    const root = document.querySelector('[data-quote]');
+    if(!root) return;
+    const start = () => {
+      if(root.dataset.init==='1') return;
+      if('requestIdleCallback' in window){
+        requestIdleCallback(()=> init());
+      } else {
+        setTimeout(()=> init(), 0);
+      }
+    };
+    const io = new IntersectionObserver((entries, obs)=>{
+      if(entries.some(e => e.isIntersecting)){
+        obs.disconnect();
+        start();
+      }
+    }, { rootMargin: '300px' });
+    io.observe(root);
+    const onFirstInteract = () => { start(); window.removeEventListener('click', onFirstInteract, true); };
+    window.addEventListener('click', onFirstInteract, true);
+  }
+
+  document.addEventListener('astro:page-load', scheduleInit);
+  document.addEventListener('astro:after-swap', scheduleInit);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleInit);
+  } else {
+    scheduleInit();
+  }
+})();
+</script>

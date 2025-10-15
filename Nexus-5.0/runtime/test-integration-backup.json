@@ -1,0 +1,144 @@
+{
+  "capabilities": [
+    [
+      "test-capability-integration",
+      {
+        "id": "test-capability-integration",
+        "name": "Integration Test Capability",
+        "type": "test",
+        "category": "testing",
+        "summary_one_line": "Test capability for integration validation",
+        "effectiveness": 0.7331850999999997,
+        "metadata": {
+          "tags": [
+            "test",
+            "integration"
+          ],
+          "test": true
+        },
+        "usage_count": 6,
+        "last_used": "2025-10-15T03:11:56.273Z",
+        "success_rate": 0.6666666666666666
+      }
+    ]
+  ],
+  "usage_history": [
+    {
+      "capability_id": "test-capability-integration",
+      "timestamp": "2025-10-15T03:11:56.272Z",
+      "success": true,
+      "context": "integration test",
+      "execution_time": 100
+    },
+    {
+      "capability_id": "test-capability-integration",
+      "timestamp": "2025-10-15T03:11:56.273Z",
+      "success": true,
+      "context": "pattern test",
+      "execution_time": 100
+    },
+    {
+      "capability_id": "test-capability-integration",
+      "timestamp": "2025-10-15T03:11:56.273Z",
+      "success": false,
+      "context": "pattern test",
+      "execution_time": 110
+    },
+    {
+      "capability_id": "test-capability-integration",
+      "timestamp": "2025-10-15T03:11:56.273Z",
+      "success": true,
+      "context": "pattern test",
+      "execution_time": 120
+    },
+    {
+      "capability_id": "test-capability-integration",
+      "timestamp": "2025-10-15T03:11:56.273Z",
+      "success": false,
+      "context": "pattern test",
+      "execution_time": 130
+    },
+    {
+      "capability_id": "test-capability-integration",
+      "timestamp": "2025-10-15T03:11:56.273Z",
+      "success": true,
+      "context": "pattern test",
+      "execution_time": 140
+    }
+  ],
+  "outcomes": [
+    [
+      "test-capability-integration",
+      [
+        {
+          "success": true,
+          "context": "integration test",
+          "timestamp": "2025-10-15T03:11:56.272Z"
+        },
+        {
+          "success": true,
+          "context": "pattern test",
+          "timestamp": "2025-10-15T03:11:56.273Z"
+        },
+        {
+          "success": false,
+          "context": "pattern test",
+          "timestamp": "2025-10-15T03:11:56.273Z"
+        },
+        {
+          "success": true,
+          "context": "pattern test",
+          "timestamp": "2025-10-15T03:11:56.273Z"
+        },
+        {
+          "success": false,
+          "context": "pattern test",
+          "timestamp": "2025-10-15T03:11:56.273Z"
+        },
+        {
+          "success": true,
+          "context": "pattern test",
+          "timestamp": "2025-10-15T03:11:56.273Z"
+        }
+      ]
+    ]
+  ],
+  "indexes": {
+    "category": [
+      [
+        "testing",
+        [
+          "test-capability-integration"
+        ]
+      ]
+    ],
+    "tag": [
+      [
+        "test",
+        [
+          "test-capability-integration"
+        ]
+      ],
+      [
+        "integration",
+        [
+          "test-capability-integration"
+        ]
+      ]
+    ],
+    "type": [
+      [
+        "test",
+        [
+          "test-capability-integration"
+        ]
+      ]
+    ]
+  },
+  "metadata": {
+    "version": "2.0.0",
+    "saved_at": "2025-10-15T03:11:56.274Z",
+    "total_capabilities": 1,
+    "total_usage_records": 6
+  }
+}
